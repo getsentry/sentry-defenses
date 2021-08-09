@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Manager;
 
 public class Bullet : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float _movementSpeed = 3.0f;
 
     private Rigidbody2D _rigidbody;
+    private EventManager _eventManager;
 
     private void Awake()
     {
         // _rigidbody = GetComponent<Rigidbody2D>();
+        _eventManager = EventManager.Instance;
     }
 
     private void Start()
@@ -44,6 +47,7 @@ public class Bullet : MonoBehaviour
         
         if(bug.HitPoints <= 0) {
             GameData.Instance.bugs.Remove(bug.gameObject);
+            _eventManager.UpdateCoins(1);
             Destroy(bug.gameObject);
         }
         

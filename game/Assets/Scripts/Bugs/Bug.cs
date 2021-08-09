@@ -6,7 +6,7 @@ using UnityEngine.Video;
 
 public class Bug : MonoBehaviour
 {
-    public int HitPoints = 2;
+    public float HitPoints = 2;
     
     [SerializeField] private float _movementSpeed = 2;
     

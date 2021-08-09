@@ -21,6 +21,8 @@ public class GameStatePlacing : GameState
         _eventManager = EventManager.Instance;
 
         _mouseTransform = stateMachine.MouseTransform;
+        _eventManager.Idling += Idle;
+        _eventManager.Fight += Fight;
     }
 
     public override void OnEnter()
@@ -43,13 +45,21 @@ public class GameStatePlacing : GameState
             _data.PlacedSentryCount++;
             _eventManager.SentryPlaced();
             
-            if (_data.PlacedSentryCount == _data.MaxSentryCount)
+            if (_data.Coins <= 0)
             {
-                StateTransition(GameStates.Fighting);
+                _eventManager.Fighting();
                 return;
             }
             
-            StateTransition(GameStates.Idle);            
+            StateTransition(GameStates.Upgrading);            
         }
+    }
+
+    private void Idle() {
+        StateTransition(GameStates.Idle);            
+    }
+
+    private void Fight() {
+        StateTransition(GameStates.Fighting);
     }
 }

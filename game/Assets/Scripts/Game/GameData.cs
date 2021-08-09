@@ -9,6 +9,8 @@ public class GameData : MonoSingleton<GameData>
 
 
     public int MaxSentryCount = 3;
+    public int Coins = 15;
+    public int Level = 1;
     public TowerUpgrade Upgrade = new TowerUpgrade();
     public int PlacedSentryCount;
     public List<GameObject> bugs = new List<GameObject>();
