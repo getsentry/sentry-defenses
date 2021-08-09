@@ -10,7 +10,7 @@ public class Bug : MonoBehaviour
     
     [SerializeField] private float _movementSpeed = 2;
     
-    private Transform _targetTransform;
+    private Vector3 _targetPosition = Vector3.zero;
 
     private bool _canMove;
 
@@ -31,14 +31,9 @@ public class Bug : MonoBehaviour
         if (!_canMove)
             return;
         
-        var direction = (_targetTransform.position - transform.position).normalized;
+        var direction = (_targetPosition - transform.position).normalized;
         // transform.position += direction * (_movementSpeed * Time.deltaTime);
 
         _rigidbody.velocity = direction * _movementSpeed;
-    }
-
-    public void SetTarget(Transform targetTransform)
-    {
-        _targetTransform = targetTransform;
     }
 }

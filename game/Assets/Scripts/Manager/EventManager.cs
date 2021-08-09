@@ -5,11 +5,18 @@ namespace Manager
 {
     public class EventManager : MonoSingleton<EventManager>
     {
-        public event Action<SentryData> OnPlacing;
+        public event Action Resetting;
+        public event Action SentryPlacing;
 
-        public void Placing(SentryData sentry)
+        
+        public void Reset()
         {
-            OnPlacing?.Invoke(sentry);
+            Resetting?.Invoke();
+        }
+        
+        public void SentryPlaced()
+        {
+            SentryPlacing?.Invoke();
         }
     }
 }

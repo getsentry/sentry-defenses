@@ -15,6 +15,16 @@ public class PlayerInput : MonoSingleton<PlayerInput>
         
     }
 
+    public bool GetMouseUp()
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+            return true;
+        }
+
+        return false;
+    }
+    
     public bool GetMouseDown()
     {
         if (Input.GetMouseButtonDown(0))

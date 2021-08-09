@@ -7,6 +7,9 @@ namespace Data
     {
         public string Name;
         public GameObject Prefab;
+        
+        
+        
         public float FireRate;
     }
 }
