@@ -40,10 +40,12 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         var bug = other.gameObject.GetComponent<Bug>();
-        bug.HitPoints -= 1;
+        bug.HitPoints -= GameData.Instance.Upgrade.Damage;
         
-        if(bug.HitPoints <= 0)
+        if(bug.HitPoints <= 0) {
+            GameData.Instance.bugs.Remove(bug.gameObject);
             Destroy(bug.gameObject);
+        }
         
         Destroy(gameObject);
     }

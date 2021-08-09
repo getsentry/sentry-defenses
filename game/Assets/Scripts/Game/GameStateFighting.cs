@@ -5,13 +5,12 @@ public class GameStateFighting : GameState
 {
     private readonly BugSpawner _bugSpawner;
 
-    private List<GameObject> _bugs;
+    private GameData _data;
     
     public GameStateFighting(GameStateMachine stateMachine) : base(stateMachine)
     {
+        _data = GameData.Instance;
         _bugSpawner = BugSpawner.Instance;
-
-        _bugs = new List<GameObject>();
     }
 
     public override void OnEnter()
@@ -21,7 +20,7 @@ public class GameStateFighting : GameState
         for (int i = 0; i < 5; i++)
         {
             var bug = _bugSpawner.Spawn();
-            _bugs.Add(bug);
+            _data.bugs.Add(bug);
         }
     }
 
@@ -29,9 +28,10 @@ public class GameStateFighting : GameState
     {
         base.Tick();
 
-        if (_bugs.Count <= 0)
+        if (_data.bugs.Count <= 0)
         {
-            Debug.Log("GAME OVER");
+            StateTransition(GameStates.Upgrading);
+            return;
         }
     }
 }
