@@ -48,7 +48,7 @@ public class Sentry : MonoBehaviour
     private void Fire()
     {
         var bullet = Instantiate(_bulletPrefab, _bulletSpawnTransform.position, Quaternion.identity);
-        bullet.GetComponent<Bullet>().SetTarget(_targets[0], transform);
+        bullet.GetComponent<Bullet>().SetTarget(_targets[UnityEngine.Random.Range(0, _targets.Count - 1)], transform);
     }
     
     private void OnTriggerEnter2D(Collider2D other)

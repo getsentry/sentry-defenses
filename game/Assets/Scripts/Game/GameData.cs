@@ -8,7 +8,7 @@ public class GameData : MonoSingleton<GameData>
 {
     public GameObject SentryPrefab;
 
-    public int StartCoins = 15;
+    public int StartCoins = 25;
     public int Coins;
     
     public int Level = 1;
