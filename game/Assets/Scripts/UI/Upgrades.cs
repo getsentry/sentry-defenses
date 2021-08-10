@@ -3,16 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Manager;
+using TMPro;
 using Utility.StateMachine;
 
 public class Upgrades : MonoBehaviour
 {
     public Button upgradeRange;
-    public Button upgradeDamage;
     public Button upgradeFireRate;
+    public Button upgradeDamage;
+    public Button buildTower;
+    public Button startWave;
+
+    public TextMeshProUGUI rangeText;
+    public TextMeshProUGUI fireRateText;
+    public TextMeshProUGUI damageText;
+    public TextMeshProUGUI towerText;
     
     private GameData _data;
     private EventManager _eventManager;
+
+    private int CostRange = 1;
+    private int CostDamage = 1;
+    private int CostFireRate = 1;
+    private int CostTower = 5;
 
     private void Awake()
     {
@@ -27,11 +40,12 @@ public class Upgrades : MonoBehaviour
         upgradeRange.onClick.AddListener(RangeClicked);
         upgradeDamage.onClick.AddListener(DamageClicked);
         upgradeFireRate.onClick.AddListener(FireRateClicked);
-        gameObject.SetActive(false);
+        buildTower.onClick.AddListener(BuildTowerClicked);
+        startWave.onClick.AddListener(() => _eventManager.Fighting());
+        _eventManager.CoinsUpdated += CoinsUpdate;
     }
 
     private void IsUpdating() {
-        Debug.Log("isUpdating");
         gameObject.SetActive(true);
     }
 
@@ -40,23 +54,59 @@ public class Upgrades : MonoBehaviour
         
     }
 
+    private void CoinsUpdate() {
+        upgradeRange.interactable = _data.Coins >= CostRange;
+        upgradeDamage.interactable = _data.Coins >= CostDamage;
+        upgradeFireRate.interactable = _data.Coins >= CostFireRate;
+        buildTower.interactable = _data.Coins >= CostTower;
+    }
+
     private void RangeClicked() {
-        _data.Upgrade.Range *= 1.05f;
-        OnUpgraded();
+        if (_data.Coins >= CostRange)
+        {
+            _eventManager.UpdateCoins(-CostRange);
+            CostRange *= 2;
+            rangeText.SetText("Upgrade Range\n{0} Coins", CostRange);
+            _data.Upgrade.Range *= 1.05f;
+            OnUpgraded();
+        }
     }
 
     private void DamageClicked() {
-        _data.Upgrade.Damage *= 1.25f;
-        OnUpgraded();
+        if (_data.Coins >= CostDamage)
+        {
+            _eventManager.UpdateCoins(-CostDamage);
+            CostDamage += 1;
+            damageText.SetText("Upgrade Damage\n{0} Coins", CostDamage);
+            _data.Upgrade.Damage *= 1.25f;
+            OnUpgraded();
+        }
     }
 
     private void FireRateClicked() {
-        _data.Upgrade.FireRate /= 1.25f;
-        OnUpgraded();
+        if (_data.Coins >= CostFireRate)
+        {
+            _eventManager.UpdateCoins(-CostFireRate);
+            CostFireRate += 3;
+            fireRateText.SetText("Upgrade FireRate\n{0} Coins", CostFireRate);
+            _data.Upgrade.FireRate /= 1.25f;
+            OnUpgraded();
+        }
+    }
+
+    private void BuildTowerClicked() {
+        if (_data.Coins >= CostTower)
+            _eventManager.UpdateCoins(-CostTower);
+            CostTower *= 2;
+            towerText.SetText("Build Tower\n{0} Coins", CostTower);
+            gameObject.SetActive(false);
+            _eventManager.Idle();
     }
 
     private void OnUpgraded() {
-        gameObject.SetActive(false);
-        _eventManager.Upgraded();
+        if (_data.Coins <= 0) {
+            gameObject.SetActive(false);
+            _eventManager.Upgraded();
+        }
     }
 }
