@@ -16,6 +16,10 @@ public class BugVisuals : MonoBehaviour
     public float FallDuration = 0.07f;
     public float SquashStretch = 0.3f;
     public float SquashDuration = 0.07f;
+
+    [Header("Hit")] 
+    public SpriteRenderer Renderer;
+    public float FlashDuration = 0.05f;
     
     private Sequence _spawnSequence;
     
@@ -39,5 +43,11 @@ public class BugVisuals : MonoBehaviour
             {
                 finishCallback?.Invoke();
             });
+    }
+
+    public void Hit()
+    {
+        Renderer.material.DOFloat(1.0f, "_Flash", FlashDuration)
+            .SetLoops(2, LoopType.Yoyo);
     }
 }

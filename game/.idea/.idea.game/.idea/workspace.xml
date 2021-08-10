@@ -1,48 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3e15b6ab-4936-46aa-b664-4b29aca3a76d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameStatePlacing.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bugs/BugStateAttack.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bugs/BugStateAttack.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bugs/BugStateDespawn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bugs/BugStateDespawn.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateGameOver.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateGameOver.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateStart.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateStart.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/SentryButton.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/SentryButton.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bug.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bug.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bugs/Bug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bugs/Bug.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/SentryData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/SentryData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dumpster.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dumpster.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DumpsterVisuals.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DumpsterVisuals.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameFighting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateFighting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameFighting.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateFighting.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GamePlacing.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GamePlacing.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameStatePlacing.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateMachine.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateMachine.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameStates.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameStates.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bugs/Bug.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bugs/Bug.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bugs/BugVisuals.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bugs/BugVisuals.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Coins.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Coins.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateFighting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateFighting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateIdle.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateIdle.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameStatePlacing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameStatePlacing.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateUpgrading.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateUpgrading.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/StateMachine/GameStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/StateMachine/GameStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/StateMachine/GameStates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/StateMachine/GameStates.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/BugSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/BugSpawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/EventManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerIdle.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerIdle.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerPlacing.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerPlacing.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerStateMachine.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerStateMachine.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerStates.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerStates.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/BuildButtons.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/BuildButtons.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Sentry/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Sentry/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Sentry/Sentry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Sentry/Sentry.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SentryDisplay.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SentryDisplay.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Upgrades.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Upgrades.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/Editor/SpritePostProcessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/Editor/SpritePostProcessor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,10 +59,15 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/SentryDisplay.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/GameStateIdle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@10.5.1/Runtime/2D/Light2DStub.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/StartMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/SentryPlacingMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UpgradeMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@10.5.1/Editor/2D/Renderer2DUpgrader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/GameData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Coins.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Upgrades.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bugs/StateMachine/BugStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -72,18 +75,46 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInput.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/GamePlacing.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStates.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Data/SentryData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerIdle.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStateMachine.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStatePlacing.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStateFighting.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/Bug.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Manager/BugSpawner.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Manager/EventManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/SentryDisplay.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStateIdle.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Utility/Editor/SpritePostProcessor.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/StartMenu.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/TowerPlacing.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/SentryPlacingMenu.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/Coins.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/Coins.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/UpgradeCostManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Manager/UpgradeCostManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/Upgrades.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Manager/BugSpawner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Manager/UpgradeManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/StateMachine/BugState.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/Bug.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/BugVisuals.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Sentry/Sentry.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Sentry/Bullet.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/BugStateHit.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/BugStateDespawn.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/StateMachine/BugStates.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/StateMachine/BugStateMachine.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/BugStateAttack.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/HitPoints.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/StateMachine/GameStates.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStateFighting.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/GameOverMenu.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/StateMachine/GameStateMachine.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Manager/EventManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/BugStateMove.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/BugStateSpawn.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStateGameOver.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStatePlacing.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStateStart.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStateUpgrading.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/UpgradeMenu.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1wUYfFWWflRZix2TJB8JoMfuLjR" />

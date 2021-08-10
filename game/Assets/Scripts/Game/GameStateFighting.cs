@@ -28,6 +28,11 @@ public class GameStateFighting : GameState
     {
         base.Tick();
 
+        if (_data.HitPoints <= 0)
+        {
+            StateTransition(GameStates.GameOver);
+        }
+        
         if (_data.bugs.Count <= 0)
         {
             _data.Level ++;

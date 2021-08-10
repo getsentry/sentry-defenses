@@ -4,8 +4,9 @@ using UnityEngine;
 
 public enum GameStates
 {
-    Idle,
-    Placing,
+    StartMenu,
+    SentryPlacing,
     Fighting,
     Upgrading,
+    GameOver
 }

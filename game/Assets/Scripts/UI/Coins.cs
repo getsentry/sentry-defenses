@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Manager;
+using TMPro;
 
 public class Coins : MonoBehaviour
 {
-    public Text coinDisplay;
+    public TextMeshProUGUI coinDisplay;
     private GameData _data;
     private EventManager _eventManager;
 
@@ -20,10 +21,5 @@ public class Coins : MonoBehaviour
 
     private void CoinsUpdate() {
         coinDisplay.text = "Coins: " + _data.Coins;
-    }
-
-    void Update()
-    {
-        
     }
 }

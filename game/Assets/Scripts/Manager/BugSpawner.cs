@@ -18,7 +18,7 @@ public class BugSpawner : MonoSingleton<BugSpawner>
 
     private void Start()
     {
-        _spawnDistance = Mathf.Sqrt(Mathf.Pow(Screen.width / 2.0f, 2) + Mathf.Pow(Screen.height / 2.0f, 2));
+        _spawnDistance = Screen.width / 2.0f;
     }
 
     public GameObject Spawn()

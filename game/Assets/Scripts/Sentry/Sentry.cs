@@ -17,8 +17,6 @@ public class Sentry : MonoBehaviour
     private float _coolDown;
     private List<Transform> _targets;
 
-    private bool _isActive;
-    
     private void Awake()
     {
         _targets = new List<Transform>();
@@ -30,22 +28,12 @@ public class Sentry : MonoBehaviour
         circleCollider = GetComponent<CircleCollider2D>();
     }
 
-    public void Activate()
-    {
-        _isActive = true;
-    }
-    
     void Update()
     {
         // TODO(wmak): Change on upgrade rather than on update
         this._circle.transform.localScale = new Vector2(_data.Upgrade.Range, _data.Upgrade.Range);
         this.circleCollider.radius = _data.Upgrade.Range * 3f;
 
-        if (!_isActive)
-        {
-            return;
-        }
-        
         if (_targets.Count <= 0)
             return;
  
@@ -60,7 +48,7 @@ public class Sentry : MonoBehaviour
     private void Fire()
     {
         var bullet = Instantiate(_bulletPrefab, _bulletSpawnTransform.position, Quaternion.identity);
-        bullet.GetComponent<Bullet>().SetTarget(_targets[0]);
+        bullet.GetComponent<Bullet>().SetTarget(_targets[0], transform);
     }
     
     private void OnTriggerEnter2D(Collider2D other)

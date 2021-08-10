@@ -8,7 +8,9 @@ public class GameStatePlacing : GameState
 {
     private readonly PlayerInput _input;
     private readonly GameData _data;
-    private EventManager _eventManager;
+    private UpgradeManager _upgradeManager;
+    private readonly EventManager _eventManager;
+    private readonly SentryPlacingMenu _sentryPlacingMenu;
 
     private readonly Transform _mouseTransform;
 
@@ -18,48 +20,55 @@ public class GameStatePlacing : GameState
     {
         _input = PlayerInput.Instance;
         _data = GameData.Instance;
+        _upgradeManager = UpgradeManager.Instance;
         _eventManager = EventManager.Instance;
+        _eventManager.Upgrading += OnUpgrade;
+        _sentryPlacingMenu = stateMachine.SentryPlacingMenu;
 
         _mouseTransform = stateMachine.MouseTransform;
-        _eventManager.Idling += Idle;
-        _eventManager.Fight += Fight;
+    }
+
+    private void OnUpgrade()
+    {    
+        if (!IsActive)
+        {
+            return;
+        }
+        
+        StateTransition(GameStates.Upgrading);
     }
 
     public override void OnEnter()
     {
         base.OnEnter();
-        
-        _tower = GameObject.Instantiate(_data.SentryPrefab, _mouseTransform);
+        _sentryPlacingMenu.Show();
     }
 
     public override void Tick()
     {
         base.Tick();
 
-        if (_input.GetMouseUp())
+        if (_input.GetMouseDown() && !Helpers.IsMouseOverUI())
         {
-            _tower.GetComponent<Sentry>().Activate();
+            _tower = GameObject.Instantiate(_data.SentryPrefab, _mouseTransform);
+        }
+        
+        // Checking for tower because the up from the button click gets read here too
+        if (_tower != null && _input.GetMouseUp())
+        {
             _tower.transform.parent = null;
             _tower = null;
-
-            _data.PlacedSentryCount++;
-            _eventManager.SentryPlaced();
             
-            if (_data.Coins <= 0)
-            {
-                _eventManager.Fighting();
-                return;
-            }
+            _upgradeManager.BuySentryBuildCost();
+            _eventManager.Upgrade();
             
-            StateTransition(GameStates.Upgrading);            
+            StateTransition(GameStates.Upgrading);
         }
     }
 
-    private void Idle() {
-        StateTransition(GameStates.Idle);            
-    }
-
-    private void Fight() {
-        StateTransition(GameStates.Fighting);
+    public override void OnExit()
+    {
+        base.OnExit();
+        _sentryPlacingMenu.Hide();
     }
 }

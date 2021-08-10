@@ -3,31 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Manager;
+using TMPro;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private Transform _target;
-    [SerializeField] private float _movementSpeed = 3.0f;
-
-    private Rigidbody2D _rigidbody;
+    public float MovementSpeed = 20.0f;
+    
+    private Transform _target;
+    private Transform _origin;
+    
+    private GameData _gameData;
     private EventManager _eventManager;
 
     private void Awake()
     {
-        // _rigidbody = GetComponent<Rigidbody2D>();
+        _gameData = GameData.Instance;
         _eventManager = EventManager.Instance;
     }
 
-    private void Start()
-    {
-        
-    }
-    
-    public void SetTarget(Transform target)
+    public void SetTarget(Transform target, Transform origin)
     {
         _target = target;
+        _origin = origin;
     }
-    
+
     private void Update()
     {
         if (_target == null)
@@ -35,21 +34,22 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        
+
         var direction = (_target.position - transform.position).normalized;
-        transform.position += direction * (_movementSpeed * Time.deltaTime);
+        transform.position += direction * (MovementSpeed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        var bug = other.gameObject.GetComponent<Bug>();
-        bug.HitPoints -= GameData.Instance.Upgrade.Damage;
-        
-        if(bug.HitPoints <= 0) {
-            GameData.Instance.bugs.Remove(bug.gameObject);
-            _eventManager.UpdateCoins(1);
-            Destroy(bug.gameObject);
+        if (!other.CompareTag("Bug"))
+        {
+            return;
         }
+        
+        var bug = other.GetComponent<BugStateMachine>();
+
+        var hitDirection = (other.transform.position - _origin.position).normalized;
+        bug.Hit(_gameData.Upgrade.Damage, hitDirection);
         
         Destroy(gameObject);
     }
