@@ -7,6 +7,8 @@ namespace Manager
     {
         public event Action Resetting;
         public event Action SentryPlacing;
+        public event Action SentryUpgrading;
+        public event Action SentryUpgraded;
 
         
         public void Reset()
@@ -17,6 +19,16 @@ namespace Manager
         public void SentryPlaced()
         {
             SentryPlacing?.Invoke();
+        }
+
+        public void Updating()
+        {
+            SentryUpgrading?.Invoke();
+        }
+
+        public void Upgraded()
+        {
+            SentryUpgraded?.Invoke();
         }
     }
 }

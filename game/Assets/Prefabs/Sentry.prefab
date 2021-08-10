@@ -273,6 +273,7 @@ MonoBehaviour:
   _fireRate: 1
   _bulletPrefab: {fileID: 4864686798721752670, guid: caa7cb23b7f7a48de973de6183a51ea0, type: 3}
   _bulletSpawnTransform: {fileID: 356934927778169913}
+  _circle: {fileID: 356934926336300569}
 --- !u!1 &356934927722426036
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,5 +7,5 @@ public enum GameStates
     Idle,
     Placing,
     Fighting,
-    
+    Upgrading,
 }

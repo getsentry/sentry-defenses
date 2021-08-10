@@ -9,8 +9,11 @@ public class Sentry : MonoBehaviour
     [SerializeField] private float _fireRate = 1.0f;
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _bulletSpawnTransform;
+    [SerializeField] private GameObject _circle;
     
     
+    private GameData _data;
+    private CircleCollider2D circleCollider;
     private float _coolDown;
     private List<Transform> _targets;
 
@@ -23,7 +26,8 @@ public class Sentry : MonoBehaviour
 
     void Start()
     {
-        
+        _data = GameData.Instance;
+        circleCollider = GetComponent<CircleCollider2D>();
     }
 
     public void Activate()
@@ -33,6 +37,10 @@ public class Sentry : MonoBehaviour
     
     void Update()
     {
+        // TODO(wmak): Change on upgrade rather than on update
+        this._circle.transform.localScale = new Vector2(_data.Upgrade.Range, _data.Upgrade.Range);
+        this.circleCollider.radius = _data.Upgrade.Range * 3f;
+
         if (!_isActive)
         {
             return;
@@ -40,12 +48,12 @@ public class Sentry : MonoBehaviour
         
         if (_targets.Count <= 0)
             return;
-        
+ 
         _coolDown -= Time.deltaTime;
         if (_coolDown < 0.0f)
         {
             Fire();
-            _coolDown = _fireRate;
+            _coolDown = _data.Upgrade.FireRate;
         }
     }
 
