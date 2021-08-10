@@ -14,6 +14,6 @@ public class GameStateMachine : StateMachine<GameStates>
         _states.Add(GameStates.Fighting, new GameStateFighting(this));
         _states.Add(GameStates.Upgrading, new GameStateUpgrading(this));
 
-        _currentState = _states[GameStates.Idle];
+        _currentState = _states[GameStates.Upgrading];
     }
 }

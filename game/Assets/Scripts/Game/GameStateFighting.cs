@@ -17,7 +17,7 @@ public class GameStateFighting : GameState
     {
         base.OnEnter();
         
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 5 + _data.Level; i++)
         {
             var bug = _bugSpawner.Spawn();
             _data.bugs.Add(bug);
@@ -30,6 +30,7 @@ public class GameStateFighting : GameState
 
         if (_data.bugs.Count <= 0)
         {
+            _data.Level ++;
             StateTransition(GameStates.Upgrading);
             return;
         }

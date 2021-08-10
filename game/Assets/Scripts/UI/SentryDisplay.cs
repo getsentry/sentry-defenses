@@ -46,10 +46,10 @@ public class SentryDisplay : MonoBehaviour
 
     private void UpdateSentryDisplay()
     {
-        var sentryCount = _data.MaxSentryCount - _data.PlacedSentryCount;
-        for (int i = 0; i < sentryCount; i++)
-        {
-            Instantiate(SentryUiPrefab, transform);
-        }
+        // var sentryCount = _data.MaxSentryCount - _data.PlacedSentryCount;
+        // for (int i = 0; i < sentryCount; i++)
+        // {
+        //     Instantiate(SentryUiPrefab, transform);
+        // }
     }
 }
