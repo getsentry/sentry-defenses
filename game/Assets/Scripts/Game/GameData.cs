@@ -44,7 +44,11 @@ public class GameData : MonoSingleton<GameData>
 
 
 public class TowerUpgrade {
-    public float Range = 1.0f;
+    public float Range = 0f;
     public float Damage = 1.0f;
-    public float FireRate = 1.0f;
+    public float FireRate = 0f;
+
+    public int CurrentRangeUpgradeCost = 1;
+    public int CurrentDamageUpgradeCost = 1;
+    public int CurrentFireRateUpgradeCost = 1;
 }

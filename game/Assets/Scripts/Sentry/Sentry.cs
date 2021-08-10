@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Sentry : MonoBehaviour
 {
-    [SerializeField] private float _fireRate = 1.0f;
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _bulletSpawnTransform;
     [SerializeField] private GameObject _circle;
@@ -16,6 +15,9 @@ public class Sentry : MonoBehaviour
     private CircleCollider2D circleCollider;
     private float _coolDown;
     private List<Transform> _targets;
+    private SpriteRenderer renderer;
+    
+    public TowerUpgrade upgrades = new TowerUpgrade();
 
     private void Awake()
     {
@@ -26,13 +28,15 @@ public class Sentry : MonoBehaviour
     {
         _data = GameData.Instance;
         circleCollider = GetComponent<CircleCollider2D>();
+        renderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     void Update()
     {
         // TODO(wmak): Change on upgrade rather than on update
-        this._circle.transform.localScale = new Vector2(_data.Upgrade.Range, _data.Upgrade.Range);
-        this.circleCollider.radius = _data.Upgrade.Range * 3f;
+        float radius = (float)(Math.Pow(1.10f, upgrades.Range));
+        this._circle.transform.localScale = new Vector2(radius, radius);
+        this.circleCollider.radius = 3f * radius;
 
         if (_targets.Count <= 0)
             return;
@@ -41,7 +45,7 @@ public class Sentry : MonoBehaviour
         if (_coolDown < 0.0f)
         {
             Fire();
-            _coolDown = _data.Upgrade.FireRate;
+            _coolDown = 1.0f / (float)Math.Pow(1.25f, upgrades.FireRate);
         }
     }
 
@@ -59,5 +63,15 @@ public class Sentry : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         _targets.Remove(other.transform);
+    }
+
+    public void onSelect()
+    {
+        renderer.color = Color.blue;
+    }
+
+    public void onDeSelect()
+    {
+        renderer.color = Color.white;
     }
 }

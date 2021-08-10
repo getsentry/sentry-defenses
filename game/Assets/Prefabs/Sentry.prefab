@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 356934927671453555}
   - component: {fileID: 356934927671453565}
   - component: {fileID: 356934927671453564}
+  - component: {fileID: 941183122236412097}
   m_Layer: 0
   m_Name: Sentry
   m_TagString: Untagged
@@ -270,10 +271,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a60164584490d45689a53405dc163da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fireRate: 1
   _bulletPrefab: {fileID: 4864686798721752670, guid: caa7cb23b7f7a48de973de6183a51ea0, type: 3}
   _bulletSpawnTransform: {fileID: 356934927778169913}
   _circle: {fileID: 356934926336300569}
+--- !u!61 &941183122236412097
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356934927671453552}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &356934927722426036
 GameObject:
   m_ObjectHideFlags: 0

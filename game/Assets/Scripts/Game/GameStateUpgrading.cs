@@ -10,9 +10,7 @@ public class GameStateUpgrading : GameState
     private GameData _data;
     private EventManager _eventManager;
     private UpgradeMenu _upgradeMenu;
-
-    private GameObject _tower;
-    
+ 
     public GameStateUpgrading(GameStateMachine stateMachine) : base(stateMachine)
     {
         _data = GameData.Instance;
@@ -53,8 +51,6 @@ public class GameStateUpgrading : GameState
     public override void Tick()
     {
         base.Tick();
-        if (_tower != null && _input.GetMouseUp()) {
-        }
     }
 
     public override void OnExit()
