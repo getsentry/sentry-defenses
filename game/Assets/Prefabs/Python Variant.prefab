@@ -8,20 +8,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1233163326524475361, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6430270699323695794, guid: c32b4d055592d4fa7a41002c783bd861, type: 3}
+    - target: {fileID: 1233163326524475361, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
       propertyPath: m_Color.g
-      value: 0.080596924
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1233163326524475361, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1233163326524475361, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
       propertyPath: m_SortingOrder
       value: -26
       objectReference: {fileID: 0}
+    - target: {fileID: 1279699963421202905, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 27b68c50c93ae4102a7dccbb2509ce30, type: 2}
     - target: {fileID: 2753352758018989063, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
       propertyPath: m_Name
       value: Python Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607266470382823665, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5959624481418749130, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
       propertyPath: m_LocalScale.x
