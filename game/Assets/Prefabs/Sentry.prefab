@@ -173,10 +173,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 356934927671453554}
-  - component: {fileID: 356934927671453555}
+  - component: {fileID: 8818749746041709633}
   - component: {fileID: 356934927671453565}
+  - component: {fileID: 7439942227848037784}
   - component: {fileID: 356934927671453564}
-  - component: {fileID: 941183122236412097}
+  - component: {fileID: 1417628745165891976}
   m_Layer: 0
   m_Name: Sentry
   m_TagString: Untagged
@@ -202,7 +203,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &356934927671453555
+--- !u!114 &8818749746041709633
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -214,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LightType: 3
+  m_LightType: 0
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -230,7 +231,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 4.1885576
+  m_PointLightOuterRadius: 1
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -259,6 +260,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 3
+--- !u!58 &7439942227848037784
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356934927671453552}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.47488952}
+  serializedVersion: 2
+  m_Radius: 0.55488944
 --- !u!114 &356934927671453564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,32 +291,30 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 4864686798721752670, guid: caa7cb23b7f7a48de973de6183a51ea0, type: 3}
   _bulletSpawnTransform: {fileID: 356934927778169913}
   _circle: {fileID: 356934926336300569}
---- !u!61 &941183122236412097
-BoxCollider2D:
+--- !u!114 &1417628745165891976
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356934927671453552}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4ac184bd80674b5dbab7b7624d666d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Renderer: {fileID: 356934927722426038}
+  BounceTransform: {fileID: 356934927722426039}
+  StartScale: 0.3
+  StartHeight: 0.25
+  FallDuration: 0.07
+  SquashStretch: 0.3
+  SquashDuration: 0.07
+  WiggleSpeed: 0.5
+  WiggleStrength: 15
+  PunchStrength: 0.15
+  PunchDuration: 0.1
+  OutlineMaterial: {fileID: 2100000, guid: 3d8b27fe7a43b5843b42be873ac02aef, type: 2}
 --- !u!1 &356934927722426036
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,7 +386,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1500964565
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 657b5762fd4874fa2b43293805b5d9de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Manager;
-using Utility.StateMachine;
 
 public class GameStateUpgrading : GameState
 {
@@ -10,7 +7,10 @@ public class GameStateUpgrading : GameState
     private GameData _data;
     private EventManager _eventManager;
     private UpgradeMenu _upgradeMenu;
- 
+    private Camera _camera;
+    
+    private Sentry _selectedSentry = null;
+    
     public GameStateUpgrading(GameStateMachine stateMachine) : base(stateMachine)
     {
         _data = GameData.Instance;
@@ -18,6 +18,7 @@ public class GameStateUpgrading : GameState
         _eventManager = EventManager.Instance;
         _eventManager.SentryPlacing += OnSentryPlacing;
         _eventManager.Fighting += OnFighting;
+        _camera = Camera.main;
 
         _upgradeMenu = stateMachine.UpgradeMenu;
     }
@@ -51,6 +52,39 @@ public class GameStateUpgrading : GameState
     public override void Tick()
     {
         base.Tick();
+
+        if (_input.GetMouseDown() && !Helpers.IsMouseOverUI())
+        {
+            var ray = _camera.ScreenPointToRay(Input.mousePosition);
+            var hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+            if (!hit)
+            {
+                if (_selectedSentry != null)
+                {
+                    _selectedSentry.Deselect();
+                    _selectedSentry = null;
+                }
+            }
+            else
+            {
+                var sentry = hit.collider.GetComponent<Sentry>();
+                if (_selectedSentry == null)
+                {
+                    _selectedSentry = sentry;
+                }
+                else if (_selectedSentry != sentry)
+                {
+                    _selectedSentry.Deselect();
+                    _selectedSentry = sentry;
+                }
+                
+                _selectedSentry.Select();
+            }
+
+            _upgradeMenu.UpgradeButtons.SetSelectedSentry(_selectedSentry);
+            _eventManager.UpdateCosts();
+            _eventManager.UpdateCoins();
+        }
     }
 
     public override void OnExit()

@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Manager;
-using TMPro;
 
 public class Bullet : MonoBehaviour
 {

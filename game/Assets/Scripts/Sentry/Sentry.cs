@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class Sentry : MonoBehaviour
@@ -10,31 +7,31 @@ public class Sentry : MonoBehaviour
     [SerializeField] private Transform _bulletSpawnTransform;
     [SerializeField] private GameObject _circle;
     
-    
     private GameData _data;
+    private SentryVisuals _visuals;
+    
     private CircleCollider2D circleCollider;
     private float _coolDown;
     private List<Transform> _targets;
-    private SpriteRenderer renderer;
     
     public TowerUpgrade upgrades = new TowerUpgrade();
 
     private void Awake()
     {
         _targets = new List<Transform>();
+        _visuals = GetComponent<SentryVisuals>();
     }
 
     void Start()
     {
         _data = GameData.Instance;
         circleCollider = GetComponent<CircleCollider2D>();
-        renderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     void Update()
     {
         // TODO(wmak): Change on upgrade rather than on update
-        float radius = (float)(Math.Pow(1.10f, upgrades.Range));
+        float radius = Mathf.Pow(1.10f, upgrades.Range);
         this._circle.transform.localScale = new Vector2(radius, radius);
         this.circleCollider.radius = 3f * radius;
 
@@ -45,14 +42,28 @@ public class Sentry : MonoBehaviour
         if (_coolDown < 0.0f)
         {
             Fire();
-            _coolDown = 1.0f / (float)Math.Pow(1.25f, upgrades.FireRate);
+            _coolDown = 1.0f / Mathf.Pow(1.25f, upgrades.FireRate);
         }
     }
 
     private void Fire()
     {
-        var bullet = Instantiate(_bulletPrefab, _bulletSpawnTransform.position, Quaternion.identity);
-        bullet.GetComponent<Bullet>().SetTarget(_targets[UnityEngine.Random.Range(0, _targets.Count - 1)], transform);
+        while (_targets.Count > 0)
+        {
+            var targetIndex = Random.Range(0, _targets.Count - 1);
+            var target =_targets[targetIndex];
+            // if (!target.GetComponent<Collider2D>().enabled)
+            if(target == null)
+            {
+                _targets.RemoveAt(targetIndex);
+            }
+            else
+            {
+                var bullet = Instantiate(_bulletPrefab, _bulletSpawnTransform.position, Quaternion.identity);
+                bullet.GetComponent<Bullet>().SetTarget(target, transform);
+                break;
+            }
+        }
     }
     
     private void OnTriggerEnter2D(Collider2D other)
@@ -65,13 +76,23 @@ public class Sentry : MonoBehaviour
         _targets.Remove(other.transform);
     }
 
-    public void onSelect()
+    public void Select()
     {
-        renderer.color = Color.blue;
+        _visuals.Select();
     }
 
-    public void onDeSelect()
+    public void Deselect()
     {
-        renderer.color = Color.white;
+        _visuals.Deselect();
+    }
+
+    public void Wiggle()
+    {
+        _visuals.Wiggle();
+    }
+    
+    public void Drop()
+    {
+        _visuals.Drop();
     }
 }

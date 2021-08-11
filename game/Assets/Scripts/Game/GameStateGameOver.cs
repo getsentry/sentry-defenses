@@ -1,5 +1,4 @@
 using Manager;
-using Utility.StateMachine;
 
 namespace Game
 {
@@ -30,14 +29,14 @@ namespace Game
         {
             base.OnEnter();
             
-            _gameOverMenu.Show();
             _eventManager.Reset();
+            _gameOverMenu.Show(null);
         }
 
         public override void OnExit()
         {
             base.OnExit();
-            _gameOverMenu.Hide();
+            _gameOverMenu.Hide(null);
         }
     }
 }

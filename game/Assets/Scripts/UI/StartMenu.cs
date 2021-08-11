@@ -11,6 +11,8 @@ public class StartMenu : MonoBehaviour
 
     public float FadeDuration = 0.3f;
     
+    public GameObject Container;
+    
     private EventManager _eventManager;
 
     private void Awake()
@@ -30,7 +32,7 @@ public class StartMenu : MonoBehaviour
 
     public void Show()
     {
-        gameObject.SetActive(true);
+        Container.SetActive(true);
     }
     
     public void Hide(Action finishCallback)
@@ -40,7 +42,7 @@ public class StartMenu : MonoBehaviour
             .OnComplete(() =>
             {
                 finishCallback?.Invoke();
-                gameObject.SetActive(false);
+                Container.SetActive(false);
             });
     }
 }

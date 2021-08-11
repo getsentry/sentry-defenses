@@ -5,6 +5,8 @@ using UnityEngine;
 public class BugVisuals : MonoBehaviour
 {
     public Transform BounceTransform;
+    public SpriteRenderer Body;
+    public SpriteRenderer Shadow;
 
     [Header("Spawn")] 
     public float StartScale = 0.3f;
@@ -20,6 +22,9 @@ public class BugVisuals : MonoBehaviour
     [Header("Hit")] 
     public SpriteRenderer Renderer;
     public float FlashDuration = 0.05f;
+    
+    [Header("Despawn")]
+    public ParticleSystem DespawnPrefab;
     
     private Sequence _spawnSequence;
     
@@ -44,10 +49,20 @@ public class BugVisuals : MonoBehaviour
                 finishCallback?.Invoke();
             });
     }
-
+    
     public void Hit()
     {
+        if (DOTween.IsTweening(Renderer.material))
+        {
+            return;
+        }
+        
         Renderer.material.DOFloat(1.0f, "_Flash", FlashDuration)
             .SetLoops(2, LoopType.Yoyo);
+    }
+
+    public void Despawn()
+    {
+        Instantiate(DespawnPrefab, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
     }
 }

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bug
+  - Target
   layers:
   - Default
   - TransparentFX
@@ -47,4 +48,7 @@ TagManager:
     locked: 0
   - name: Things
     uniqueID: 1500964565
+    locked: 0
+  - name: FX
+    uniqueID: 106925193
     locked: 0

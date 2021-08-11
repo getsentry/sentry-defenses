@@ -4,21 +4,22 @@ namespace Player
 {
     public class MouseFollow : MonoBehaviour
     {
+        public float SmoothTime = 0.25f;
+        
         private Transform _transform;
+        private Vector3 _targetPosition;
 
+        private Vector3 _velocity;
+        
         private void Awake()
         {
             _transform = transform;
         }
 
-        private void Start()
-        {
-        
-        }
-
         private void Update()
         {
-            _transform.position = Helpers.GetMouseWorldPosition();
+            _targetPosition = Helpers.GetMouseWorldPosition();
+            _transform.position = Vector3.SmoothDamp(_transform.position, _targetPosition, ref _velocity, SmoothTime);
         }
     }
 }

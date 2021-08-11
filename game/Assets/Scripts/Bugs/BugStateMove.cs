@@ -1,3 +1,4 @@
+using Manager;
 using UnityEngine;
 
 namespace Bugs
@@ -6,6 +7,7 @@ namespace Bugs
     {
         private readonly Vector3 _targetPosition = Vector3.zero;
         private readonly BugStateMachine _stateMachine;
+        private EventManager _eventManager;
     
         public BugStateMove(BugStateMachine stateMachine) : base(stateMachine)
         {
@@ -17,21 +19,35 @@ namespace Bugs
                     StateTransition(BugStates.Hit);    
                 }
             };
+
+            _stateMachine.OnTargetReached += () =>
+            {
+                if (IsActive)
+                {
+                    StateTransition(BugStates.Attack);
+                }
+            };
+            
+            _eventManager = EventManager.Instance;
+            _eventManager.Resetting += OnReset;
+        }
+
+        private void OnReset()
+        {
+            if (IsActive)
+            {
+                if (_stateMachine != null)
+                {
+                    GameObject.Destroy(_stateMachine.gameObject);
+                }
+            }
         }
 
         public override void Tick()
         {
             base.Tick();
             
-            var direction = (_targetPosition - _stateMachine.transform.position);
-            var distance = direction.magnitude;
-            direction.Normalize();
-
-            if (distance <= 0.5f)
-            {
-                StateTransition(BugStates.Attack);
-            }
-        
+            var direction = (_targetPosition - _stateMachine.transform.position).normalized;
             _stateMachine.Rigidbody.velocity = direction * _stateMachine.MovementSpeed;
         }
     }

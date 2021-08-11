@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using Bugs;
+using Manager;
 using UnityEngine;
 using Utility.StateMachine;
 
@@ -10,6 +11,7 @@ public class BugStateMachine : StateMachine<BugStates>
     
     public BugVisuals Visuals;
     public Rigidbody2D Rigidbody;
+    public CircleCollider2D Collider;
     public float MovementSpeed;
 
     public AnimationCurve HitReactionCurve;
@@ -20,7 +22,8 @@ public class BugStateMachine : StateMachine<BugStates>
     public float DamageTaken;
 
     public Action OnHit;
-    
+    public Action OnTargetReached;
+
     protected override void Initialize()
     {
         base.Initialize();
@@ -40,5 +43,13 @@ public class BugStateMachine : StateMachine<BugStates>
         PushBackDirection = direction;
         
         OnHit?.Invoke();
+    }
+
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Target"))
+        {
+            OnTargetReached?.Invoke();            
+        }
     }
 }

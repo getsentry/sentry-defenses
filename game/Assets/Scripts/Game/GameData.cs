@@ -34,9 +34,11 @@ public class GameData : MonoSingleton<GameData>
 
     private void OnResetting()
     {
+        bugs = new List<GameObject>();
+        
         Coins = StartCoins;
         HitPoints = StartHitPoints;
-
+        
         _eventManager.UpdateCoins();
         _eventManager.UpdateHitPoints();
     }

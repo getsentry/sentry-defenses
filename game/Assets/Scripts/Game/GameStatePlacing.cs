@@ -14,7 +14,7 @@ public class GameStatePlacing : GameState
 
     private readonly Transform _mouseTransform;
 
-    private GameObject _tower;
+    private GameObject _sentryGameObject;
     
     public GameStatePlacing(GameStateMachine stateMachine) : base(stateMachine)
     {
@@ -50,14 +50,19 @@ public class GameStatePlacing : GameState
 
         if (_input.GetMouseDown() && !Helpers.IsMouseOverUI())
         {
-            _tower = GameObject.Instantiate(_data.SentryPrefab, _mouseTransform);
+            _sentryGameObject = GameObject.Instantiate(_data.SentryPrefab, _mouseTransform.position, Quaternion.identity, _mouseTransform);
+            var sentry = _sentryGameObject.GetComponent<Sentry>();
+            sentry.Wiggle();
         }
         
         // Checking for tower because the up from the button click gets read here too
-        if (_tower != null && _input.GetMouseUp())
+        if (_sentryGameObject != null && _input.GetMouseUp())
         {
-            _tower.transform.parent = null;
-            _tower = null;
+            var sentry = _sentryGameObject.GetComponent<Sentry>();
+            sentry.Drop();
+            
+            _sentryGameObject.transform.parent = null;
+            _sentryGameObject = null;
             
             _upgradeManager.BuySentryBuildCost();
             _eventManager.Upgrade();

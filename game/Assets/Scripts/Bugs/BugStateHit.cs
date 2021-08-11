@@ -10,13 +10,13 @@ namespace Bugs
         public BugStateHit(BugStateMachine stateMachine) : base(stateMachine)
         {
             _stateMachine = stateMachine;
-            _stateMachine.OnHit += () =>
-            {
-                if (IsActive)
-                {
-                    StateTransition(BugStates.Hit);    
-                }
-            };
+            // _stateMachine.OnHit += () =>
+            // {
+            //     if (IsActive)
+            //     {
+            //         StateTransition(BugStates.Hit);    
+            //     }
+            // };
         }
 
         public override void OnEnter()
@@ -24,8 +24,9 @@ namespace Bugs
             base.OnEnter();
             _runtime = 0.0f;
 
+            _stateMachine.Rigidbody.velocity = Vector2.zero;
             _stateMachine.Visuals.Hit();
-        
+
             _stateMachine.HitPoints -= _stateMachine.DamageTaken;
             _stateMachine.DamageTaken = 0;
         }

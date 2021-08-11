@@ -8,7 +8,7 @@ namespace Bugs
         private readonly GameData _gameData;
         private readonly EventManager _eventManager;
         private readonly BugStateMachine _stateMachine;
-        
+
         public BugStateDespawn(BugStateMachine stateMachine) : base(stateMachine)
         {
             _gameData = GameData.Instance;
@@ -21,11 +21,12 @@ namespace Bugs
         {
             base.OnEnter();
 
-            _gameData.Coins += 1;
-            _eventManager.UpdateCoins();
-            
+            _stateMachine.Visuals.Despawn();
             _gameData.bugs.Remove(_stateMachine.gameObject);
             GameObject.Destroy(_stateMachine.gameObject);
+            
+            _gameData.Coins += 1;
+            _eventManager.UpdateCoins();
         }
     }
 }
