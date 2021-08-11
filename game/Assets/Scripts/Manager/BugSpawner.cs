@@ -82,13 +82,25 @@ public class BugSpawner : MonoSingleton<BugSpawner>
         Debug.Log("trying to spawn");
         var sentryBug = GetSentryBug();
         Debug.Log("got a bug");
+        string platform = sentryBug.platform;
+        var platformPrefab = new Dictionary<string, GameObject>(){
+            {"javascript", BugPrefabs[0]},
+            {"python", BugPrefabs[1]},
+        };
+        if (!platformPrefab.ContainsKey(platform)) {
+            if (UnityEngine.Random.value < 0.5) {
+                platform = "javascript";
+            } else {
+                platform = "python";
+            }
+        }
         
         var randomDirection = new Vector3(sentryBug.lat, sentryBug.lon, 0);
         var randomScreenCirclePosition = _camera.WorldToScreenPoint(Vector3.zero) + randomDirection * _spawnDistance;
 
         var randomPosition = _camera.ScreenToWorldPoint(randomScreenCirclePosition);
 
-        var bugGameObject = Instantiate(BugPrefabs[0], randomPosition, Quaternion.identity);
+        var bugGameObject = Instantiate(platformPrefab[platform], randomPosition, Quaternion.identity);
         bugGameObject.transform.SetParent(transform);
         
         return bugGameObject;

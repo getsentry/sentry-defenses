@@ -60,7 +60,7 @@ public class Sentry : MonoBehaviour
             else
             {
                 var bullet = Instantiate(_bulletPrefab, _bulletSpawnTransform.position, Quaternion.identity);
-                bullet.GetComponent<Bullet>().SetTarget(target, transform);
+                bullet.GetComponent<Bullet>().SetTarget(Mathf.Pow(1.5f, upgrades.Damage), target, transform);
                 break;
             }
         }

@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     
     private Transform _target;
     private Transform _origin;
+    private float _damage;
     
     private GameData _gameData;
     private EventManager _eventManager;
@@ -17,10 +18,11 @@ public class Bullet : MonoBehaviour
         _eventManager = EventManager.Instance;
     }
 
-    public void SetTarget(Transform target, Transform origin)
+    public void SetTarget(float Damage, Transform target, Transform origin)
     {
         _target = target;
         _origin = origin;
+        _damage = Damage;
     }
 
     private void Update()
@@ -45,7 +47,7 @@ public class Bullet : MonoBehaviour
         var bug = other.GetComponent<BugStateMachine>();
 
         var hitDirection = (other.transform.position - _origin.position).normalized;
-        bug.Hit(_gameData.Upgrade.Damage, hitDirection);
+        bug.Hit(_damage, hitDirection);
         
         Destroy(gameObject);
     }
