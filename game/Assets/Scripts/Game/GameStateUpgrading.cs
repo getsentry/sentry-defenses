@@ -6,13 +6,15 @@ using Utility.StateMachine;
 
 public class GameStateUpgrading : GameState
 {
+    private readonly PlayerInput _input;
     private GameData _data;
     private EventManager _eventManager;
     private UpgradeMenu _upgradeMenu;
-    
+ 
     public GameStateUpgrading(GameStateMachine stateMachine) : base(stateMachine)
     {
         _data = GameData.Instance;
+        _input = PlayerInput.Instance;
         _eventManager = EventManager.Instance;
         _eventManager.SentryPlacing += OnSentryPlacing;
         _eventManager.Fighting += OnFighting;

@@ -18,12 +18,16 @@ public class Upgrades : MonoBehaviour
     private GameData _data;
     private EventManager _eventManager;
     private UpgradeManager _upgradeManager;
+    private PlayerInput _input;
+
+    private Sentry _tower = null;
 
     private void Awake()
     {
         _data = GameData.Instance;
         _eventManager = EventManager.Instance;
         _upgradeManager = UpgradeManager.Instance;
+        _input = PlayerInput.Instance;
     }
 
     private void Start()
@@ -37,47 +41,91 @@ public class Upgrades : MonoBehaviour
         upgradeFireRate.onClick.AddListener(FireRateClicked);
         buildTower.onClick.AddListener(BuildTowerClicked);
     }
+
+    private void Update()
+    {
+        if (_input.GetMouseDown() && !Helpers.IsMouseOverUI()) 
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, ray.direction, Mathf.Infinity);
+            for (int i = 0; i < hits.Length; i++)
+            {
+                RaycastHit2D hit = hits[i];
+                if (!hit.collider.isTrigger) {
+                    if (_tower != null)
+                        _tower.onDeSelect();
+                    _tower = hit.collider.gameObject.GetComponent<Sentry>();
+                    _tower.onSelect();
+                    break;
+                } else if (_tower != null) {
+                    _tower.onDeSelect();
+                    _tower = null;
+                }
+            }
+            _eventManager.UpdateCosts();
+            _eventManager.UpdateCoins();
+        }
+    }
     
     private void UpdateAllButtonText()
     {
-        rangeText.SetText("Upgrade Range\n{0} Coins", _upgradeManager.CurrentRangeUpgradeCost);
-        damageText.SetText("Upgrade Damage\n{0} Coins",  _upgradeManager.CurrentDamageUpgradeCost);
-        fireRateText.SetText("Upgrade FireRate\n{0} Coins", _upgradeManager.CurrentFireRateUpgradeCost);
+        if (_tower != null)
+        {
+            rangeText.SetText("Upgrade Range\n(lvl {0})\n{1} Coins", _tower.upgrades.Range, _tower.upgrades.CurrentRangeUpgradeCost);
+            damageText.SetText("Upgrade Damage\n(lvl {0})\n{1} Coins", _tower.upgrades.Damage, _tower.upgrades.CurrentDamageUpgradeCost);
+            fireRateText.SetText("Upgrade FireRate\n(lvl {0})\n{1} Coins", _tower.upgrades.FireRate, _tower.upgrades.CurrentFireRateUpgradeCost);
+        } else {
+            rangeText.SetText("Select a Sentry");
+            damageText.SetText("Select a Sentry");
+            fireRateText.SetText("Select a Sentry");
+        }
         towerText.SetText("Build Tower\n{0} Coins", _upgradeManager.CurrentSentryBuildCost);
     }
 
     private void CoinsUpdate()
     {
-        upgradeRange.interactable = _data.Coins >= _upgradeManager.CurrentRangeUpgradeCost;
-        upgradeDamage.interactable = _data.Coins >= _upgradeManager.CurrentDamageUpgradeCost;
-        upgradeFireRate.interactable = _data.Coins >= _upgradeManager.CurrentFireRateUpgradeCost;
+        upgradeRange.interactable = _tower != null && _data.Coins >= _tower.upgrades.CurrentRangeUpgradeCost;
+        upgradeDamage.interactable = _tower != null && _data.Coins >= _tower.upgrades.CurrentDamageUpgradeCost;
+        upgradeFireRate.interactable = _tower != null && _data.Coins >= _tower.upgrades.CurrentFireRateUpgradeCost;
         buildTower.interactable = _data.Coins >= _upgradeManager.CurrentSentryBuildCost;
     }
 
     private void RangeClicked()
     {
-        if (_data.Coins >= _upgradeManager.CurrentRangeUpgradeCost)
+        if (_tower != null && _data.Coins >= _tower.upgrades.CurrentRangeUpgradeCost)
         {
-            _upgradeManager.BuyRangeCost();
-            _data.Upgrade.Range *= 1.05f;
+            _data.Coins -= _tower.upgrades.CurrentRangeUpgradeCost;
+            _eventManager.UpdateCoins();
+
+            _tower.upgrades.CurrentRangeUpgradeCost *= 2;
+            _tower.upgrades.Range++;
+            _eventManager.UpdateCosts();
         }
     }
 
     private void DamageClicked()
     {
-        if (_data.Coins >= _upgradeManager.CurrentDamageUpgradeCost)
+        if (_tower != null && _data.Coins >= _tower.upgrades.CurrentDamageUpgradeCost)
         {
-            _upgradeManager.BuyDamageCost();
-            _data.Upgrade.Damage *= 1.25f;
+            _data.Coins -= _tower.upgrades.CurrentDamageUpgradeCost;
+            _eventManager.UpdateCoins();
+
+            _tower.upgrades.CurrentDamageUpgradeCost += 1;
+            _tower.upgrades.Damage++;
+            _eventManager.UpdateCosts();
         }
     }
 
     private void FireRateClicked()
     {
-        if (_data.Coins >= _upgradeManager.CurrentFireRateUpgradeCost)
+        if (_tower != null && _data.Coins >= _tower.upgrades.CurrentFireRateUpgradeCost)
         {
-            _upgradeManager.BuyFireRateCost();
-            _data.Upgrade.FireRate /= 1.25f;
+            _data.Coins -= _tower.upgrades.CurrentFireRateUpgradeCost;
+            _eventManager.UpdateCoins();
+
+            _tower.upgrades.CurrentFireRateUpgradeCost += 3;
+            _tower.upgrades.FireRate++;
+            _eventManager.UpdateCosts();
         }
     }
 
