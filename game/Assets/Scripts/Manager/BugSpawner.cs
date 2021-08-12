@@ -19,6 +19,8 @@ public class BugSpawner : MonoSingleton<BugSpawner>
     public List<GameObject> BugPrefabs;
     
     private ConcurrentStack<SentryBug> _sentryBugs;
+    public int BugBuffer;
+    
     private Camera _camera;
     public float MaxSpawnDistance = 5.0f;
 
@@ -41,10 +43,15 @@ public class BugSpawner : MonoSingleton<BugSpawner>
         _client.Dispose();
     }
 
+    private void Update()
+    {
+        BugBuffer = _sentryBugs.Count;
+    }
+
     private async Task RetrieveSentryBugs()
     {
         var data = await _client.GetStringAsync(
-            "https://europe-west3-nth-wording-322409.cloudfunctions.net/sentry-game-server");
+            "https://europe-west3-nth-wording-322409.cloudfunctions.net/sentry-game-server").ConfigureAwait(false);
 
         var bugs = JsonHelper.FromJson<SentryBug>(data);
         foreach (var bug in bugs)

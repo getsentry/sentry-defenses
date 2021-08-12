@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3e15b6ab-4936-46aa-b664-4b29aca3a76d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Sentry/Sentry.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Sentry/Sentry.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/BugSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/BugSpawner.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +79,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Sentry/Arrow.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Utility/JsonHelper.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/BugStateMove.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Manager/BugSpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Sentry/Sentry.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStatePlacing.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/StartMenu.cs" />
@@ -92,6 +90,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/HitPoints.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/BugVisuals.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/BugStateSpawn.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Manager/BugSpawner.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1wUYfFWWflRZix2TJB8JoMfuLjR" />
@@ -102,6 +101,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34981906" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -120,10 +121,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="85043">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="85043" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
