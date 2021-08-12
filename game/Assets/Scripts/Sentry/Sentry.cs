@@ -7,6 +7,9 @@ public class Sentry : MonoBehaviour
     public Transform ArrowSpawnTransform;
     public GameObject CircleVisual;
     public CircleCollider2D AttackRangeCollider;
+
+    public GameObject WoodSentry;
+    public GameObject BrickSentry;
     
     private GameData _data;
     private SentryVisuals _visuals;
@@ -29,11 +32,6 @@ public class Sentry : MonoBehaviour
 
     void Update()
     {
-        // TODO(wmak): Change on upgrade rather than on update
-        float radius = Mathf.Pow(1.10f, upgrades.Range);
-        CircleVisual.transform.localScale = new Vector2(radius, radius);
-        AttackRangeCollider.radius = 1.35f * radius;
-
         if (_targets.Count <= 0)
             return;
  
@@ -42,6 +40,18 @@ public class Sentry : MonoBehaviour
         {
             Fire();
             _coolDown = 1.0f / Mathf.Pow(1.25f, upgrades.FireRate);
+        }
+    }
+
+    public void postUpgrade()
+    {
+        float radius = Mathf.Pow(1.10f, upgrades.Range);
+        CircleVisual.transform.localScale = new Vector2(radius, radius);
+        AttackRangeCollider.radius = 1.35f * radius;
+        if (BrickSentry != null && upgrades.Range + upgrades.FireRate + upgrades.Damage > 10)
+        {
+            WoodSentry.SetActive(false);
+            BrickSentry.SetActive(true);
         }
     }
 

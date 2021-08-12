@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: f693bb29d5e794770a20b84c0b605a45
+guid: 6aed26bccaeff4f44b5152238cac48b7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1541070180334997285
-    second: tower_sprite_sheet_1_0
+      213: 4714225649166990691
+    second: tower_sprite_sheet_v2_0
   - first:
-      213: -8963375476272354563
-    second: tower_sprite_sheet_1_1
+      213: -9192998215096414906
+    second: tower_sprite_sheet_v2_1
   - first:
-      213: -2760086011969723718
-    second: tower_sprite_sheet_1_2
+      213: 1091545677297374991
+    second: tower_sprite_sheet_v2_2
   - first:
-      213: -1540829378459653084
-    second: tower_sprite_sheet_1_3
+      213: -4696974404331973934
+    second: tower_sprite_sheet_v2_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -45,8 +45,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: 1
-    mipBias: 0
+    aniso: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -127,85 +127,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tower_sprite_sheet_1_0
+      name: tower_sprite_sheet_v2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 50
-        height: 120
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 3
+        y: 4
+        width: 45
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52f80d00a2bf26510800000000000000
-      internalID: 1541070180334997285
+      spriteID: 36d32a9304b4c6140800000000000000
+      internalID: 4714225649166990691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tower_sprite_sheet_1_1
+      name: tower_sprite_sheet_v2_1
       rect:
         serializedVersion: 2
-        x: 50
-        y: 0
-        width: 50
-        height: 120
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 53
+        y: 4
+        width: 45
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfaa65c8e71bb9380800000000000000
-      internalID: -8963375476272354563
+      spriteID: 64dc06874d8eb6080800000000000000
+      internalID: -9192998215096414906
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tower_sprite_sheet_1_2
+      name: tower_sprite_sheet_v2_2
       rect:
         serializedVersion: 2
-        x: 100
-        y: 0
-        width: 50
-        height: 120
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 103
+        y: 4
+        width: 45
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab2250b456432b9d0800000000000000
-      internalID: -2760086011969723718
+      spriteID: f075c6f9203f52f00800000000000000
+      internalID: 1091545677297374991
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tower_sprite_sheet_1_3
+      name: tower_sprite_sheet_v2_3
       rect:
         serializedVersion: 2
-        x: 150
-        y: 0
-        width: 50
-        height: 120
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 153
+        y: 4
+        width: 45
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42c2d6d08dfdd9ae0800000000000000
-      internalID: -1540829378459653084
+      spriteID: 2d2d0b63aaef0deb0800000000000000
+      internalID: -4696974404331973934
       vertices: []
       indices: 
       edges: []

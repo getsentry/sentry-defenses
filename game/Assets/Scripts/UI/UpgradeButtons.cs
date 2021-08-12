@@ -111,6 +111,7 @@ public class UpgradeButtons : MonoBehaviour
 
             _selectedSentry.upgrades.CurrentRangeUpgradeCost *= 2;
             _selectedSentry.upgrades.Range++;
+            _selectedSentry.postUpgrade();
             _eventManager.UpdateCosts();
         }
     }
@@ -124,6 +125,7 @@ public class UpgradeButtons : MonoBehaviour
 
             _selectedSentry.upgrades.CurrentDamageUpgradeCost += 1;
             _selectedSentry.upgrades.Damage++;
+            _selectedSentry.postUpgrade();
             _eventManager.UpdateCosts();
         }
     }
@@ -137,6 +139,7 @@ public class UpgradeButtons : MonoBehaviour
 
             _selectedSentry.upgrades.CurrentFireRateUpgradeCost += 3;
             _selectedSentry.upgrades.FireRate++;
+            _selectedSentry.postUpgrade();
             _eventManager.UpdateCosts();
         }
     }
