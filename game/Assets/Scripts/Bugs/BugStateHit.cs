@@ -25,10 +25,11 @@ namespace Bugs
             _runtime = 0.0f;
 
             _stateMachine.Rigidbody.velocity = Vector2.zero;
-            _stateMachine.Visuals.Hit();
 
             _stateMachine.HitPoints -= _stateMachine.DamageTaken;
             _stateMachine.DamageTaken = 0;
+
+            _stateMachine.Visuals.Hit(_stateMachine.HitPoints, _stateMachine.HitPointsTotal);
         }
 
         public override void Tick()

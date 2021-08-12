@@ -7,6 +7,7 @@ public class BugVisuals : MonoBehaviour
     public Transform BounceTransform;
     public SpriteRenderer Body;
     public SpriteRenderer Shadow;
+    public Transform HealthPointBar;
 
     [Header("Spawn")] 
     public float StartScale = 0.3f;
@@ -50,8 +51,9 @@ public class BugVisuals : MonoBehaviour
             });
     }
     
-    public void Hit()
+    public void Hit(float HitPoints, float HitPointsTotal)
     {
+        HealthPointBar.localScale = new Vector3(Mathf.Max(HitPoints, 0) / HitPointsTotal, 1f, 1f);
         if (DOTween.IsTweening(Renderer.material))
         {
             return;

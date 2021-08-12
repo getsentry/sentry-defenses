@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356934926039108601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.04, z: 6.0222073}
+  m_LocalPosition: {x: 0, y: -1, z: 6.0222073}
   m_LocalScale: {x: 0.89565456, y: 0.28259444, z: 0.61769277}
   m_Children: []
   m_Father: {fileID: 356934927671453554}
@@ -273,9 +273,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.47488952}
+  m_Offset: {x: 0, y: -0.2}
   serializedVersion: 2
-  m_Radius: 0.55488944
+  m_Radius: 0.9
 --- !u!114 &356934927671453564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,6 +326,7 @@ GameObject:
   - component: {fileID: 356934927722426039}
   - component: {fileID: 356934927722426038}
   - component: {fileID: 268100884826667237}
+  - component: {fileID: 639409681}
   m_Layer: 0
   m_Name: Sentry
   m_TagString: Untagged
@@ -386,8 +387,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1500964565
   m_SortingLayer: 2
-  m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 657b5762fd4874fa2b43293805b5d9de, type: 3}
+  m_SortingOrder: 97
+  m_Sprite: {fileID: 1541070180334997285, guid: f693bb29d5e794770a20b84c0b605a45, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -411,6 +412,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _layerOffset: 0
+--- !u!95 &639409681
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356934927722426036}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 576e50437f510440faf38851c58d9189, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &356934927778169918
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,7 +455,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356934927778169918}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.76, z: 0}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 356934927671453554}

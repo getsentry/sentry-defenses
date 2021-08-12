@@ -75,6 +75,19 @@ public class BugSpawner : MonoSingleton<BugSpawner>
     public GameObject Spawn()
     {
         var sentryBug = GetSentryBug();
+        string platform = sentryBug.platform;
+        var platformPrefab = new Dictionary<string, GameObject>(){
+            {"javascript", BugPrefabs[0]},
+            {"python", BugPrefabs[1]},
+        };
+        if (!platformPrefab.ContainsKey(platform)) {
+            if (UnityEngine.Random.value < 0.5) {
+                platform = "javascript";
+            } else {
+                platform = "python";
+            }
+        }
+        
         var randomPosition = new Vector3(sentryBug.lat, sentryBug.lon, 0) * MaxSpawnDistance;
         var bugGameObject = Instantiate(BugPrefabs[0], randomPosition, Quaternion.identity);
         bugGameObject.transform.SetParent(transform);

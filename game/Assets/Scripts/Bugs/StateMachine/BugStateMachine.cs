@@ -8,6 +8,7 @@ using Utility.StateMachine;
 public class BugStateMachine : StateMachine<BugStates>
 {
     public float HitPoints;
+    public float HitPointsTotal;
     
     public BugVisuals Visuals;
     public Rigidbody2D Rigidbody;
