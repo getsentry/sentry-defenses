@@ -6,73 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3e15b6ab-4936-46aa-b664-4b29aca3a76d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/DamageFlash/DamageFlash_Black.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/DamageFlash/DamageFlash_Black.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Despawn.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Despawn.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/JavaScript.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/JavaScript.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Python Variant.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Python Variant.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Sentry.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Sentry.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Sentry/Sentry.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Sentry/Sentry.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bugs/BugStateSpawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bugs/BugStateSpawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bugs/BugVisuals.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bugs/BugVisuals.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bugs/StateMachine/BugStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bugs/StateMachine/BugStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateUpgrading.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateUpgrading.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/BugSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/BugSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Sentry/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Sentry/Arrow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Sentry/Bullet.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Sentry/Arrow.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Sentry/Sentry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Sentry/Sentry.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Sentry/SentryVisuals.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Sentry/SentryVisuals.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TargetVisuals.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TargetVisuals.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Coins.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Coins.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/HitPoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/HitPoints.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/StartMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/StartMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UpgradeButtons.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UpgradeButtons.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UpgradeMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UpgradeMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/Editor/SpritePostProcessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/Editor/SpritePostProcessor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/Helpers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/Helpers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/JsonHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/JsonHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/6x_Circle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/6x_Circle.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bug/Bug.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bug/Bug.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bug/Bug.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bug/Bug.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bug/BugAnimator.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bug/BugAnimator.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bug/JavaScript.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bug/JavaScript.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bug/JavaScript.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bug/JavaScript.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bug/Python.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bug/Python.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bug/SpriteSheet_Mantis.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bug/SpriteSheet_Mantis.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bug/SpriteSheet_Mantis_0.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bug/SpriteSheet_Mantis_0.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bug/Walk_Ant_0.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bug/Walk_Ant_0.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Bullet.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Bullet.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Dumpster.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Dumpster.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tower.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tower.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/glowingturd.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/glowingturd.gif.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tower_sprite.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tower_sprite.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tower_sprite_sheet_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tower_sprite_sheet_1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tower_sprite_sheet_1_0.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tower_sprite_sheet_1_0.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
