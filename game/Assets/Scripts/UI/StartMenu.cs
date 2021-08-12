@@ -32,6 +32,7 @@ public class StartMenu : MonoBehaviour
 
     public void Show()
     {
+        gameObject.SetActive(true);
         Container.SetActive(true);
     }
     
@@ -43,6 +44,7 @@ public class StartMenu : MonoBehaviour
             {
                 finishCallback?.Invoke();
                 Container.SetActive(false);
+                gameObject.SetActive(false);
             });
     }
 }

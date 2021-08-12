@@ -7,7 +7,10 @@ public class BugVisuals : MonoBehaviour
     public Transform BounceTransform;
     public SpriteRenderer Body;
     public SpriteRenderer Shadow;
+    
+    [Header("Health")]
     public Transform HealthPointBar;
+    public float HealthLossSpeed = 0.25f;
 
     [Header("Spawn")] 
     public float StartScale = 0.3f;
@@ -31,6 +34,12 @@ public class BugVisuals : MonoBehaviour
     
     public void Spawn(Action finishCallback = null)
     {
+        var directionToTarget = (Vector3.zero - transform.position).normalized;
+        if (directionToTarget.x < 0)
+        {
+            Body.flipX = true;
+        }
+        
         var endPosition = BounceTransform.position;
         BounceTransform.localScale = Vector3.one * StartScale;
         BounceTransform.localPosition = new Vector3(0, StartHeight, 0);
@@ -53,7 +62,9 @@ public class BugVisuals : MonoBehaviour
     
     public void Hit(float HitPoints, float HitPointsTotal)
     {
-        HealthPointBar.localScale = new Vector3(Mathf.Max(HitPoints, 0) / HitPointsTotal, 1f, 1f);
+        HealthPointBar.DOScaleX(Mathf.Max(HitPoints, 0) / HitPointsTotal, HealthLossSpeed)
+            .SetEase(Ease.OutSine);
+        
         if (DOTween.IsTweening(Renderer.material))
         {
             return;

@@ -11,7 +11,6 @@ public class BugSpawner : MonoSingleton<BugSpawner>
     [Serializable]
     class SentryBug
     {
-        public int count;
         public float lat;
         public float lon;
         public string platform;
@@ -47,8 +46,6 @@ public class BugSpawner : MonoSingleton<BugSpawner>
         var data = await _client.GetStringAsync(
             "https://europe-west3-nth-wording-322409.cloudfunctions.net/sentry-game-server");
 
-        data = @$"{{""Items"":{data}}}";
-        
         var bugs = JsonHelper.FromJson<SentryBug>(data);
         foreach (var bug in bugs)
         {
@@ -89,7 +86,7 @@ public class BugSpawner : MonoSingleton<BugSpawner>
         }
         
         var randomPosition = new Vector3(sentryBug.lat, sentryBug.lon, 0) * MaxSpawnDistance;
-        var bugGameObject = Instantiate(BugPrefabs[0], randomPosition, Quaternion.identity);
+        var bugGameObject = Instantiate(platformPrefab[platform], randomPosition, Quaternion.identity);
         bugGameObject.transform.SetParent(transform);
         
         return bugGameObject;

@@ -14,7 +14,7 @@ namespace Editor
                 var importer = assetImporter as TextureImporter;
 
                 importer.textureType = TextureImporterType.Sprite;
-                // importer.spritePixelsPerUnit = 100;
+                importer.spritePixelsPerUnit = 100;
                 importer.filterMode = FilterMode.Point;
                 importer.textureCompression = TextureImporterCompression.Uncompressed;
             }

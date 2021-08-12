@@ -52,7 +52,7 @@ public class GameStateUpgrading : GameState
     public override void Tick()
     {
         base.Tick();
-
+        
         if (_input.GetMouseDown() && !Helpers.IsMouseOverUI())
         {
             var ray = _camera.ScreenPointToRay(Input.mousePosition);

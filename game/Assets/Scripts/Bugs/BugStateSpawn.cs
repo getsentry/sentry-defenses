@@ -26,4 +26,10 @@ public class BugStateSpawn : BugState
         base.OnEnter();
         _stateMachine.Visuals.Spawn(() => StateTransition(BugStates.Move));
     }
+
+    public override void OnExit()
+    {
+        base.OnExit();
+        _stateMachine.Collider.enabled = true;
+    }
 }

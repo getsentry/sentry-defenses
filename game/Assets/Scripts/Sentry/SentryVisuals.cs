@@ -36,10 +36,10 @@ public class SentryVisuals : MonoBehaviour
         BounceTransform.localPosition = new Vector3(0, StartHeight, 0);
         
         _wiggleSequence = DOTween.Sequence()
-            .Append(BounceTransform.DOPunchRotation(new Vector3(0, 0, WiggleStrength), WiggleSpeed)
-                .SetEase(Ease.InOutBack))
-            .Append(BounceTransform.DOPunchRotation(new Vector3(0, 0, -WiggleStrength), WiggleSpeed)
-                .SetEase(Ease.InOutBack))
+            .Append(BounceTransform.DOLocalRotate(new Vector3(0, 0, WiggleStrength), WiggleSpeed)
+                .SetEase(Ease.InOutSine))
+            .Append(BounceTransform.DOLocalRotate(new Vector3(0, 0, -WiggleStrength), WiggleSpeed)
+                .SetEase(Ease.InOutSine))
             .SetLoops(-1, LoopType.Yoyo);
     }
 

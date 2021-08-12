@@ -20,7 +20,19 @@ public static class Helpers
 
     public static bool IsMouseOverUI()
     {
-        return EventSystem.current.IsPointerOverGameObject();
+        // return EventSystem.current.IsPointerOverGameObject();
+        
+        if (EventSystem.current.IsPointerOverGameObject())
+            return true;
+ 
+        for (int touchIndex = 0; touchIndex < Input.touchCount; touchIndex++)
+        {
+            Touch touch = Input.GetTouch(touchIndex);
+            if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+                return true;
+        }
+ 
+        return false;
     }
 
     public static TextMesh CreateWorldText(string text, Transform parent = null, Vector3 localPosition = default,

@@ -15,11 +15,11 @@ public class Coins : MonoBehaviour
     {
         _data = GameData.Instance;
         _eventManager = EventManager.Instance;
-        coinDisplay.text = "Coins: " + _data.Coins;
+        coinDisplay.text = _data.Coins.ToString();
         _eventManager.CoinsUpdated += CoinsUpdate;
     }
 
     private void CoinsUpdate() {
-        coinDisplay.text = "Coins: " + _data.Coins;
+        coinDisplay.text = _data.Coins.ToString();
     }
 }

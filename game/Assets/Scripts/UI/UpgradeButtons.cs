@@ -10,10 +10,20 @@ public class UpgradeButtons : MonoBehaviour
     public Button upgradeDamage;
     public Button buildTower;
 
-    public TextMeshProUGUI rangeText;
-    public TextMeshProUGUI fireRateText;
-    public TextMeshProUGUI damageText;
-    public TextMeshProUGUI towerText;
+    public TextMeshProUGUI RangeText;
+    public TextMeshProUGUI RangeLevel;
+    public TextMeshProUGUI RangeCost;
+    
+    public TextMeshProUGUI FireRateText;
+    public TextMeshProUGUI FireRateLevel;
+    public TextMeshProUGUI FireRateCost;
+    
+    public TextMeshProUGUI DamageText;
+    public TextMeshProUGUI DamageLevel;
+    public TextMeshProUGUI DamageCost;
+    
+    public TextMeshProUGUI TowerText;
+    public TextMeshProUGUI TowerCost;
 
     private GameData _data;
     private EventManager _eventManager;
@@ -38,6 +48,8 @@ public class UpgradeButtons : MonoBehaviour
         upgradeDamage.onClick.AddListener(DamageClicked);
         upgradeFireRate.onClick.AddListener(FireRateClicked);
         buildTower.onClick.AddListener(BuildTowerClicked);
+        
+        CoinsUpdate();
     }
 
     public void SetSelectedSentry(Sentry sentry)
@@ -49,21 +61,35 @@ public class UpgradeButtons : MonoBehaviour
     {
         if (_selectedSentry != null)
         {
-            rangeText.SetText("Upgrade Range\n(lvl {0})\n{1} Coins", _selectedSentry.upgrades.Range,
-                _selectedSentry.upgrades.CurrentRangeUpgradeCost);
-            damageText.SetText("Upgrade Damage\n(lvl {0})\n{1} Coins", _selectedSentry.upgrades.Damage,
-                _selectedSentry.upgrades.CurrentDamageUpgradeCost);
-            fireRateText.SetText("Upgrade FireRate\n(lvl {0})\n{1} Coins", _selectedSentry.upgrades.FireRate,
-                _selectedSentry.upgrades.CurrentFireRateUpgradeCost);
+            RangeText.SetText("Upgrade Range");
+            RangeLevel.SetText(_selectedSentry.upgrades.Range.ToString());                
+            RangeCost.SetText(_selectedSentry.upgrades.CurrentRangeUpgradeCost.ToString());
+
+            DamageText.SetText("Upgrade Damage");
+            DamageLevel.SetText(_selectedSentry.upgrades.Damage.ToString());                
+            DamageCost.SetText(_selectedSentry.upgrades.CurrentDamageUpgradeCost.ToString());
+            
+            FireRateText.SetText("Upgrade Fire Rate");
+            FireRateLevel.SetText(_selectedSentry.upgrades.FireRate.ToString());                
+            FireRateCost.SetText(_selectedSentry.upgrades.CurrentFireRateUpgradeCost.ToString());
         }
         else
         {
-            rangeText.SetText("Select a Sentry");
-            damageText.SetText("Select a Sentry");
-            fireRateText.SetText("Select a Sentry");
+            RangeText.SetText("Select a Sentry");
+            RangeLevel.SetText("?");                
+            RangeCost.SetText("?");
+            
+            DamageText.SetText("Select a Sentry");
+            DamageLevel.SetText("?");                
+            DamageCost.SetText("?");
+            
+            FireRateText.SetText("Select a Sentry");
+            FireRateLevel.SetText("?");                
+            FireRateCost.SetText("?");
         }
 
-        towerText.SetText("Build Tower\n{0} Coins", _upgradeManager.CurrentSentryBuildCost);
+        TowerText.SetText("Build new Sentry");
+        TowerCost.SetText(_upgradeManager.CurrentSentryBuildCost.ToString());
     }
 
     private void CoinsUpdate()
@@ -76,6 +102,8 @@ public class UpgradeButtons : MonoBehaviour
 
     private void RangeClicked()
     {
+        Debug.Log("range clicked");
+        
         if (_selectedSentry != null && _data.Coins >= _selectedSentry.upgrades.CurrentRangeUpgradeCost)
         {
             _data.Coins -= _selectedSentry.upgrades.CurrentRangeUpgradeCost;
