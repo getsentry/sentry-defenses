@@ -21,7 +21,7 @@ public class BugSpawner : MonoSingleton<BugSpawner>
     
     private ConcurrentStack<SentryBug> _sentryBugs;
     private Camera _camera;
-    private float _spawnDistance;
+    public float MaxSpawnDistance = 5.0f;
 
     private HttpClient _client;
 
@@ -40,11 +40,6 @@ public class BugSpawner : MonoSingleton<BugSpawner>
     private void OnDestroy()
     {
         _client.Dispose();
-    }
-
-    private void Start()
-    {
-        _spawnDistance = Screen.width / 2.0f;
     }
 
     private async Task RetrieveSentryBugs()
@@ -79,9 +74,7 @@ public class BugSpawner : MonoSingleton<BugSpawner>
 
     public GameObject Spawn()
     {
-        Debug.Log("trying to spawn");
         var sentryBug = GetSentryBug();
-        Debug.Log("got a bug");
         string platform = sentryBug.platform;
         var platformPrefab = new Dictionary<string, GameObject>(){
             {"javascript", BugPrefabs[0]},
@@ -95,12 +88,8 @@ public class BugSpawner : MonoSingleton<BugSpawner>
             }
         }
         
-        var randomDirection = new Vector3(sentryBug.lat, sentryBug.lon, 0);
-        var randomScreenCirclePosition = _camera.WorldToScreenPoint(Vector3.zero) + randomDirection * _spawnDistance;
-
-        var randomPosition = _camera.ScreenToWorldPoint(randomScreenCirclePosition);
-
-        var bugGameObject = Instantiate(platformPrefab[platform], randomPosition, Quaternion.identity);
+        var randomPosition = new Vector3(sentryBug.lat, sentryBug.lon, 0) * MaxSpawnDistance;
+        var bugGameObject = Instantiate(BugPrefabs[0], randomPosition, Quaternion.identity);
         bugGameObject.transform.SetParent(transform);
         
         return bugGameObject;
