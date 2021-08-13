@@ -6,18 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="3e15b6ab-4936-46aa-b664-4b29aca3a76d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Sentry/Sentry.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Sentry/Sentry.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateStart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateStart.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/StartMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/StartMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP_Asset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP_Asset.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Sentry/spriteSheet-brickTower (1).png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Sentry/spriteSheet-brickTower (1).png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Sentry/tower_sprite_sheet_v2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Sentry/tower_sprite_sheet_v2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/Battle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/UI/Battle.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/Battle.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/UI/Battle.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/Battle_sprite.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/UI/Battle_sprite.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/Fail_Monument_Sprites.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/UI/Fail_Monument_Sprites.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/TryAgain_Button.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/UI/TryAgain_Button.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene Hectic.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene Hectic.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +32,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/StartMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/SentryPlacingMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/LogoFinished.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneSwitcher.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Sentry/SentryVisuals.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bugs/StateMachine/BugStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@10.5.1/Runtime/2D/Light2DStub.cs" root0="SKIP_HIGHLIGHTING" />
@@ -52,7 +46,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Game/GamePlacing.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStates.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Data/SentryData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerIdle.cs" />
@@ -103,6 +96,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStateStart.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/LogoFinished.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/StartMenu.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SceneSwitcher.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1wUYfFWWflRZix2TJB8JoMfuLjR" />
