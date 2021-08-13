@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3e15b6ab-4936-46aa-b664-4b29aca3a76d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Sentry/Sentry.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Sentry/Sentry.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bugs/BugStateDespawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bugs/BugStateDespawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bugs/StateMachine/BugStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bugs/StateMachine/BugStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Sentry/Sentry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Sentry/Sentry.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Sentry/SentryVisuals.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Sentry/SentryVisuals.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/GameOverMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/GameOverMenu.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +68,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/MouseFollow.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Sentry/StateMachine/SentryStates.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/BugStateHit.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/Despawn.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Sentry/Bullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Utility/Editor/SpritePostProcessor.cs" />
@@ -93,11 +90,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStateGameOver.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/ButtonTease.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/StartMenu.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/GameOverMenu.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Sentry/Sentry.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Sentry/SentryVisuals.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/StateMachine/BugStateMachine.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/BugStateDespawn.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Sentry/Sentry.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/GameOverMenu.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1wUYfFWWflRZix2TJB8JoMfuLjR" />
