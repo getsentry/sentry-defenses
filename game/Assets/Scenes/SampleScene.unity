@@ -2210,7 +2210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17a80e31870914786960603256aa6ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Header: {fileID: 0}
+  Header: {fileID: 1011478789}
   StartButton: {fileID: 6318331707028190250}
   Background: {fileID: 6318331707692791903}
   LogoImage: {fileID: 6318331706830056423}
