@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Manager;
 using UnityEngine;
 
 public class Sentry : MonoBehaviour
@@ -11,9 +12,9 @@ public class Sentry : MonoBehaviour
     public GameObject WoodSentry;
     public GameObject BrickSentry;
     
-    private GameData _data;
+    private EventManager _eventManager;
     private SentryVisuals _visuals;
-    
+
     private float _coolDown;
     private List<Transform> _targets;
     
@@ -21,13 +22,20 @@ public class Sentry : MonoBehaviour
 
     private void Awake()
     {
+        _eventManager = EventManager.Instance;
+        _eventManager.Resetting += OnReset;
+        
         _targets = new List<Transform>();
         _visuals = GetComponent<SentryVisuals>();
+        
     }
 
-    void Start()
+    private void OnReset()
     {
-        _data = GameData.Instance;
+        if (!gameObject.CompareTag("Turd"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Update()

@@ -345,6 +345,7 @@ MonoBehaviour:
   HitReactionDuration: 0.5
   HitPushBackForce: 1.5
   PushBackDirection: {x: 0, y: 0, z: 0}
+  CoinDrop: 2
   DamageTaken: 0
 --- !u!1 &3820591442147413907
 GameObject:

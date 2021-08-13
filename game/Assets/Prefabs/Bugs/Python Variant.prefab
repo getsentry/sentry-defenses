@@ -56,6 +56,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6798180797794454217, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
+      propertyPath: CoinDrop
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6798180797794454217, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
       propertyPath: HitPoints
       value: 2
       objectReference: {fileID: 0}

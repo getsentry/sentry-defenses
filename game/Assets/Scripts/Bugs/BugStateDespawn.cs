@@ -25,7 +25,7 @@ namespace Bugs
             _gameData.bugs.Remove(_stateMachine.gameObject);
             GameObject.Destroy(_stateMachine.gameObject);
             
-            _gameData.Coins += 1;
+            _gameData.Coins += _stateMachine.CoinDrop;
             _eventManager.UpdateCoins();
         }
     }

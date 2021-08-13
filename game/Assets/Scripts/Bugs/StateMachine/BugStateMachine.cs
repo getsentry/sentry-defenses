@@ -20,6 +20,8 @@ public class BugStateMachine : StateMachine<BugStates>
     public float HitPushBackForce;
     public Vector3 PushBackDirection;
 
+    public int CoinDrop = 1;
+    
     public float DamageTaken;
 
     public Action OnHit;

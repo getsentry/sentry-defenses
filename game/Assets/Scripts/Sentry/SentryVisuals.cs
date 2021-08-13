@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class SentryVisuals : MonoBehaviour
 {
-    public SpriteRenderer Renderer;
+    public SpriteRenderer WoodRenderer;
+    public SpriteRenderer BrickRenderer;
+    
     public Transform BounceTransform;
 
     [Header("Spawn")] 
@@ -28,7 +30,7 @@ public class SentryVisuals : MonoBehaviour
 
     private void Awake()
     {
-        _defaultMaterial = Renderer.material;
+        _defaultMaterial = WoodRenderer.material;
     }
 
     public void Wiggle()
@@ -66,7 +68,8 @@ public class SentryVisuals : MonoBehaviour
     
     public void Select()
     {
-        Renderer.material = OutlineMaterial;
+        WoodRenderer.material = OutlineMaterial;
+        BrickRenderer.material = OutlineMaterial;
 
         transform.DOKill();
         transform.DOPunchScale(Vector3.one * PunchStrength, PunchDuration);
@@ -74,6 +77,7 @@ public class SentryVisuals : MonoBehaviour
     
     public void Deselect()
     {
-        Renderer.material = _defaultMaterial;
+        WoodRenderer.material = _defaultMaterial;
+        BrickRenderer.material = _defaultMaterial;
     }
 }

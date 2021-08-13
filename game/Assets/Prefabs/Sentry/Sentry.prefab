@@ -265,7 +265,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4ac184bd80674b5dbab7b7624d666d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Renderer: {fileID: 356934927722426038}
+  WoodRenderer: {fileID: 356934927722426038}
+  BrickRenderer: {fileID: 1543294204504622171}
   BounceTransform: {fileID: 356934927722426039}
   StartScale: 0.2
   StartHeight: 0.25
