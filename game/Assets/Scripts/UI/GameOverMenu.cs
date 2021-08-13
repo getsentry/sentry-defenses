@@ -9,7 +9,7 @@ public class GameOverMenu : MonoBehaviour
 {
     public Button RestartButton;
     public Image Background;
-    public TextMeshProUGUI Text;
+    public Image LogoImage;
     
     public float FadeDuration = 0.3f;
     
@@ -33,11 +33,7 @@ public class GameOverMenu : MonoBehaviour
         var backgroundColor = Background.color;
         backgroundColor.a = 0;
         Background.color = backgroundColor;
-
-        var textColor = Text.color;
-        textColor.a = 0;
-        Text.color = textColor;
-        
+ 
         Container.SetActive(false);
     }
 
@@ -52,22 +48,14 @@ public class GameOverMenu : MonoBehaviour
         
         RestartButton.image.DOFade(1, FadeDuration);
         Background.DOFade(1, FadeDuration);
-        Text.DOFade(1, FadeDuration)
-            .OnComplete(() =>
-            {
-                finishCallback?.Invoke();
-            });
+        LogoImage.DOFade(1, FadeDuration);
+        finishCallback?.Invoke();
     }
 
     public void Hide(Action finishCallback)
     {
         RestartButton.image.DOFade(0, FadeDuration);
         Background.DOFade(0, FadeDuration);
-        Text.DOFade(0, FadeDuration)
-            .OnComplete(() =>
-            {
-                finishCallback?.Invoke();
-                Container.SetActive(false);
-            });
+        LogoImage.DOFade(0, FadeDuration);
     }
 }

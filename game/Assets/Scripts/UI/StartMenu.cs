@@ -8,6 +8,8 @@ public class StartMenu : MonoBehaviour
 {
     public Button StartButton;
     public Image Background;
+    public Image LogoImage;
+    public Animator Logo;
 
     public float FadeDuration = 0.3f;
     
@@ -39,12 +41,11 @@ public class StartMenu : MonoBehaviour
     public void Hide(Action finishCallback)
     {
         StartButton.image.DOFade(0, FadeDuration);
-        Background.DOFade(0, FadeDuration)
-            .OnComplete(() =>
-            {
-                finishCallback?.Invoke();
-                Container.SetActive(false);
-                gameObject.SetActive(false);
-            });
+        Logo.SetTrigger("Active");
+        LogoImage.DOFade(0, FadeDuration).OnComplete(() => {
+            finishCallback?.Invoke();
+            Container.SetActive(false);
+            gameObject.SetActive(false);
+        });
     }
 }
