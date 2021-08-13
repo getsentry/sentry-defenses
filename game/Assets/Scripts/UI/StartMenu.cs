@@ -1,11 +1,13 @@
 using System;
 using DG.Tweening;
 using Manager;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class StartMenu : MonoBehaviour
 {
+    public TextMeshProUGUI Header;
     public Button StartButton;
     public Image Background;
     public Image LogoImage;
@@ -49,7 +51,8 @@ public class StartMenu : MonoBehaviour
         //  Hack: We want the next state to already do it's thing so the transition is smooth but we have to wait or
         // the logo animation to finish
         _hideFinishedCallback?.Invoke();
-        
+
+        Header.DOFade(0, FadeDuration);
         StartButton.image.DOFade(0, FadeDuration);
         Background.DOFade(0, FadeDuration);
         LogoImage.DOFade(0, FadeDuration).OnComplete(() => {

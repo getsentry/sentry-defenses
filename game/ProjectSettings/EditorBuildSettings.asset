@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene Hectic.unity
     guid: c70cde4223496467d9fa88fa61b0e1f5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene Win.unity
     guid: f134e8e60e5b9448594508f45df7bcd7
   m_configObjects: {}

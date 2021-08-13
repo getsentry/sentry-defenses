@@ -10,11 +10,10 @@ public class GameOverMenu : MonoBehaviour
     public Button RestartButton;
     public Image Background;
     public Image LogoImage;
+    public GameObject Container;
+    public TextMeshProUGUI WaveText;
     
     public float FadeDuration = 0.3f;
-    
-    public GameObject Container;
-    
     private EventManager _eventManager;
     
     private void Awake()
@@ -45,7 +44,8 @@ public class GameOverMenu : MonoBehaviour
     public void Show(Action finishCallback)
     {
         Container.SetActive(true);
-        
+
+        WaveText.DOFade(1, FadeDuration);
         RestartButton.image.DOFade(1, FadeDuration);
         Background.DOFade(1, FadeDuration);
         LogoImage.DOFade(1, FadeDuration);
@@ -54,6 +54,7 @@ public class GameOverMenu : MonoBehaviour
 
     public void Hide(Action finishCallback)
     {
+        WaveText.DOFade(0, FadeDuration);
         RestartButton.image.DOFade(0, FadeDuration);
         Background.DOFade(0, FadeDuration);
         LogoImage.DOFade(0, FadeDuration);

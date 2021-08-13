@@ -6,10 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="3e15b6ab-4936-46aa-b664-4b29aca3a76d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Sodasare1099 SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/Sodasare1099 SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Canvas.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Canvas.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene Hectic.unity" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene Hectic.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene Win.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene Win.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateGameOver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateGameOver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/GameOverMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/GameOverMenu.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +42,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Sentry/SentryVisuals.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bugs/StateMachine/BugStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@10.5.1/Runtime/2D/Light2DStub.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/ButtonTease.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UpgradeMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@10.5.1/Editor/2D/Renderer2DUpgrader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/GameData.cs" root0="FORCE_HIGHLIGHTING" />
@@ -46,7 +53,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStates.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Data/SentryData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerIdle.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStateMachine.cs" />
@@ -65,10 +71,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/StateMachine/GameStates.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/StateMachine/GameStateMachine.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/Upgrades.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/GameOverMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Manager/EventManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStateFighting.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStateGameOver.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/MouseFollow.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Sentry/StateMachine/SentryStates.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/BugStateHit.cs" />
@@ -97,6 +101,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/LogoFinished.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/StartMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SceneSwitcher.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/GameOverMenu.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStateGameOver.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI/ButtonTease.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1wUYfFWWflRZix2TJB8JoMfuLjR" />

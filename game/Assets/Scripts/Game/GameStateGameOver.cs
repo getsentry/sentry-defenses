@@ -4,11 +4,13 @@ namespace Game
 {
     public class GameStateGameOver : GameState
     {
+        private GameData _gameData;
         private readonly EventManager _eventManager;
         private GameOverMenu _gameOverMenu;
         
         public GameStateGameOver(GameStateMachine stateMachine) : base(stateMachine)
         {
+            _gameData = GameData.Instance;
             _eventManager = EventManager.Instance;
             _eventManager.Upgrading += OnUpgrading;
 
@@ -28,9 +30,11 @@ namespace Game
         public override void OnEnter()
         {
             base.OnEnter();
+
+            _gameOverMenu.WaveText.text = $"Wave {_gameData.Level.ToString()}!";
+            _gameOverMenu.Show(null);
             
             _eventManager.Reset();
-            _gameOverMenu.Show(null);
         }
 
         public override void OnExit()
