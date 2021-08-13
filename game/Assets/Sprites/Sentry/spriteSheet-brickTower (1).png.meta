@@ -58,7 +58,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -133,12 +133,12 @@ TextureImporter:
       name: spriteSheet-brickTower (1)_0
       rect:
         serializedVersion: 2
-        x: 45
-        y: 6
-        width: 51
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 140
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -154,12 +154,12 @@ TextureImporter:
       name: spriteSheet-brickTower (1)_1
       rect:
         serializedVersion: 2
-        x: 185
-        y: 6
-        width: 51
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 140
+        y: 0
+        width: 140
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -175,12 +175,12 @@ TextureImporter:
       name: spriteSheet-brickTower (1)_2
       rect:
         serializedVersion: 2
-        x: 325
-        y: 6
-        width: 51
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 280
+        y: 0
+        width: 140
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -196,12 +196,12 @@ TextureImporter:
       name: spriteSheet-brickTower (1)_3
       rect:
         serializedVersion: 2
-        x: 465
-        y: 6
-        width: 51
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 420
+        y: 0
+        width: 140
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -217,12 +217,12 @@ TextureImporter:
       name: spriteSheet-brickTower (1)_4
       rect:
         serializedVersion: 2
-        x: 605
-        y: 6
-        width: 51
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 560
+        y: 0
+        width: 140
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

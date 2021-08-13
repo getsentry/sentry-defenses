@@ -130,10 +130,10 @@ TextureImporter:
       name: tower_sprite_sheet_v2_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 4
-        width: 45
-        height: 112
+        x: 0
+        y: 0
+        width: 50
+        height: 120
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,10 +151,10 @@ TextureImporter:
       name: tower_sprite_sheet_v2_1
       rect:
         serializedVersion: 2
-        x: 53
-        y: 4
-        width: 45
-        height: 112
+        x: 50
+        y: 0
+        width: 50
+        height: 120
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,10 +172,10 @@ TextureImporter:
       name: tower_sprite_sheet_v2_2
       rect:
         serializedVersion: 2
-        x: 103
-        y: 4
-        width: 45
-        height: 112
+        x: 100
+        y: 0
+        width: 50
+        height: 120
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,10 +193,10 @@ TextureImporter:
       name: tower_sprite_sheet_v2_3
       rect:
         serializedVersion: 2
-        x: 153
-        y: 4
-        width: 45
-        height: 112
+        x: 150
+        y: 0
+        width: 50
+        height: 120
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

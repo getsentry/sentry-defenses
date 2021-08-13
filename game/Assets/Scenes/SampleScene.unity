@@ -2215,7 +2215,7 @@ MonoBehaviour:
   Background: {fileID: 6318331707692791903}
   LogoImage: {fileID: 6318331706830056423}
   Logo: {fileID: 6318331706830056420}
-  FadeDuration: 1.5
+  FadeDuration: 0.3
   Container: {fileID: 6318331707852883270}
 --- !u!224 &6318331706448344117
 RectTransform:
@@ -4326,6 +4326,8 @@ MonoBehaviour:
   Background: {fileID: 6318331707455858622}
   LogoImage: {fileID: 6318331707599792102}
   Container: {fileID: 6318331706487753838}
+  Congratulations: {fileID: 698300917}
+  YouveMadeIt: {fileID: 480637302}
   WaveText: {fileID: 1763545889}
   FadeDuration: 0.3
 --- !u!224 &6318331707203899435

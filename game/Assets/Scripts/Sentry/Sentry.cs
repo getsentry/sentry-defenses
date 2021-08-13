@@ -48,7 +48,7 @@ public class Sentry : MonoBehaviour
         float radius = Mathf.Pow(1.10f, upgrades.Range);
         CircleVisual.transform.localScale = new Vector2(radius, radius);
         AttackRangeCollider.radius = 1.35f * radius;
-        if (BrickSentry != null && upgrades.Range + upgrades.FireRate + upgrades.Damage > 10)
+        if (BrickSentry != null && upgrades.Range + upgrades.FireRate + upgrades.Damage > 0)
         {
             WoodSentry.SetActive(false);
             BrickSentry.SetActive(true);
