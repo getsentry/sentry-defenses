@@ -22,8 +22,7 @@ namespace Game
                 return;
             }
             
-            _startMenu.Hide(null);
-            StateTransition(GameStates.Upgrading);
+            _startMenu.Hide(() => StateTransition(GameStates.Upgrading));
         }
 
         public override void OnEnter()
