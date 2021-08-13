@@ -29,13 +29,20 @@ public class GameData : MonoSingleton<GameData>
 
     private void Start()
     {
-        OnResetting();
+        _eventManager.UpdateCoins();
+        _eventManager.UpdateHitPoints();
+        
+        bugs = new List<GameObject>();
+        
+        Coins = StartCoins;
+        HitPoints = StartHitPoints;
     }
 
     private void OnResetting()
     {
         bugs = new List<GameObject>();
-        
+
+        Level = 1;
         Coins = StartCoins;
         HitPoints = StartHitPoints;
         

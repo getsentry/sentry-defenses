@@ -27,11 +27,15 @@ public class Sentry : MonoBehaviour
         
         _targets = new List<Transform>();
         _visuals = GetComponent<SentryVisuals>();
-        
     }
 
     private void OnReset()
     {
+        if (gameObject == null)
+        {
+            return;
+        }
+        
         if (!gameObject.CompareTag("Turd"))
         {
             Destroy(gameObject);

@@ -55,6 +55,7 @@ public class GameOverMenu : MonoBehaviour
         RestartButton.image.DOFade(1, FadeDuration);
         Background.DOFade(1, FadeDuration);
         LogoImage.DOFade(1, FadeDuration);
+        
         finishCallback?.Invoke();
     }
 
@@ -65,6 +66,11 @@ public class GameOverMenu : MonoBehaviour
         WaveText.DOFade(0, FadeDuration);
         RestartButton.image.DOFade(0, FadeDuration);
         Background.DOFade(0, FadeDuration);
-        LogoImage.DOFade(0, FadeDuration);
+        LogoImage.DOFade(0, FadeDuration)
+            .OnComplete(() =>
+            {
+                Container.SetActive(false);
+                finishCallback?.Invoke();
+            });
     }
 }
