@@ -1,6 +1,6 @@
-# Sentry Defences
+# Sentry Defenses
 
-A tower defence game based on live bugs coming into Sentry.
+A tower defense game based on live bugs coming into Sentry.
 
 Game play video:
 
