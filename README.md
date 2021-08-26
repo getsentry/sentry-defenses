@@ -1,7 +1,6 @@
-# Sentry Tower Defence Game
+# Sentry Defences
 
-### Hackweek 2021
-
+A tower defence game based on live bugs coming into Sentry.
 
 Game play video:
 
@@ -11,3 +10,5 @@ https://youtu.be/KzvJJzpSQaw
 ![screen2](.github/screen2.png)
 ![screen3](.github/screen3.png)
 ![screen4](.github/screen4.png)
+
+This was a Hackweek 2021 project.
