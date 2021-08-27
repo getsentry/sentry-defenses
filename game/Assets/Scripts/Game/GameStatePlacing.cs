@@ -51,14 +51,14 @@ public class GameStatePlacing : GameState
         if (_input.GetMouseDown() && !Helpers.IsMouseOverUI())
         {
             _sentryGameObject = GameObject.Instantiate(_data.SentryPrefab, _mouseTransform.position, Quaternion.identity, _mouseTransform);
-            var sentry = _sentryGameObject.GetComponent<Sentry>();
+            var sentry = _sentryGameObject.GetComponent<SentryTower>();
             sentry.Wiggle();
         }
         
         // Checking for tower because the up from the button click gets read here too
         if (_sentryGameObject != null && _input.GetMouseUp())
         {
-            var sentry = _sentryGameObject.GetComponent<Sentry>();
+            var sentry = _sentryGameObject.GetComponent<SentryTower>();
             sentry.Drop();
             
             _sentryGameObject.transform.parent = null;

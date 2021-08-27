@@ -3,12 +3,16 @@ using DG.Tweening;
 using Manager;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class StartMenu : MonoBehaviour
 {
-    public TextMeshProUGUI Header;
     public Button StartButton;
+    public Button SampleButton;
+ 
+    [Header("Things that fade")]
+    public TextMeshProUGUI Header;
     public Image Background;
     public Image LogoImage;
     public Animator Logo;
@@ -16,6 +20,7 @@ public class StartMenu : MonoBehaviour
     public float FadeDuration = 0.3f;
     
     public GameObject Container;
+
     private EventManager _eventManager;
     private Action _hideFinishedCallback;
     
@@ -27,12 +32,12 @@ public class StartMenu : MonoBehaviour
     private void Start()
     {
         StartButton.onClick.AddListener(OnStartClick);
+        SampleButton.onClick.AddListener(OnSampleClick);
     }
 
-    private void OnStartClick()
-    {
-        _eventManager.Upgrade();
-    }
+    private void OnStartClick() => _eventManager.Upgrade();
+
+    private void OnSampleClick() => SceneManager.LoadScene("1_BugfarmScene");
 
     public void Show()
     {

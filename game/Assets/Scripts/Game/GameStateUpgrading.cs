@@ -9,7 +9,7 @@ public class GameStateUpgrading : GameState
     private UpgradeMenu _upgradeMenu;
     private Camera _camera;
     
-    private Sentry _selectedSentry = null;
+    private SentryTower _selectedSentryTower = null;
     
     public GameStateUpgrading(GameStateMachine stateMachine) : base(stateMachine)
     {
@@ -59,29 +59,29 @@ public class GameStateUpgrading : GameState
             var hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
             if (!hit)
             {
-                if (_selectedSentry != null)
+                if (_selectedSentryTower != null)
                 {
-                    _selectedSentry.Deselect();
-                    _selectedSentry = null;
+                    _selectedSentryTower.Deselect();
+                    _selectedSentryTower = null;
                 }
             }
             else
             {
-                var sentry = hit.collider.GetComponent<Sentry>();
-                if (_selectedSentry == null)
+                var sentry = hit.collider.GetComponent<SentryTower>();
+                if (_selectedSentryTower == null)
                 {
-                    _selectedSentry = sentry;
+                    _selectedSentryTower = sentry;
                 }
-                else if (_selectedSentry != sentry)
+                else if (_selectedSentryTower != sentry)
                 {
-                    _selectedSentry.Deselect();
-                    _selectedSentry = sentry;
+                    _selectedSentryTower.Deselect();
+                    _selectedSentryTower = sentry;
                 }
                 
-                _selectedSentry.Select();
+                _selectedSentryTower.Select();
             }
 
-            _upgradeMenu.UpgradeButtons.SetSelectedSentry(_selectedSentry);
+            _upgradeMenu.UpgradeButtons.SetSelectedSentry(_selectedSentryTower);
             _eventManager.UpdateCosts();
             _eventManager.UpdateCoins();
         }

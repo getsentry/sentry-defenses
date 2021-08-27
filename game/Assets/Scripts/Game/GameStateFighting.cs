@@ -18,7 +18,7 @@ public class GameStateFighting : GameState
     public override void OnEnter()
     {
         base.OnEnter();
-
+        
         bugsToSpawn = 5 + _data.Level * 2;
     }
 

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Manager;
 using UnityEngine;
 
-public class Sentry : MonoBehaviour
+public class SentryTower : MonoBehaviour
 {
     public GameObject ArrowPrefab;
     public Transform ArrowSpawnTransform;

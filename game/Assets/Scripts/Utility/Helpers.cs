@@ -4,15 +4,18 @@ using UnityEngine.EventSystems;
 public static class Helpers
 {
     private static Camera _mainCamera;
-
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-    public static void Init()
-    {
-        _mainCamera = Camera.main;
-    }
         
     public static Vector3 GetMouseWorldPosition()
     {
+        if (_mainCamera == null)
+        {
+            _mainCamera = Camera.main;
+            if (_mainCamera == null)
+            {
+                return Vector3.zero;    
+            }
+        }
+        
         var mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
         return mousePosition;

@@ -19,6 +19,13 @@ namespace Player
         private void Update()
         {
             _targetPosition = Helpers.GetMouseWorldPosition();
+            
+            if (Input.GetMouseButtonDown(0))
+            {
+                _transform.position = _targetPosition;
+                return;
+            }
+            
             _transform.position = Vector3.SmoothDamp(_transform.position, _targetPosition, ref _velocity, SmoothTime);
         }
     }

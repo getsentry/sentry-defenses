@@ -9,7 +9,7 @@ public class BugStateMachine : StateMachine<BugStates>
 {
     public float HitPoints;
     public float HitPointsTotal;
-    
+
     public BugVisuals Visuals;
     public Rigidbody2D Rigidbody;
     public CircleCollider2D Collider;
@@ -21,16 +21,21 @@ public class BugStateMachine : StateMachine<BugStates>
     public Vector3 PushBackDirection;
 
     public int CoinDrop = 1;
-    
+
     public float DamageTaken;
 
     public Action OnHit;
     public Action OnTargetReached;
 
+    protected override void Start()
+    {
+        base.Start();
+    }
+
     protected override void Initialize()
     {
         base.Initialize();
-        
+
         _states.Add(BugStates.Spawn, new BugStateSpawn(this));
         _states.Add(BugStates.Move, new BugStateMove(this));
         _states.Add(BugStates.Hit, new BugStateHit(this));
@@ -44,7 +49,7 @@ public class BugStateMachine : StateMachine<BugStates>
     {
         DamageTaken = damage;
         PushBackDirection = direction;
-        
+
         OnHit?.Invoke();
     }
 
@@ -52,7 +57,7 @@ public class BugStateMachine : StateMachine<BugStates>
     {
         if (other.gameObject.CompareTag("Turd"))
         {
-            OnTargetReached?.Invoke();            
+            OnTargetReached?.Invoke();
         }
     }
 }

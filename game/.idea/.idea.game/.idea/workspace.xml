@@ -6,9 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="3e15b6ab-4936-46aa-b664-4b29aca3a76d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Sentry/Sentry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Sentry/Sentry.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/GameOverMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/GameOverMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Sodasare1099 SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/Sodasare1099 SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bugs/StateMachine/BugStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bugs/StateMachine/BugStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateFighting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateFighting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameStatePlacing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameStatePlacing.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateUpgrading.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameStateUpgrading.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/MouseFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/MouseFollow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Sentry/Sentry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Sentry/SentryTower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Sentry/Sentry.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Sentry/SentryTower.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/StartMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/StartMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UpgradeButtons.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UpgradeButtons.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,20 +39,21 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/StartMenu.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/SentryPlacingMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UpgradeButtons.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Coins.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/LogoFinished.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UpgradeMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneSwitcher.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Sentry/SentryVisuals.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bugs/StateMachine/BugStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@10.5.1/Runtime/2D/Light2DStub.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/ButtonTease.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UpgradeMenu.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@10.5.1/Editor/2D/Renderer2DUpgrader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/StartMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@10.5.1/Runtime/2D/Light2DStub.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bugs/StateMachine/BugStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/GameData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bugs/Despawn.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Coins.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UpgradeButtons.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/BugfarmSceneBackToGame.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/SentryPlacingMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@10.5.1/Editor/2D/Renderer2DUpgrader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utility/JsonHelper.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -64,7 +77,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/StateMachine/GameStateMachine.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/Upgrades.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Manager/EventManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStateFighting.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/MouseFollow.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Sentry/StateMachine/SentryStates.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/BugStateHit.cs" />
@@ -91,11 +103,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/ButtonTease.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/StartMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Sentry/SentryVisuals.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/StateMachine/BugStateMachine.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/BugStateDespawn.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Sentry/Sentry.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI/GameOverMenu.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bugs/StateMachine/BugStateMachine.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameStateFighting.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1wUYfFWWflRZix2TJB8JoMfuLjR" />
@@ -126,10 +139,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="85043">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="85043" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -146,12 +159,14 @@
       <option name="presentableId" value="Default" />
       <updated>1628514735996</updated>
       <workItem from="1628514741071" duration="4685000" />
+      <workItem from="1630053826657" duration="1012000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="Vcs.Log.Tabs.Properties">
@@ -164,6 +179,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
