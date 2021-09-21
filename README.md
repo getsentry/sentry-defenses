@@ -2,6 +2,11 @@
 
 A tower defense game based on live bugs coming into Sentry.
 
+| iOS |
+|:-:|
+| [<img src=".github/appstore-logo.png" height="50">](https://apps.apple.com/app/sentry-defenses/id1581116965) |
+
+
 Game play video:
 
 https://youtu.be/KzvJJzpSQaw
