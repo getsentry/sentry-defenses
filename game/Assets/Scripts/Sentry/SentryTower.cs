@@ -18,7 +18,7 @@ public class SentryTower : MonoBehaviour
     private float _coolDown;
     private List<Transform> _targets;
     
-    public TowerUpgrade upgrades = new TowerUpgrade();
+    public TowerUpgrade Upgrades = new TowerUpgrade();
 
     private void Awake()
     {
@@ -40,6 +40,8 @@ public class SentryTower : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        Upgrades = new TowerUpgrade();
     }
 
     void Update()
@@ -51,16 +53,16 @@ public class SentryTower : MonoBehaviour
         if (_coolDown < 0.0f)
         {
             Fire();
-            _coolDown = 1.0f / Mathf.Pow(1.25f, upgrades.FireRate);
+            _coolDown = 1.0f / Mathf.Pow(1.25f, Upgrades.FireRate);
         }
     }
 
-    public void postUpgrade()
+    public void PostUpgrade()
     {
-        float radius = Mathf.Pow(1.10f, upgrades.Range);
+        float radius = Mathf.Pow(1.10f, Upgrades.Range);
         CircleVisual.transform.localScale = new Vector2(radius, radius);
         AttackRangeCollider.radius = 1.35f * radius;
-        if (BrickSentry != null && upgrades.Range + upgrades.FireRate + upgrades.Damage > 0)
+        if (BrickSentry != null && Upgrades.Range + Upgrades.FireRate + Upgrades.Damage > 0)
         {
             WoodSentry.SetActive(false);
             BrickSentry.SetActive(true);
@@ -80,7 +82,7 @@ public class SentryTower : MonoBehaviour
             else
             {
                 var bullet = Instantiate(ArrowPrefab, ArrowSpawnTransform.position, Quaternion.identity);
-                bullet.GetComponent<Arrow>().SetTarget(Mathf.Pow(1.5f, upgrades.Damage), target, transform);
+                bullet.GetComponent<Arrow>().SetTarget(Mathf.Pow(1.5f, Upgrades.Damage), target, transform);
                 break;
             }
         }

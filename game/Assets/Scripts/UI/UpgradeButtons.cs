@@ -62,16 +62,16 @@ public class UpgradeButtons : MonoBehaviour
         if (_selectedSentryTower != null)
         {
             RangeText.SetText("Upgrade Range");
-            RangeLevel.SetText(_selectedSentryTower.upgrades.Range.ToString());                
-            RangeCost.SetText(_selectedSentryTower.upgrades.CurrentRangeUpgradeCost.ToString());
+            RangeLevel.SetText(_selectedSentryTower.Upgrades.Range.ToString());                
+            RangeCost.SetText(_selectedSentryTower.Upgrades.CurrentRangeUpgradeCost.ToString());
 
             DamageText.SetText("Upgrade Damage");
-            DamageLevel.SetText(_selectedSentryTower.upgrades.Damage.ToString());                
-            DamageCost.SetText(_selectedSentryTower.upgrades.CurrentDamageUpgradeCost.ToString());
+            DamageLevel.SetText(_selectedSentryTower.Upgrades.Damage.ToString());                
+            DamageCost.SetText(_selectedSentryTower.Upgrades.CurrentDamageUpgradeCost.ToString());
             
             FireRateText.SetText("Upgrade Fire Rate");
-            FireRateLevel.SetText(_selectedSentryTower.upgrades.FireRate.ToString());                
-            FireRateCost.SetText(_selectedSentryTower.upgrades.CurrentFireRateUpgradeCost.ToString());
+            FireRateLevel.SetText(_selectedSentryTower.Upgrades.FireRate.ToString());                
+            FireRateCost.SetText(_selectedSentryTower.Upgrades.CurrentFireRateUpgradeCost.ToString());
         }
         else
         {
@@ -94,9 +94,9 @@ public class UpgradeButtons : MonoBehaviour
 
     private void CoinsUpdate()
     {
-        upgradeRange.interactable = _selectedSentryTower != null && _data.Coins >= _selectedSentryTower.upgrades.CurrentRangeUpgradeCost;
-        upgradeDamage.interactable = _selectedSentryTower != null && _data.Coins >= _selectedSentryTower.upgrades.CurrentDamageUpgradeCost;
-        upgradeFireRate.interactable = _selectedSentryTower != null && _data.Coins >= _selectedSentryTower.upgrades.CurrentFireRateUpgradeCost;
+        upgradeRange.interactable = _selectedSentryTower != null && _data.Coins >= _selectedSentryTower.Upgrades.CurrentRangeUpgradeCost;
+        upgradeDamage.interactable = _selectedSentryTower != null && _data.Coins >= _selectedSentryTower.Upgrades.CurrentDamageUpgradeCost;
+        upgradeFireRate.interactable = _selectedSentryTower != null && _data.Coins >= _selectedSentryTower.Upgrades.CurrentFireRateUpgradeCost;
         buildTower.interactable = _data.Coins >= _upgradeManager.CurrentSentryBuildCost;
     }
 
@@ -104,42 +104,42 @@ public class UpgradeButtons : MonoBehaviour
     {
         Debug.Log("range clicked");
         
-        if (_selectedSentryTower != null && _data.Coins >= _selectedSentryTower.upgrades.CurrentRangeUpgradeCost)
+        if (_selectedSentryTower != null && _data.Coins >= _selectedSentryTower.Upgrades.CurrentRangeUpgradeCost)
         {
-            _data.Coins -= _selectedSentryTower.upgrades.CurrentRangeUpgradeCost;
+            _data.Coins -= _selectedSentryTower.Upgrades.CurrentRangeUpgradeCost;
             _eventManager.UpdateCoins();
 
-            _selectedSentryTower.upgrades.CurrentRangeUpgradeCost *= 2;
-            _selectedSentryTower.upgrades.Range++;
-            _selectedSentryTower.postUpgrade();
+            _selectedSentryTower.Upgrades.CurrentRangeUpgradeCost *= 2;
+            _selectedSentryTower.Upgrades.Range++;
+            _selectedSentryTower.PostUpgrade();
             _eventManager.UpdateCosts();
         }
     }
 
     private void DamageClicked()
     {
-        if (_selectedSentryTower != null && _data.Coins >= _selectedSentryTower.upgrades.CurrentDamageUpgradeCost)
+        if (_selectedSentryTower != null && _data.Coins >= _selectedSentryTower.Upgrades.CurrentDamageUpgradeCost)
         {
-            _data.Coins -= _selectedSentryTower.upgrades.CurrentDamageUpgradeCost;
+            _data.Coins -= _selectedSentryTower.Upgrades.CurrentDamageUpgradeCost;
             _eventManager.UpdateCoins();
 
-            _selectedSentryTower.upgrades.CurrentDamageUpgradeCost += 1;
-            _selectedSentryTower.upgrades.Damage++;
-            _selectedSentryTower.postUpgrade();
+            _selectedSentryTower.Upgrades.CurrentDamageUpgradeCost += 1;
+            _selectedSentryTower.Upgrades.Damage++;
+            _selectedSentryTower.PostUpgrade();
             _eventManager.UpdateCosts();
         }
     }
 
     private void FireRateClicked()
     {
-        if (_selectedSentryTower != null && _data.Coins >= _selectedSentryTower.upgrades.CurrentFireRateUpgradeCost)
+        if (_selectedSentryTower != null && _data.Coins >= _selectedSentryTower.Upgrades.CurrentFireRateUpgradeCost)
         {
-            _data.Coins -= _selectedSentryTower.upgrades.CurrentFireRateUpgradeCost;
+            _data.Coins -= _selectedSentryTower.Upgrades.CurrentFireRateUpgradeCost;
             _eventManager.UpdateCoins();
 
-            _selectedSentryTower.upgrades.CurrentFireRateUpgradeCost += 3;
-            _selectedSentryTower.upgrades.FireRate++;
-            _selectedSentryTower.postUpgrade();
+            _selectedSentryTower.Upgrades.CurrentFireRateUpgradeCost += 3;
+            _selectedSentryTower.Upgrades.FireRate++;
+            _selectedSentryTower.PostUpgrade();
             _eventManager.UpdateCosts();
         }
     }
