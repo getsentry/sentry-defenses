@@ -36,12 +36,14 @@ public class SentryTower : MonoBehaviour
             return;
         }
         
-        if (!gameObject.CompareTag("Turd"))
+        if (gameObject.CompareTag("Turd"))
+        {
+            Upgrades = new TowerUpgrade();    
+        }
+        else
         {
             Destroy(gameObject);
         }
-
-        Upgrades = new TowerUpgrade();
     }
 
     void Update()
