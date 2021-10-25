@@ -28,14 +28,13 @@ public class GameStateFighting : GameState
         bugsToSpawn = 5 + _data.Level * 2;
     } 
 
-    public override void Tick() 
+    public override void Tick()
     {
         base.Tick();
 
         timer += Time.deltaTime;
         if (bugsToSpawn > 0 && timer > 0.3f)
         {
-
             timer = 0;
             for (int i = 0; i < _data.Level; i++)
             {
@@ -45,10 +44,10 @@ public class GameStateFighting : GameState
                 if (bugsToSpawn == 0)
                 {
                     break;
-                } 
+                }
             }
-            RoundStarted?.Finish(SpanStatus.Ok);
-            RoundStarted = null;
+            _roundStartTransaction?.Finish(SpanStatus.Ok);
+            _roundStartTransaction = null;
         }
 
         if (_data.HitPoints <= 0)
@@ -60,7 +59,7 @@ public class GameStateFighting : GameState
         if (_data.bugs.Count <= 0 && bugsToSpawn == 0)
         {
             _data.Level++;
-            StateTransition(GameStates.Upgrading); 
+            StateTransition(GameStates.Upgrading);
             return;
         }
     }

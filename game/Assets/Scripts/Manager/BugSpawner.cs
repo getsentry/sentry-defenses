@@ -39,7 +39,7 @@ public class BugSpawner : MonoSingleton<BugSpawner>
         _startUpTask = RetrieveSentryBugs();
     }
 
-    private void OnDestroy()  
+    private void OnDestroy()
     {
         _client.Dispose();
     }
