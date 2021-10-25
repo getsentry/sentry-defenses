@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using Sentry;
 
 public class BugSpawner : MonoSingleton<BugSpawner>
 {
@@ -31,14 +32,14 @@ public class BugSpawner : MonoSingleton<BugSpawner>
     private void Awake()
     {
         _camera = Camera.main;
-        _client = new HttpClient();
+        _client = new HttpClient(new SentryHttpMessageHandler());
 
         _sentryBugs = new ConcurrentStack<SentryBug>();
         
         _startUpTask = RetrieveSentryBugs();
     }
 
-    private void OnDestroy()
+    private void OnDestroy()  
     {
         _client.Dispose();
     }
@@ -78,7 +79,10 @@ public class BugSpawner : MonoSingleton<BugSpawner>
 
     public GameObject Spawn()
     {
+        var spawnChild = SentrySdk.GetSpan()?.StartChild("spawn");
         var sentryBug = GetSentryBug();
+        spawnChild?.SetExtra("bugs.count", _sentryBugs?.Count);
+
         string platform = sentryBug.platform;
         var platformPrefab = new Dictionary<string, GameObject>(){
             {"javascript", BugPrefabs[0]},
@@ -95,7 +99,9 @@ public class BugSpawner : MonoSingleton<BugSpawner>
         var randomPosition = new Vector3(sentryBug.lat, sentryBug.lon, 0) * MaxSpawnDistance;
         var bugGameObject = Instantiate(platformPrefab[platform], randomPosition, Quaternion.identity);
         bugGameObject.transform.SetParent(transform);
-        
+
+        spawnChild?.Finish(SpanStatus.Ok); 
+
         return bugGameObject;
     }
 }
