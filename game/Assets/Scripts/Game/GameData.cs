@@ -42,7 +42,7 @@ public class GameData : MonoSingleton<GameData>
     {
         bugs = new List<GameObject>();
 
-        Level = 400;
+        Level = 1;
         Coins = StartCoins;
         HitPoints = StartHitPoints; 
         

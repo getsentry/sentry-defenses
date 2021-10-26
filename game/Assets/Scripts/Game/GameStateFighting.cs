@@ -41,10 +41,8 @@ public class GameStateFighting : GameState
 
     public override void Tick()
     {
-        var stopwatch = new Stopwatch();
-        stopwatch.Start();
         base.Tick();
-
+        var frameDeltaTime = Time.deltaTime;
         timer += Time.deltaTime;
         if (bugsToSpawn > 0 && timer > 0.3f)
         {
@@ -61,12 +59,11 @@ public class GameStateFighting : GameState
             }
         }
         
-        stopwatch.Stop();
-        if (stopwatch.ElapsedMilliseconds > 1000)
+        if (frameDeltaTime >= 0.3f)
         {
-            stalledFrames++;
+            stalledFrames++; 
         }
-        else if(stopwatch.ElapsedMilliseconds >= 100)
+        else if(frameDeltaTime >= 0.01f)
         { 
             slowFrames++;
         }
