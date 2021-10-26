@@ -12,9 +12,9 @@ public class GameStateFighting : GameState
     private GameData _data;
     private int bugsToSpawn;
     private float timer = 0f;
-    int slowFrames = 0;
-    int stalledFrames = 0;
-    int totalFrames = 0;
+    private int _slowFrames = 0;
+    private int _frozenFrames = 0;
+    private int _totalFrames = 0;
     private ITransaction _roundStartTransaction = null;
 
     public GameStateFighting(GameStateMachine stateMachine) : base(stateMachine)
@@ -30,9 +30,9 @@ public class GameStateFighting : GameState
         _roundStartTransaction = SentrySdk.StartTransaction("round.start", "Start Round");
         SentrySdk.ConfigureScope(scope => scope.Transaction = _roundStartTransaction);
 
-        slowFrames = 0;
-        stalledFrames = 0;
-        totalFrames = 0;
+        _slowFrames = 0;
+        _frozenFrames = 0;
+        _totalFrames = 0;
 
         base.OnEnter();
         
@@ -61,21 +61,21 @@ public class GameStateFighting : GameState
         
         if (frameDeltaTime >= 0.3f)
         {
-            stalledFrames++; 
+            _frozenFrames++; 
         }
         else if(frameDeltaTime >= 0.01f)
         { 
-            slowFrames++;
+            _slowFrames++;
         }
-        totalFrames++;
+        _totalFrames++;
         if (_roundStartTransaction is { } startTransaction && bugsToSpawn <= 0)
         {
             _bugSpawner.FinishChildSpan();
 
             // TODO: Send as measurements
-            startTransaction.SetExtra("frames_total", totalFrames.ToString());
-            startTransaction.SetExtra("frames_slow", slowFrames.ToString());
-            startTransaction.SetExtra("frames_frozen", stalledFrames.ToString());
+            startTransaction.SetExtra("frames_total", _totalFrames.ToString());
+            startTransaction.SetExtra("frames_slow", _slowFrames.ToString());
+            startTransaction.SetExtra("frames_frozen", _frozenFrames.ToString());
             startTransaction.Finish(SpanStatus.Ok);
             _roundStartTransaction = null;
         }
