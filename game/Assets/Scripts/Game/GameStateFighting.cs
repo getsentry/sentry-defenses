@@ -1,4 +1,7 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Diagnostics;
 using UnityEngine;
 using Sentry;
 
@@ -9,6 +12,9 @@ public class GameStateFighting : GameState
     private GameData _data;
     private int bugsToSpawn;
     private float timer = 0f;
+    int slowFrames = 0;
+    int stalledFrames = 0;
+    int totalFrames = 0;
     private ITransaction _roundStartTransaction = null;
 
     public GameStateFighting(GameStateMachine stateMachine) : base(stateMachine)
@@ -22,14 +28,19 @@ public class GameStateFighting : GameState
         SentrySdk.ConfigureScope(scope => scope.SetTag("game.level", _data.Level.ToString()));
         _roundStartTransaction = SentrySdk.StartTransaction("round.start", "Start Round");
         SentrySdk.ConfigureScope(scope => scope.Transaction = _roundStartTransaction);
+        slowFrames = 0;
+        stalledFrames = 0;
+        totalFrames = 0;
 
         base.OnEnter();
         
         bugsToSpawn = 5 + _data.Level * 2;
-    } 
+    }
 
     public override void Tick()
     {
+        var stopwatch = new Stopwatch();
+        stopwatch.Start();
         base.Tick();
 
         timer += Time.deltaTime;
@@ -46,17 +57,33 @@ public class GameStateFighting : GameState
                     break;
                 }
             }
+        }
+        
+        stopwatch.Stop();
+        if (stopwatch.ElapsedMilliseconds > 1000)
+        {
+            stalledFrames++;
+        }
+        else if(stopwatch.ElapsedMilliseconds >= 100)
+        { 
+            slowFrames++;
+        }
+        totalFrames++;
+        if (bugsToSpawn <= 0)
+        {
+            _roundStartTransaction?.SetExtra("frames_total", totalFrames.ToString());
+            _roundStartTransaction?.SetExtra("frames_slow", slowFrames.ToString()); 
+            _roundStartTransaction?.SetExtra("frames_frozen", stalledFrames.ToString()); 
             _roundStartTransaction?.Finish(SpanStatus.Ok);
             _roundStartTransaction = null;
         }
-
         if (_data.HitPoints <= 0)
         {
-            StateTransition(GameStates.GameOver);
+            StateTransition(GameStates.GameOver); 
             return;
         }
 
-        if (_data.bugs.Count <= 0 && bugsToSpawn == 0)
+        if (_data.bugs.Count <= 0 && bugsToSpawn <= 0)
         {
             _data.Level++;
             StateTransition(GameStates.Upgrading);
