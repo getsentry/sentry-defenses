@@ -71,6 +71,8 @@ public class GameStateFighting : GameState
         totalFrames++;
         if (bugsToSpawn <= 0)
         {
+            _bugSpawner.FinishChildSpan();
+
             _roundStartTransaction?.SetExtra("frames_total", totalFrames.ToString());
             _roundStartTransaction?.SetExtra("frames_slow", slowFrames.ToString()); 
             _roundStartTransaction?.SetExtra("frames_frozen", stalledFrames.ToString()); 

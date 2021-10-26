@@ -42,9 +42,9 @@ public class GameData : MonoSingleton<GameData>
     {
         bugs = new List<GameObject>();
 
-        Level = 1;
+        Level = 400;
         Coins = StartCoins;
-        HitPoints = StartHitPoints;
+        HitPoints = StartHitPoints + 200; 
         
         _eventManager.UpdateCoins();
         _eventManager.UpdateHitPoints();

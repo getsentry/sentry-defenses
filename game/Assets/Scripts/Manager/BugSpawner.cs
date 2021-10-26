@@ -53,8 +53,7 @@ public class BugSpawner : MonoSingleton<BugSpawner>
 
     private async Task RetrieveSentryBugs()
     {
-        _spawnChild?.Finish(SpanStatus.Ok);
-        _spawnChild = null;
+        FinishChildSpan();
         var data = await _client.GetStringAsync(
             "https://europe-west3-nth-wording-322409.cloudfunctions.net/sentry-game-server").ConfigureAwait(false);
 
@@ -80,6 +79,12 @@ public class BugSpawner : MonoSingleton<BugSpawner>
 
         _sentryBugs.TryPop(out var bug);
         return bug;
+    }
+
+    public void FinishChildSpan()
+    {
+        _spawnChild?.Finish(SpanStatus.Ok);
+        _spawnChild = null;
     }
 
     public GameObject Spawn()
