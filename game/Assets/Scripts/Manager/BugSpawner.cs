@@ -71,7 +71,7 @@ public class BugSpawner : MonoSingleton<BugSpawner>
             _startUpTask.GetAwaiter().GetResult();
         }
 
-        if (_sentryBugs.Count <= 0) 
+        if (_sentryBugs.Count <= 0)
         {
             _startUpTask = RetrieveSentryBugs();
             _startUpTask.GetAwaiter().GetResult();

@@ -44,7 +44,7 @@ public class GameData : MonoSingleton<GameData>
 
         Level = 1;
         Coins = StartCoins;
-        HitPoints = StartHitPoints; 
+        HitPoints = StartHitPoints;
         
         _eventManager.UpdateCoins();
         _eventManager.UpdateHitPoints();
