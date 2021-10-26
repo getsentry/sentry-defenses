@@ -26,8 +26,10 @@ public class GameStateFighting : GameState
     public override void OnEnter()
     {
         SentrySdk.ConfigureScope(scope => scope.SetTag("game.level", _data.Level.ToString()));
+
         _roundStartTransaction = SentrySdk.StartTransaction("round.start", "Start Round");
         SentrySdk.ConfigureScope(scope => scope.Transaction = _roundStartTransaction);
+
         slowFrames = 0;
         stalledFrames = 0;
         totalFrames = 0;
@@ -69,19 +71,20 @@ public class GameStateFighting : GameState
             slowFrames++;
         }
         totalFrames++;
-        if (bugsToSpawn <= 0)
+        if (_roundStartTransaction is { } startTransaction && bugsToSpawn <= 0)
         {
             _bugSpawner.FinishChildSpan();
 
-            _roundStartTransaction?.SetExtra("frames_total", totalFrames.ToString());
-            _roundStartTransaction?.SetExtra("frames_slow", slowFrames.ToString()); 
-            _roundStartTransaction?.SetExtra("frames_frozen", stalledFrames.ToString()); 
-            _roundStartTransaction?.Finish(SpanStatus.Ok);
+            // TODO: Send as measurements
+            startTransaction.SetExtra("frames_total", totalFrames.ToString());
+            startTransaction.SetExtra("frames_slow", slowFrames.ToString());
+            startTransaction.SetExtra("frames_frozen", stalledFrames.ToString());
+            startTransaction.Finish(SpanStatus.Ok);
             _roundStartTransaction = null;
         }
         if (_data.HitPoints <= 0)
         {
-            StateTransition(GameStates.GameOver); 
+            StateTransition(GameStates.GameOver);
             return;
         }
 
