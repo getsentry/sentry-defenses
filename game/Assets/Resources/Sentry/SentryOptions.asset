@@ -15,6 +15,7 @@ MonoBehaviour:
   <Enabled>k__BackingField: 1
   <Dsn>k__BackingField: https://1184e27940794752acc4feb861840710@o1.ingest.sentry.io/5905698
   <CaptureInEditor>k__BackingField: 1
+  <EnableLogDebouncing>k__BackingField: 0
   <TracesSampleRate>k__BackingField: 1
   <AutoSessionTracking>k__BackingField: 1
   <AutoSessionTrackingInterval>k__BackingField: 30000
