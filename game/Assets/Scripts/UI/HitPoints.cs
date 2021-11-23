@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using Manager;
@@ -20,23 +21,30 @@ public class HitPoints : MonoBehaviour
     private void Awake()
     {
         _gameData = GameData.Instance;
+        _rectTransform = GetComponent<RectTransform>();
         _eventManager = EventManager.Instance;
         _eventManager.UpdatingHitPoints += OnUpdatingHitPoints;
-
-        _rectTransform = GetComponent<RectTransform>();
     }
     
     [ContextMenu("HitIt")]
     private void OnUpdatingHitPoints()
     {
-        _rectTransform.DOKill();
-        _rectTransform.localScale = Vector3.one;
-        _rectTransform.DOPunchScale(Vector3.one * HitStrength, HitDuration);
+        if (_rectTransform)
+        {
+            _rectTransform.DOKill();
+            _rectTransform.localScale = Vector3.one;
+            _rectTransform.DOPunchScale(Vector3.one * HitStrength, HitDuration);    
+        }
 
         var index = _gameData.HitPoints - 1;
         if (index > 0 && index < HitPointSprites.Count)
         {
             HitPointRenderer.sprite = HitPointSprites[index];
         }
+    }
+
+    private void OnDestroy()
+    {
+        _rectTransform?.DOKill();
     }
 }

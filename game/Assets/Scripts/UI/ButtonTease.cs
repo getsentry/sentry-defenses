@@ -25,8 +25,8 @@ public class ButtonTease : MonoBehaviour
             .SetLoops(-1, LoopType.Yoyo);
     }
 
-    private void Update()
+    private void OnDestroy()
     {
-        
+        _rectTransform?.DOKill();
     }
 }

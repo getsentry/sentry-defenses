@@ -37,7 +37,7 @@ public class StartMenu : MonoBehaviour
 
     private void OnStartClick() => _eventManager.Upgrade();
 
-    private void OnSampleClick() => SceneManager.LoadScene("1_BugfarmScene");
+    private void OnSampleClick() => SceneManager.LoadScene("1_Bugfarm");
 
     public void Show()
     {
