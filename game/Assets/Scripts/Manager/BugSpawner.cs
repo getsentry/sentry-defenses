@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using Sentry;
 
 public class BugSpawner : MonoSingleton<BugSpawner>
 {
@@ -27,11 +28,13 @@ public class BugSpawner : MonoSingleton<BugSpawner>
     private HttpClient _client;
 
     private Task _startUpTask;
-    
+
+    private ISpan _spawnChild = null;
+
     private void Awake()
     {
         _camera = Camera.main;
-        _client = new HttpClient();
+        _client = new HttpClient(new SentryHttpMessageHandler());
 
         _sentryBugs = new ConcurrentStack<SentryBug>();
         
@@ -50,6 +53,7 @@ public class BugSpawner : MonoSingleton<BugSpawner>
 
     private async Task RetrieveSentryBugs()
     {
+        FinishChildSpan();
         var data = await _client.GetStringAsync(
             "https://europe-west3-nth-wording-322409.cloudfunctions.net/sentry-game-server").ConfigureAwait(false);
 
@@ -66,19 +70,33 @@ public class BugSpawner : MonoSingleton<BugSpawner>
         {
             _startUpTask.GetAwaiter().GetResult();
         }
-        
+
         if (_sentryBugs.Count <= 0)
         {
-            RetrieveSentryBugs().GetAwaiter().GetResult();                    
+            _startUpTask = RetrieveSentryBugs();
+            _startUpTask.GetAwaiter().GetResult();
         }
 
         _sentryBugs.TryPop(out var bug);
         return bug;
     }
 
+    public void FinishChildSpan()
+    {
+        _spawnChild?.Finish(SpanStatus.Ok);
+        _spawnChild = null;
+    }
+
     public GameObject Spawn()
     {
+        _spawnChild ??= SentrySdk.GetSpan()?.StartChild("unit.spawn");
+
         var sentryBug = GetSentryBug();
+        if (sentryBug == null)
+        {
+            return null;
+        }
+
         string platform = sentryBug.platform;
         var platformPrefab = new Dictionary<string, GameObject>(){
             {"javascript", BugPrefabs[0]},
@@ -95,7 +113,7 @@ public class BugSpawner : MonoSingleton<BugSpawner>
         var randomPosition = new Vector3(sentryBug.lat, sentryBug.lon, 0) * MaxSpawnDistance;
         var bugGameObject = Instantiate(platformPrefab[platform], randomPosition, Quaternion.identity);
         bugGameObject.transform.SetParent(transform);
-        
+
         return bugGameObject;
     }
 }
