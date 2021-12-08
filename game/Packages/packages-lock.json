@@ -145,11 +145,11 @@
       }
     },
     "io.sentry.unity": {
-      "version": "https://github.com/getsentry/unity.git#0.7.0",
+      "version": "https://github.com/getsentry/unity.git#0.8.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "b27f0fa031d52568a3ad870708d2c8954787d98d"
+      "hash": "e93ab380ef1b4467a73cf918eefb629a3bc6710f"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
