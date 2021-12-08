@@ -2,3 +2,6 @@ bin/
 obj/
 .idea
 .DS_Store
+
+# Ignore the CLI options which contain an auth token
+game/Assets/Plugins/Sentry/SentryCliOptions.asset

@@ -28,7 +28,7 @@ MonoBehaviour:
   <IsEnvironmentUser>k__BackingField: 0
   <EnableOfflineCaching>k__BackingField: 1
   <MaxCacheItems>k__BackingField: 30
-  <InitCacheFlushTimeout>k__BackingField: 0
+  <InitCacheFlushTimeout>k__BackingField: 2000
   <ShutdownTimeout>k__BackingField: 2000
   <MaxQueueItems>k__BackingField: 30
   <IosNativeSupportEnabled>k__BackingField: 1
