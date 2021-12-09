@@ -13,13 +13,10 @@ public class GameStateMachine : StateMachine<GameStates>
     public UpgradeMenu UpgradeMenu;
     public SentryPlacingMenu SentryPlacingMenu;
     public GameOverMenu GameOverMenu;
-    private ITransaction _startTransaction;
     
     public void Awake()
     {
-        _startTransaction = SentrySdk.StartTransaction("initialize", "state.machine");
-        SentrySdk.ConfigureScope(scope => scope.Transaction = _startTransaction);
-        // The transaction will be closed by BugSpawner.
+        SentrySdk.ConfigureScope(scope => scope.Transaction = SentrySdk.StartTransaction("initialize", "state.machine"));
         base.Awake();
     }
     protected override void Initialize()
