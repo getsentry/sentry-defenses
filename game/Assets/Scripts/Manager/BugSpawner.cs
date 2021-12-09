@@ -37,7 +37,7 @@ public class BugSpawner : MonoSingleton<BugSpawner>
         _client = new HttpClient(new SentryHttpMessageHandler());
 
         _sentryBugs = new ConcurrentStack<SentryBug>();
-        
+
         _startUpTask = RetrieveSentryBugs();
     }
 
@@ -53,6 +53,7 @@ public class BugSpawner : MonoSingleton<BugSpawner>
 
     private async Task RetrieveSentryBugs()
     {
+        var currentTransaction = SentrySdk.GetSpan();
         FinishChildSpan();
         var data = await _client.GetStringAsync(
             "https://europe-west3-nth-wording-322409.cloudfunctions.net/sentry-game-server").ConfigureAwait(false);
@@ -61,6 +62,11 @@ public class BugSpawner : MonoSingleton<BugSpawner>
         foreach (var bug in bugs)
         {
             _sentryBugs.Push(bug);    
+        }
+
+        if (currentTransaction.Operation == "State Machine")
+        {
+            currentTransaction.Finish(SpanStatus.Ok);
         }
     }
     
