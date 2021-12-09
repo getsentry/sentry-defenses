@@ -64,7 +64,7 @@ public class BugSpawner : MonoSingleton<BugSpawner>
             _sentryBugs.Push(bug);    
         }
 
-        if (currentTransaction.Operation == "State Machine")
+        if (currentTransaction.Operation == "state.machine")
         {
             currentTransaction.Finish(SpanStatus.Ok);
         }
