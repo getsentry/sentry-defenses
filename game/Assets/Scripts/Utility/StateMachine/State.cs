@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using Sentry;
 using UnityEngine;
 
 namespace Utility.StateMachine
@@ -7,6 +9,9 @@ namespace Utility.StateMachine
     {
         protected bool IsActive;
         private readonly StateMachine<TStateType> _stateMachine;
+
+        private static string PreviousState = null;
+        private static ITransaction PreviousTransaction = null;
 
         protected State(StateMachine<TStateType> stateMachine)
         {
@@ -19,7 +24,21 @@ namespace Utility.StateMachine
 
             if (_stateMachine.PrintStateTransitions)
             {
-                Debug.Log($"{GetType().Name}", _stateMachine);
+                PreviousTransaction?.Finish(SpanStatus.Ok);
+               
+                var currentState = GetType().Name;
+                Debug.Log($"{currentState}", _stateMachine);
+                PreviousTransaction = SentrySdk.StartTransaction(currentState.Replace("GameState", "state.").ToLower(), "state.machine");
+
+                if (PreviousState != null)
+                {
+                    SentrySdk.AddBreadcrumb(null,
+                        "navigation",
+                        "navigation",
+                        new Dictionary<string, string> { { "from", $"/{PreviousState}" }, { "to", $"/{currentState}" } });
+
+                }
+                PreviousState =  GetType().Name;
             }
         }
 
