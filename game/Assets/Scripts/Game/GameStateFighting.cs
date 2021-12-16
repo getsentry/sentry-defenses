@@ -36,14 +36,14 @@ public class GameStateFighting : GameState
             _frozenFrames = 0;
             _totalFrames = 0;
 
-            base.OnEnter();
-
             bugsToSpawn = 5 + _data.Level * 2;
 
             scope.SetTag("game.bugs", bugsToSpawn.ToString());
             var turds = GameObject.FindObjectsOfType<SentryTower>();
             scope.SetTag("game.sentries", turds.Length.ToString());
         });
+        
+        base.OnEnter();
     }
 
     public override void Tick()
