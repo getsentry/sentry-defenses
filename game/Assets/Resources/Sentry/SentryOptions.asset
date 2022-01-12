@@ -21,10 +21,10 @@ MonoBehaviour:
   <AutoSessionTrackingInterval>k__BackingField: 30000
   <ReleaseOverride>k__BackingField: 
   <EnvironmentOverride>k__BackingField: 
-  <AttachStacktrace>k__BackingField: 0
+  <AttachStacktrace>k__BackingField: 1
   <MaxBreadcrumbs>k__BackingField: 100
-  <ReportAssembliesMode>k__BackingField: 1
-  <SendDefaultPii>k__BackingField: 0
+  <ReportAssembliesMode>k__BackingField: 2
+  <SendDefaultPii>k__BackingField: 1
   <IsEnvironmentUser>k__BackingField: 0
   <EnableOfflineCaching>k__BackingField: 1
   <MaxCacheItems>k__BackingField: 30

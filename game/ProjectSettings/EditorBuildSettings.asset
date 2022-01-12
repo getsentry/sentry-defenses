@@ -9,12 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Game.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Samples/Sentry Unity/0.8.0/Unity of bugs/Scenes/1_Bugfarm.unity
+    path: Assets/Samples/Sentry Unity/0.9.3/Unity of bugs/Scenes/1_Bugfarm.unity
     guid: ea1c53ffa9f3c482287ee84d42ea0db4
   - enabled: 1
-    path: Assets/Samples/Sentry Unity/0.8.0/Unity of bugs/Scenes/2_MobileNativeSupport.unity
+    path: Assets/Samples/Sentry Unity/0.9.3/Unity of bugs/Scenes/2_MobileNativeSupport.unity
     guid: b2239cfd14b1c400ea7357ae542078c1
   - enabled: 1
-    path: Assets/Samples/Sentry Unity/0.8.0/Unity of bugs/Scenes/3_Transition.unity
+    path: Assets/Samples/Sentry Unity/0.9.3/Unity of bugs/Scenes/3_AdditionalSamples.unity
     guid: 9770f231579c0402c9384221ae02c07f
   m_configObjects: {}
