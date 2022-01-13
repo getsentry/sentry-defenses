@@ -1,6 +1,8 @@
 using Game;
 using UnityEngine;
 using Utility.StateMachine;
+using Sentry;
+using System;
 
 public class GameStateMachine : StateMachine<GameStates>
 {
@@ -12,6 +14,11 @@ public class GameStateMachine : StateMachine<GameStates>
     public SentryPlacingMenu SentryPlacingMenu;
     public GameOverMenu GameOverMenu;
     
+    public void Awake()
+    {
+        SentrySdk.ConfigureScope(scope => scope.Transaction = SentrySdk.StartTransaction("initialize", "state.machine"));
+        base.Awake();
+    }
     protected override void Initialize()
     {
         base.Initialize();
