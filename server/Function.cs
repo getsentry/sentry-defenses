@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sentry;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
@@ -12,7 +13,7 @@ using Google.Cloud.Functions.Hosting;
 
 public class Function : IHttpFunction
 {
-    private readonly HttpClient _client = new();
+    private readonly HttpClient _client = new(new SentryHttpMessageHandler());
 
     public async Task HandleAsync(HttpContext context)
     {

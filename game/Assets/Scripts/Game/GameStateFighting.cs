@@ -25,18 +25,25 @@ public class GameStateFighting : GameState
 
     public override void OnEnter()
     {
-        SentrySdk.ConfigureScope(scope => scope.SetTag("game.level", _data.Level.ToString()));
+        SentrySdk.ConfigureScope(scope => 
+        {
+            scope.SetTag("game.level", _data.Level.ToString());
 
-        _roundStartTransaction = SentrySdk.StartTransaction("round.start", "Start Round");
-        SentrySdk.ConfigureScope(scope => scope.Transaction = _roundStartTransaction);
+            _roundStartTransaction = SentrySdk.StartTransaction("round.start", "Start Round");
+            scope.Transaction = _roundStartTransaction;
 
-        _slowFrames = 0;
-        _frozenFrames = 0;
-        _totalFrames = 0;
+            _slowFrames = 0;
+            _frozenFrames = 0;
+            _totalFrames = 0;
 
-        base.OnEnter();
+            bugsToSpawn = 5 + _data.Level * 2;
+
+            scope.SetTag("game.bugs", bugsToSpawn.ToString());
+            var turds = GameObject.FindObjectsOfType<SentryTower>();
+            scope.SetTag("game.sentries", turds.Length.ToString());
+        });
         
-        bugsToSpawn = 5 + _data.Level * 2;
+        base.OnEnter();
     }
 
     public override void Tick()
