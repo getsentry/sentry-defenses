@@ -6,7 +6,6 @@ public enum BugStates
 {
     Spawn,
     Move,
-    Hit,
     Despawn,
     Attack
 }

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Manager;
 using UnityEngine;
 
@@ -23,10 +24,10 @@ namespace Bugs
 
             _stateMachine.Visuals.Despawn();
             _gameData.bugs.Remove(_stateMachine.gameObject);
+            
             GameObject.Destroy(_stateMachine.gameObject);
             
-            _gameData.Coins += _stateMachine.CoinDrop;
-            _eventManager.UpdateCoins();
+            _gameData.CurrentXp++;
         }
     }
 }

@@ -35,7 +35,7 @@ public class StartMenu : MonoBehaviour
         SampleButton.onClick.AddListener(OnSampleClick);
     }
 
-    private void OnStartClick() => _eventManager.Upgrade();
+    private void OnStartClick() => _eventManager.StartFight();
 
     private void OnSampleClick() => SceneManager.LoadScene("1_Bugfarm");
 

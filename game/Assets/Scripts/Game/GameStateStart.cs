@@ -6,29 +6,33 @@ namespace Game
     {
         private EventManager _eventManager;
         private readonly StartMenu _startMenu;
+        private readonly PickUpgradeMenu _pickUpgradeMenu;
         
         public GameStateStart(GameStateMachine stateMachine) : base(stateMachine)
         {
             _eventManager = EventManager.Instance;
-            _eventManager.Upgrading += OnUpgrade;
+            _eventManager.OnFight += OnStart;
 
             _startMenu = stateMachine.StartMenu;
+            _pickUpgradeMenu = stateMachine.PickUpgradeMenu;
+            
         }
 
-        private void OnUpgrade()
+        private void OnStart()
         {
             if (!IsActive)
             {
                 return;
             }
             
-            _startMenu.Hide(() => StateTransition(GameStates.Upgrading));
+            _startMenu.Hide(() => StateTransition(GameStates.Fight));
         }
 
         public override void OnEnter()
         {
             base.OnEnter();
             _startMenu.Show();
+            _pickUpgradeMenu.Hide(null);
         }
     }
 }

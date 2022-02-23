@@ -5,8 +5,9 @@ using UnityEngine;
 public enum GameStates
 {
     StartMenu,
-    SentryPlacing,
-    Fighting,
-    Upgrading,
+    Fight,
+    PickUpgrade,
+    UpgradeSentry,
+    PlaceSentry,
     GameOver
 }

@@ -12,26 +12,26 @@ namespace Game
         {
             _gameData = GameData.Instance;
             _eventManager = EventManager.Instance;
-            _eventManager.Upgrading += OnUpgrading;
+            _eventManager.OnFight += OnFight;
 
             _gameOverMenu = stateMachine.GameOverMenu;
         }
 
-        private void OnUpgrading()
+        private void OnFight()
         {
             if (!IsActive)
             {
                 return;
             }
             
-            StateTransition(GameStates.Upgrading);
+            StateTransition(GameStates.Fight);
         }
 
         public override void OnEnter()
         {
             base.OnEnter();
 
-            _gameOverMenu.WaveText.text = $"Wave {_gameData.Level.ToString()}!";
+            _gameOverMenu.WaveText.text = $"{_gameData.BugCount.ToString()} bugs!";
             _gameOverMenu.Show(null);
             
             _eventManager.Reset();

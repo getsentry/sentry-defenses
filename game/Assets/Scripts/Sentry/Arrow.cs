@@ -1,56 +1,54 @@
+using System;
+using System.Collections;
 using UnityEngine;
-using Manager;
 
 public class Arrow : MonoBehaviour
 {
     public float MovementSpeed = 20.0f;
     
-    private Transform _target;
-    private Transform _origin;
     private float _damage;
-    
-    private GameData _gameData;
-    private EventManager _eventManager;
+    private Vector3 _direction;
 
-    private void Awake()
+    public float MaxLifeTime = 5.0f;
+    private Coroutine _selfDestructRoutine;
+
+    private void Start()
     {
-        _gameData = GameData.Instance;
-        _eventManager = EventManager.Instance;
+        _selfDestructRoutine = StartCoroutine(SelfDestruct());
     }
 
-    public void SetTarget(float Damage, Transform target, Transform origin)
+    IEnumerator SelfDestruct()
     {
-        _target = target;
-        _origin = origin;
+        yield return new WaitForSeconds(MaxLifeTime);
+        if (gameObject != null)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void Fire(float Damage, Vector3 direction)
+    {
         _damage = Damage;
+        _direction = direction;
     }
 
     private void Update()
     {
-        if (_target == null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        var targetPosition = _target.position + new Vector3(0, 0.25f, 0);
-        var direction = (targetPosition - transform.position).normalized;
-        transform.position += direction * (MovementSpeed * Time.deltaTime);
-        transform.right = direction;
+        transform.position += _direction * (MovementSpeed * Time.deltaTime);
+        transform.right = _direction;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (!other.CompareTag("Bug"))
+        if (!collider.CompareTag("Bug"))
         {
             return;
         }
         
-        var bug = other.GetComponent<BugStateMachine>();
-
-        var hitDirection = (other.transform.position - _origin.position).normalized;
-        bug.Hit(_damage, hitDirection);
+        var bug = collider.gameObject.GetComponent<BugStateMachine>();
+        bug.Hit(_damage);
         
+        StopCoroutine(_selfDestructRoutine);
         Destroy(gameObject);
     }
 }

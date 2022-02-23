@@ -23,11 +23,11 @@ public class HitPoints : MonoBehaviour
         _gameData = GameData.Instance;
         _rectTransform = GetComponent<RectTransform>();
         _eventManager = EventManager.Instance;
-        _eventManager.UpdatingHitPoints += OnUpdatingHitPoints;
+        _eventManager.OnUpdateHitPoints += OnUpdateHitPoints;
     }
     
     [ContextMenu("HitIt")]
-    private void OnUpdatingHitPoints()
+    private void OnUpdateHitPoints()
     {
         if (_rectTransform)
         {

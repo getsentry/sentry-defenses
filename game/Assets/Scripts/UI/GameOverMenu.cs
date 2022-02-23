@@ -40,10 +40,7 @@ public class GameOverMenu : MonoBehaviour
         Container.SetActive(false);
     }
 
-    private void OnRestartButtonClick()
-    {
-        _eventManager.Upgrade();        
-    }
+    private void OnRestartButtonClick() => _eventManager.StartFight();
 
     public void Show(Action finishCallback)
     {

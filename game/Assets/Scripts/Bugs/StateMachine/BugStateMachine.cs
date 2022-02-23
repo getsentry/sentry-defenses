@@ -1,35 +1,51 @@
 using System;
-using System.ComponentModel;
 using Bugs;
 using Manager;
+using TMPro;
 using UnityEngine;
 using Utility.StateMachine;
 
 public class BugStateMachine : StateMachine<BugStates>
 {
+    public Transform Transform;
+    
     public float HitPoints;
     public float HitPointsTotal;
 
     public BugVisuals Visuals;
-    public Rigidbody2D Rigidbody;
     public CircleCollider2D Collider;
     public float MovementSpeed;
+    
+    public float SlowdownMultiplier = 0.3f;
+    public float ActiveSlowdownDuration;
+    public float MaxSlowdownDuration = 0.15f;
 
-    public AnimationCurve HitReactionCurve;
-    public float HitReactionDuration;
-    public float HitPushBackForce;
-    public Vector3 PushBackDirection;
+    public bool IsPaused;
+    public event Action<float> OnHit;
 
-    public int CoinDrop = 1;
-
-    public float DamageTaken;
-
-    public Action OnHit;
-    public Action OnTargetReached;
+    protected override void Awake()
+    {
+        base.Awake();
+        Transform = transform;
+    }
 
     protected override void Start()
     {
         base.Start();
+
+        var eventManager = EventManager.Instance;
+        eventManager.OnGamePause += () =>
+        {
+            Visuals.Pause();
+            IsPaused = true;
+        };
+        
+        eventManager.OnGameResume += () =>
+        {
+            Visuals.Play();
+            IsPaused = false;
+        };
+        
     }
 
     protected override void Initialize()
@@ -38,26 +54,11 @@ public class BugStateMachine : StateMachine<BugStates>
 
         _states.Add(BugStates.Spawn, new BugStateSpawn(this));
         _states.Add(BugStates.Move, new BugStateMove(this));
-        _states.Add(BugStates.Hit, new BugStateHit(this));
         _states.Add(BugStates.Despawn, new BugStateDespawn(this));
         _states.Add(BugStates.Attack, new BugStateAttack(this));
 
         _currentState = _states[BugStates.Spawn];
     }
 
-    public void Hit(float damage, Vector3 direction)
-    {
-        DamageTaken = damage;
-        PushBackDirection = direction;
-
-        OnHit?.Invoke();
-    }
-
-    public void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Turd"))
-        {
-            OnTargetReached?.Invoke();
-        }
-    }
+    public void Hit(float damage) => OnHit?.Invoke(damage);
 }

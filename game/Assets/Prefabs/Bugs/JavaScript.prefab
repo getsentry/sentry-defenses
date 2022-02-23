@@ -205,7 +205,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8184238152582161901}
-  - component: {fileID: 1951776595378327672}
   - component: {fileID: 7035374239065382010}
   - component: {fileID: 4297333043323596682}
   - component: {fileID: 6798180797794454217}
@@ -233,27 +232,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1951776595378327672
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2753352758018989063}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 1
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!58 &7035374239065382010
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -285,6 +263,7 @@ MonoBehaviour:
   BounceTransform: {fileID: 5959624481418749130}
   Body: {fileID: 1233163326524475361}
   Shadow: {fileID: 2680558509943100168}
+  Animator: {fileID: 1279699963421202905}
   HealthPointBar: {fileID: 3714257437578177000}
   HealthLossSpeed: 0.25
   StartScale: 0.3
@@ -312,41 +291,16 @@ MonoBehaviour:
   <PrintStateTransitions>k__BackingField: 0
   <PrintDebugMessages>k__BackingField: 0
   <ShowDebugGizmos>k__BackingField: 0
+  Transform: {fileID: 0}
   HitPoints: 1
   HitPointsTotal: 1
   Visuals: {fileID: 4297333043323596682}
-  Rigidbody: {fileID: 1951776595378327672}
   Collider: {fileID: 7035374239065382010}
-  MovementSpeed: 0.75
-  HitReactionCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  HitReactionDuration: 0.5
-  HitPushBackForce: 1.5
-  PushBackDirection: {x: 0, y: 0, z: 0}
-  CoinDrop: 2
-  DamageTaken: 0
+  MovementSpeed: 0.5
+  SlowdownMultiplier: 0.3
+  ActiveSlowdownDuration: 0
+  MaxSlowdownDuration: 0.15
+  IsPaused: 0
 --- !u!1 &3820591442147413907
 GameObject:
   m_ObjectHideFlags: 0

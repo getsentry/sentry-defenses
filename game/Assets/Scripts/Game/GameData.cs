@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Manager;
 using UnityEngine;
@@ -7,47 +5,75 @@ using UnityEngine;
 public class GameData : MonoSingleton<GameData>
 {
     public GameObject SentryPrefab;
-
-    public int StartCoins = 25;
-    public int Coins;
-    
-    public int Level = 1;
     public TowerUpgrade Upgrade = new TowerUpgrade();
-    
     public List<GameObject> bugs = new List<GameObject>();
 
     public int StartHitPoints = 3;
-    public int HitPoints;
 
-    private EventManager _eventManager;
+    private int _hitPoints;
+    public int HitPoints
+    {
+        get => _hitPoints;
+        set
+        {
+            _hitPoints = value;
+            _eventManager.UpdateHitPoints();
+        }
+    }
+
+    private int _currentXp;
+    public int CurrentXp
+    {
+        get => _currentXp;
+        set
+        {
+            _currentXp = value;
+            _eventManager.UpdateXp();
+            
+            BugCount++;
+            
+            if (_currentXp >= LevelUpRequirement)
+            {
+                _currentXp = 0;
+                _eventManager.LevelUpXp();
+
+                RequirementIncrease++;
+                LevelUpRequirement += RequirementIncrease;
+            }
+        }
+    }
     
+    public int LevelUpRequirement = 2;
+    public int RequirementIncrease = 2;
+    
+    public int BugCount;
+    
+    private EventManager _eventManager;
+
     private void Awake()
     {
         _eventManager = EventManager.Instance;
-        _eventManager.Resetting += OnResetting;
+        _eventManager.OnReset += OnReset;
     }
 
     private void Start()
     {
-        _eventManager.UpdateCoins();
         _eventManager.UpdateHitPoints();
         
         bugs = new List<GameObject>();
-        
-        Coins = StartCoins;
         HitPoints = StartHitPoints;
     }
 
-    private void OnResetting()
+    private void OnReset()
     {
         bugs = new List<GameObject>();
-
-        Level = 1;
-        Coins = StartCoins;
-        HitPoints = StartHitPoints;
         
-        _eventManager.UpdateCoins();
-        _eventManager.UpdateHitPoints();
+        HitPoints = StartHitPoints;
+        CurrentXp = 0;
+        BugCount = 0;
+
+        LevelUpRequirement = 2;
+        RequirementIncrease = 2;
     }
 }
 
@@ -56,8 +82,4 @@ public class TowerUpgrade {
     public float Range = 0f;
     public float Damage = 0f;
     public float FireRate = 0f;
-
-    public int CurrentRangeUpgradeCost = 1;
-    public int CurrentDamageUpgradeCost = 1;
-    public int CurrentFireRateUpgradeCost = 1;
 }

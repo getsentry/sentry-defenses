@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 356934926039108600}
   - component: {fileID: 356934926039108603}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,6 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 356934926336300568}
   - component: {fileID: 356934926336300571}
+  - component: {fileID: 4289600778920647748}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -164,6 +165,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &4289600778920647748
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356934926336300569}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.35
 --- !u!1 &356934927671453552
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,11 +190,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 356934927671453554}
-  - component: {fileID: 356934927671453565}
-  - component: {fileID: 7439942227848037784}
+  - component: {fileID: 8424102950339521086}
+  - component: {fileID: 2132273726209482408}
   - component: {fileID: 356934927671453564}
   - component: {fileID: 1417628745165891976}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sentry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,23 +220,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &356934927671453565
-CircleCollider2D:
+--- !u!50 &8424102950339521086
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356934927671453552}
-  m_Enabled: 1
-  m_Density: 1
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.35
---- !u!58 &7439942227848037784
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &2132273726209482408
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,7 +272,7 @@ MonoBehaviour:
   ArrowPrefab: {fileID: 4864686798721752670, guid: caa7cb23b7f7a48de973de6183a51ea0, type: 3}
   ArrowSpawnTransform: {fileID: 356934927778169913}
   CircleVisual: {fileID: 356934926336300569}
-  AttackRangeCollider: {fileID: 356934927671453565}
+  AttackRangeCollider: {fileID: 4289600778920647748}
   WoodSentry: {fileID: 356934927722426036}
   BrickSentry: {fileID: 3426630037986873673}
 --- !u!114 &1417628745165891976
@@ -290,7 +312,7 @@ GameObject:
   - component: {fileID: 356934927722426038}
   - component: {fileID: 268100884826667237}
   - component: {fileID: 639409681}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sentry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +327,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356934927722426036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 356934927671453554}
@@ -403,7 +425,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 356934927778169913}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ArrowSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +458,7 @@ GameObject:
   - component: {fileID: 1543294204504622171}
   - component: {fileID: 1742915716233297600}
   - component: {fileID: 5269294608906782436}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BrickTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}

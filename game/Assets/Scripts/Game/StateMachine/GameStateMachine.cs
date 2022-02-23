@@ -2,7 +2,6 @@ using Game;
 using UnityEngine;
 using Utility.StateMachine;
 using Sentry;
-using System;
 
 public class GameStateMachine : StateMachine<GameStates>
 {
@@ -10,11 +9,12 @@ public class GameStateMachine : StateMachine<GameStates>
 
     [Header("Menus")] 
     public StartMenu StartMenu;
-    public UpgradeMenu UpgradeMenu;
-    public SentryPlacingMenu SentryPlacingMenu;
+    public PickUpgradeMenu PickUpgradeMenu;
     public GameOverMenu GameOverMenu;
+
+    public int PickedUpgrade = -1;
     
-    public void Awake()
+    protected override void Awake()
     {
         SentrySdk.ConfigureScope(scope => scope.Transaction = SentrySdk.StartTransaction("initialize", "state.machine"));
         base.Awake();
@@ -24,9 +24,10 @@ public class GameStateMachine : StateMachine<GameStates>
         base.Initialize();
         
         _states.Add(GameStates.StartMenu, new GameStateStart(this));
-        _states.Add(GameStates.Upgrading, new GameStateUpgrading(this));
-        _states.Add(GameStates.SentryPlacing, new GameStatePlacing(this));
-        _states.Add(GameStates.Fighting, new GameStateFighting(this));
+        _states.Add(GameStates.Fight, new GameStateFighting(this));
+        _states.Add(GameStates.PickUpgrade, new GameStatePickUpgrade(this));
+        _states.Add(GameStates.UpgradeSentry, new GameStateUpgradeSentry(this));
+        _states.Add(GameStates.PlaceSentry, new GameStatePlaceSentry(this));
         _states.Add(GameStates.GameOver, new GameStateGameOver(this));
         
         _currentState = _states[GameStates.StartMenu];

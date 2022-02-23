@@ -5,11 +5,13 @@ using Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UpgradeMenu : MonoBehaviour
+public class PickUpgradeMenu : MonoBehaviour
 {
-    public UpgradeButtons UpgradeButtons;
+    public Button UpgradeRange;
+    public Button UpgradeFireRate;
+    public Button UpgradeDamage;
+    public Button BuildTower;
     
-    public RectTransform Top;
     public RectTransform Bottom;
     private List<RectTransform> _bottomButtons;
 
@@ -18,8 +20,6 @@ public class UpgradeMenu : MonoBehaviour
     public float ButtonDelay = 0.1f;
     public Ease ShowEase = Ease.OutBack;
     public Ease HideEase = Ease.InBack;
-    
-    public Button StartButton;
     
     private EventManager _eventManager;
 
@@ -36,26 +36,17 @@ public class UpgradeMenu : MonoBehaviour
 
     private void Start()
     {
-        StartButton.onClick.AddListener(_eventManager.StartFight);
-
-        Top.anchoredPosition = new Vector2(0, -StartOffset);
         Bottom.anchoredPosition = new Vector2(0, StartOffset);
     }
-
+    
     public void Show()
     {
-        Top.DOAnchorPosY(0, MoveDuration)
-            .SetEase(ShowEase);
-        
         Bottom.DOAnchorPosY(0, MoveDuration)
             .SetEase(ShowEase);
     }
 
     public void Hide(Action finishCallback)
     {
-        Top.DOAnchorPosY(Top.rect.height, MoveDuration)
-            .SetEase(HideEase);
-
         Bottom.DOAnchorPosY(-Bottom.rect.height, MoveDuration)
             .SetEase(HideEase)
             .OnStepComplete(() => finishCallback?.Invoke());

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Manager;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SentryTower : MonoBehaviour
 {
@@ -20,13 +21,21 @@ public class SentryTower : MonoBehaviour
     
     public TowerUpgrade Upgrades = new TowerUpgrade();
 
+    private bool _isPaused;
+    
     private void Awake()
     {
         _eventManager = EventManager.Instance;
-        _eventManager.Resetting += OnReset;
+        _eventManager.OnReset += OnReset;
         
         _targets = new List<Transform>();
         _visuals = GetComponent<SentryVisuals>();
+    }
+
+    private void Start()
+    {
+        _eventManager.OnGamePause += () => _isPaused = true;
+        _eventManager.OnGameResume += () => _isPaused = false;
     }
 
     private void OnReset()
@@ -48,6 +57,11 @@ public class SentryTower : MonoBehaviour
 
     void Update()
     {
+        if (_isPaused)
+        {
+            return;
+        }
+        
         if (_targets.Count <= 0)
             return;
  
@@ -83,8 +97,9 @@ public class SentryTower : MonoBehaviour
             }
             else
             {
-                var bullet = Instantiate(ArrowPrefab, ArrowSpawnTransform.position, Quaternion.identity);
-                bullet.GetComponent<Arrow>().SetTarget(Mathf.Pow(1.5f, Upgrades.Damage), target, transform);
+                var direction = ((target.position + new Vector3(0, 0.25f, 0)) - transform.position).normalized; 
+                var arrowObject = Instantiate(ArrowPrefab, ArrowSpawnTransform.position, Quaternion.identity);
+                arrowObject.GetComponent<Arrow>().Fire(Mathf.Pow(1.5f, Upgrades.Damage), direction);
                 break;
             }
         }
@@ -92,22 +107,15 @@ public class SentryTower : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        _targets.Add(other.transform);
+        if (other.CompareTag("Bug"))
+        {
+            _targets.Add(other.transform);    
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         _targets.Remove(other.transform);
-    }
-
-    public void Select()
-    {
-        _visuals.Select();
-    }
-
-    public void Deselect()
-    {
-        _visuals.Deselect();
     }
 
     public void Wiggle()

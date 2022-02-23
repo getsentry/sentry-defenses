@@ -1,7 +1,4 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Threading;
-using System.Diagnostics;
+using Manager;
 using UnityEngine;
 using Sentry;
 
@@ -17,17 +14,45 @@ public class GameStateFighting : GameState
     private int _totalFrames = 0;
     private ITransaction _roundStartTransaction = null;
 
+    private float _startSpawnDelay = 3;
+    private float _spawnDelay = 3;
+    private float _spawnSpeedUp = 0.25f;
+    private int _spawnCount = 1;
+    
+    
     public GameStateFighting(GameStateMachine stateMachine) : base(stateMachine)
     {
         _data = GameData.Instance;
         _bugSpawner = BugSpawner.Instance;
+
+        var eventManager = EventManager.Instance;
+
+        eventManager.OnReset += () =>
+        {
+            _spawnDelay = _startSpawnDelay;
+            _spawnCount = 1;
+        };
+        
+        eventManager.OnLevelUpXp += OnLevelUpXp;
+    }
+
+    private void OnLevelUpXp()
+    {
+        if (!IsActive)
+        {
+            return;
+        }
+        
+        StateTransition(GameStates.PickUpgrade);
     }
 
     public override void OnEnter()
     {
+        EventManager.Instance.ResumeGame();
+        
         SentrySdk.ConfigureScope(scope => 
         {
-            scope.SetTag("game.level", _data.Level.ToString());
+            scope.SetTag("game.bugcount", _data.BugCount.ToString());
 
             _roundStartTransaction = SentrySdk.StartTransaction("round.start", "Start Round");
             scope.Transaction = _roundStartTransaction;
@@ -36,12 +61,15 @@ public class GameStateFighting : GameState
             _frozenFrames = 0;
             _totalFrames = 0;
 
-            bugsToSpawn = 5 + _data.Level * 2;
-
-            scope.SetTag("game.bugs", bugsToSpawn.ToString());
+            // bugsToSpawn = 5 + _data.Level * 2;
+            bugsToSpawn = 1;
+            
+            scope.SetTag("game.alivebugs", bugsToSpawn.ToString());
             var turds = GameObject.FindObjectsOfType<SentryTower>();
             scope.SetTag("game.sentries", turds.Length.ToString());
         });
+
+        timer = _spawnDelay; // So there is a bug spawning immediately
         
         base.OnEnter();
     }
@@ -49,23 +77,43 @@ public class GameStateFighting : GameState
     public override void Tick()
     {
         base.Tick();
-        var frameDeltaTime = Time.deltaTime;
+
         timer += Time.deltaTime;
-        if (bugsToSpawn > 0 && timer > 0.3f)
+        if (timer > _spawnDelay)
         {
             timer = 0;
-            for (int i = 0; i < _data.Level; i++)
+            _spawnDelay -= _spawnSpeedUp;
+
+            if (_spawnDelay < 1)
+            {
+                _spawnDelay = _startSpawnDelay;
+                _spawnCount++;
+            }
+
+            for (var i = 0; i < _spawnCount; i++)
             {
                 var bug = _bugSpawner.Spawn();
-                _data.bugs.Add(bug);
-                bugsToSpawn -= 1;
-                if (bugsToSpawn == 0)
-                {
-                    break;
-                }
+                _data.bugs.Add(bug);    
             }
         }
         
+        // timer += Time.deltaTime;
+        // if (bugsToSpawn > 0 && timer > 0.3f)
+        // {
+        //     timer = 0;
+        //     for (int i = 0; i < _data.Level; i++)
+        //     {
+        //         var bug = _bugSpawner.Spawn();
+        //         _data.bugs.Add(bug);
+        //         bugsToSpawn -= 1;
+        //         if (bugsToSpawn == 0)
+        //         {
+        //             break;
+        //         }
+        //     }
+        // }
+        
+        var frameDeltaTime = Time.deltaTime;
         if (frameDeltaTime >= 0.3f)
         {
             _frozenFrames++; 
@@ -86,17 +134,18 @@ public class GameStateFighting : GameState
             startTransaction.Finish(SpanStatus.Ok);
             _roundStartTransaction = null;
         }
+        
         if (_data.HitPoints <= 0)
         {
             StateTransition(GameStates.GameOver);
             return;
         }
 
-        if (_data.bugs.Count <= 0 && bugsToSpawn <= 0)
-        {
-            _data.Level++;
-            StateTransition(GameStates.Upgrading);
-            return;
-        }
+        // if (_data.bugs.Count <= 0 && bugsToSpawn <= 0)
+        // {
+        //     _data.Level++;
+        //     StateTransition(GameStates.Upgrading);
+        //     return;
+        // }
     }
 }

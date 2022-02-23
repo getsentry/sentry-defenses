@@ -7,6 +7,8 @@ public class BugVisuals : MonoBehaviour
     public Transform BounceTransform;
     public SpriteRenderer Body;
     public SpriteRenderer Shadow;
+
+    public Animator Animator;
     
     [Header("Health")]
     public Transform HealthPointBar;
@@ -77,5 +79,26 @@ public class BugVisuals : MonoBehaviour
     public void Despawn()
     {
         Instantiate(DespawnPrefab, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+    }
+    
+    public void Play()
+    {
+        if (Animator != null)
+        {
+            Animator.speed = 1;    
+        }
+    }
+    
+    public void Pause()
+    {
+        if (Animator != null)
+        {
+            Animator.speed = 0;    
+        }
+    }
+
+    public void Kill()
+    {
+        _spawnSequence.Kill();
     }
 }
