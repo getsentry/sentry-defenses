@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Google.Cloud.Functions.Hosting" Version="1.0.0" />
-    <PackageReference Include="Sentry.Google.Cloud.Functions" Version="3.12.1" />
+    <PackageReference Include="Sentry.Google.Cloud.Functions" Version="3.14.1" />
   </ItemGroup>
   
 </Project>
