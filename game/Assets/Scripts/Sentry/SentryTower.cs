@@ -21,7 +21,7 @@ public class SentryTower : MonoBehaviour
     
     public TowerUpgrade Upgrades = new TowerUpgrade();
 
-    private bool _isPaused;
+    private bool _isPaused = true; // True by default to avoid shooting while building a tower
     
     private void Awake()
     {
@@ -34,8 +34,16 @@ public class SentryTower : MonoBehaviour
 
     private void Start()
     {
-        _eventManager.OnGamePause += () => _isPaused = true;
-        _eventManager.OnGameResume += () => _isPaused = false;
+        _eventManager.OnGamePause += () =>
+        {
+            CircleVisual.SetActive(true);
+            _isPaused = true;
+        };
+        _eventManager.OnGameResume += () =>
+        {
+            CircleVisual.SetActive(false);
+            _isPaused = false;
+        };
     }
 
     private void OnReset()

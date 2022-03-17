@@ -1,20 +1,30 @@
 using UnityEngine;
-using Utility.StateMachine;
 
 namespace Game
 {
-    public class GameStateUpgradeSentry : GameState
+    public class GameStateApplyUpgrade : GameState
     {
         private readonly GameStateMachine _stateMachine;
+        private readonly ApplyUpgradeMenu _applyUpgradeMenu;
+        
         private readonly PlayerInput _input;
         private readonly Camera _camera;
         
-        public GameStateUpgradeSentry(GameStateMachine stateMachine) : base(stateMachine)
+        public GameStateApplyUpgrade(GameStateMachine stateMachine) : base(stateMachine)
         {
             _stateMachine = stateMachine;
+            _applyUpgradeMenu = stateMachine.ApplyUpgradeMenu;
             
             _input = PlayerInput.Instance;
             _camera = Camera.main;
+        }
+
+        public override void OnEnter()
+        {
+            base.OnEnter();
+
+            _applyUpgradeMenu.Show();
+
         }
 
         public override void Tick()
@@ -51,6 +61,12 @@ namespace Game
                     StateTransition(GameStates.Fight);
                 }
             }
+        }
+        
+        public override void OnExit()
+        {
+            base.OnExit();
+            _applyUpgradeMenu.Hide(null);
         }
     }
 }

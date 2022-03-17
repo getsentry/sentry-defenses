@@ -10,6 +10,7 @@ public class GameStateMachine : StateMachine<GameStates>
     [Header("Menus")] 
     public StartMenu StartMenu;
     public PickUpgradeMenu PickUpgradeMenu;
+    public ApplyUpgradeMenu ApplyUpgradeMenu;
     public GameOverMenu GameOverMenu;
 
     public int PickedUpgrade = -1;
@@ -26,7 +27,7 @@ public class GameStateMachine : StateMachine<GameStates>
         _states.Add(GameStates.StartMenu, new GameStateStart(this));
         _states.Add(GameStates.Fight, new GameStateFighting(this));
         _states.Add(GameStates.PickUpgrade, new GameStatePickUpgrade(this));
-        _states.Add(GameStates.UpgradeSentry, new GameStateUpgradeSentry(this));
+        _states.Add(GameStates.UpgradeSentry, new GameStateApplyUpgrade(this));
         _states.Add(GameStates.PlaceSentry, new GameStatePlaceSentry(this));
         _states.Add(GameStates.GameOver, new GameStateGameOver(this));
         

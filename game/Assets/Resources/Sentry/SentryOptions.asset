@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SentryOptions
   m_EditorClassIdentifier: 
   <Enabled>k__BackingField: 1
-  <Dsn>k__BackingField: https://1184e27940794752acc4feb861840710@o1.ingest.sentry.io/5905698
+  <Dsn>k__BackingField: https://94677106febe46b88b9b9ae5efd18a00@o447951.ingest.sentry.io/5439417
   <CaptureInEditor>k__BackingField: 1
   <EnableLogDebouncing>k__BackingField: 0
   <TracesSampleRate>k__BackingField: 1
@@ -33,6 +33,8 @@ MonoBehaviour:
   <MaxQueueItems>k__BackingField: 30
   <IosNativeSupportEnabled>k__BackingField: 1
   <AndroidNativeSupportEnabled>k__BackingField: 1
+  <WindowsNativeSupportEnabled>k__BackingField: 1
+  <OptionsConfiguration>k__BackingField: {fileID: 0}
   <Debug>k__BackingField: 1
   <DebugOnlyInEditor>k__BackingField: 0
   <DiagnosticLevel>k__BackingField: 2

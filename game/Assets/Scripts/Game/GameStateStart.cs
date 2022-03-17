@@ -7,6 +7,7 @@ namespace Game
         private EventManager _eventManager;
         private readonly StartMenu _startMenu;
         private readonly PickUpgradeMenu _pickUpgradeMenu;
+        private readonly ApplyUpgradeMenu _applyUpgradeMenu;
         
         public GameStateStart(GameStateMachine stateMachine) : base(stateMachine)
         {
@@ -15,7 +16,7 @@ namespace Game
 
             _startMenu = stateMachine.StartMenu;
             _pickUpgradeMenu = stateMachine.PickUpgradeMenu;
-            
+            _applyUpgradeMenu = stateMachine.ApplyUpgradeMenu;
         }
 
         private void OnStart()
@@ -33,6 +34,7 @@ namespace Game
             base.OnEnter();
             _startMenu.Show();
             _pickUpgradeMenu.Hide(null);
+            _applyUpgradeMenu.Hide(null);
         }
     }
 }
