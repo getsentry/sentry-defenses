@@ -271,7 +271,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArrowPrefab: {fileID: 4864686798721752670, guid: caa7cb23b7f7a48de973de6183a51ea0, type: 3}
   ArrowSpawnTransform: {fileID: 356934927778169913}
-  CircleVisual: {fileID: 356934926336300569}
+  CircleTransform: {fileID: 356934926336300568}
+  CircleRenderer: {fileID: 356934926336300571}
   AttackRangeCollider: {fileID: 4289600778920647748}
   WoodSentry: {fileID: 356934927722426036}
   BrickSentry: {fileID: 3426630037986873673}

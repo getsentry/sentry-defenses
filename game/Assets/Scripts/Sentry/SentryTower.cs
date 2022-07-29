@@ -7,7 +7,9 @@ public class SentryTower : MonoBehaviour
 {
     public GameObject ArrowPrefab;
     public Transform ArrowSpawnTransform;
-    public GameObject CircleVisual;
+    public Transform CircleTransform;
+    public SpriteRenderer CircleRenderer;
+    
     public CircleCollider2D AttackRangeCollider;
 
     public GameObject WoodSentry;
@@ -36,12 +38,12 @@ public class SentryTower : MonoBehaviour
     {
         _eventManager.OnGamePause += () =>
         {
-            CircleVisual.SetActive(true);
+            CircleRenderer.enabled = true;
             _isPaused = true;
         };
         _eventManager.OnGameResume += () =>
         {
-            CircleVisual.SetActive(false);
+            CircleRenderer.enabled = false;
             _isPaused = false;
         };
     }
@@ -84,7 +86,7 @@ public class SentryTower : MonoBehaviour
     public void PostUpgrade()
     {
         float radius = Mathf.Pow(1.10f, Upgrades.Range);
-        CircleVisual.transform.localScale = new Vector2(radius, radius);
+        CircleTransform.transform.localScale = new Vector2(radius, radius);
         AttackRangeCollider.radius = 1.35f * radius;
         if (BrickSentry != null && Upgrades.Range + Upgrades.FireRate + Upgrades.Damage > 0)
         {
