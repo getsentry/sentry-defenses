@@ -45,6 +45,12 @@ public class SentryOptionsConfiguration : ScriptableOptionsConfiguration
 
     private void Collect(IDiagnosticLogger logger)
     {
+        var session = SentrySdk.CurrentSession;
+        if (session is null)
+        {
+            logger?.LogInfo("Not capturing crumbs because there's no session");
+            return;
+        }
         var evt = new SentryEvent();
 
         while ((!_breadcrumbs.IsEmpty || evt.Breadcrumbs.Count >= 1000) 
@@ -53,8 +59,8 @@ public class SentryOptionsConfiguration : ScriptableOptionsConfiguration
             evt.AddBreadcrumb(crumb);
         }
 
-        evt.SetTag("did", "test");
-        // evt.SetTag("sid", );
+        evt.SetTag("did", session.DistinctId);
+        evt.SetTag("sid", session.Id.ToString());
         evt.Message = "Breadcrumb Event";
 
         logger?.LogInfo("Capturing breadcrumb event");
