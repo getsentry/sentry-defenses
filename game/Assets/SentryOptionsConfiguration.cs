@@ -51,16 +51,21 @@ public class SentryOptionsConfiguration : ScriptableOptionsConfiguration
             logger?.LogInfo("Not capturing crumbs because there's no session");
             return;
         }
+        
+        SentrySdk.ConfigureScope(s =>
+        {
+            s.SetTag("did", session.DistinctId);
+            s.SetTag("sid", session.Id.ToString());
+        });
+
         var evt = new SentryEvent();
 
-        while ((!_breadcrumbs.IsEmpty || evt.Breadcrumbs.Count >= 1000) 
+        while ((!_breadcrumbs.IsEmpty || evt.Breadcrumbs.Count >= 1000)
                && _breadcrumbs.TryDequeue(out var crumb))
         {
             evt.AddBreadcrumb(crumb);
         }
 
-        evt.SetTag("did", session.DistinctId);
-        evt.SetTag("sid", session.Id.ToString());
         evt.Message = "Breadcrumb Event";
 
         logger?.LogInfo("Capturing breadcrumb event");
