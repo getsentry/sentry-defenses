@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Manager;
 using UnityEngine;
 using Sentry;
@@ -48,6 +49,12 @@ public class GameStateFighting : GameState
 
     public override void OnEnter()
     {
+        var turds = GameObject.FindObjectsOfType<SentryTower>();
+        SentrySdk.AddBreadcrumb("Round Start", "app.lifecycle", "session", new Dictionary<string, string>
+        {
+            {"bugs", _data.BugCount.ToString()},
+            {"sentries", turds.Length.ToString()}
+        });
         EventManager.Instance.ResumeGame();
         
         SentrySdk.ConfigureScope(scope => 
@@ -65,7 +72,6 @@ public class GameStateFighting : GameState
             bugsToSpawn = 1;
             
             scope.SetTag("game.alivebugs", bugsToSpawn.ToString());
-            var turds = GameObject.FindObjectsOfType<SentryTower>();
             scope.SetTag("game.sentries", turds.Length.ToString());
         });
 

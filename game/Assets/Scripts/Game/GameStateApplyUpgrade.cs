@@ -1,3 +1,4 @@
+using Sentry;
 using UnityEngine;
 
 namespace Game
@@ -46,12 +47,15 @@ namespace Game
                     switch (_stateMachine.PickedUpgrade)
                     {
                         case 1:
+                            SentrySdk.AddBreadcrumb("Upgraded Range", "selection", "user");
                             sentry.Upgrades.Range++;
                             break;
                         case 2:
+                            SentrySdk.AddBreadcrumb("Upgraded Fire Rate", "selection", "user");
                             sentry.Upgrades.FireRate++;
                             break;
                         case 3:
+                            SentrySdk.AddBreadcrumb("Hiding Damage", "selection", "user");
                             sentry.Upgrades.Damage++;
                             break;
                     }

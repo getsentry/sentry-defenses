@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Manager;
+using Sentry;
 
 namespace Game
 {
@@ -29,6 +31,10 @@ namespace Game
 
         public override void OnEnter()
         {
+            SentrySdk.AddBreadcrumb("Game Over", "app.lifecycle", "session", new Dictionary<string, string>
+            {
+                {"bugs", _gameData.BugCount.ToString()},
+            });
             base.OnEnter();
 
             _gameOverMenu.WaveText.text = $"{_gameData.BugCount.ToString()} bugs!";

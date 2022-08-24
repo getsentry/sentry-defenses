@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Manager;
+using Sentry;
 using UnityEngine;
+using UnityEngine.Diagnostics;
 using Random = UnityEngine.Random;
 
 public class SentryTower : MonoBehaviour
@@ -93,6 +95,10 @@ public class SentryTower : MonoBehaviour
             WoodSentry.SetActive(false);
             BrickSentry.SetActive(true);
         }
+        SentrySdk.AddBreadcrumb("Tower upgraded.", "tower", null, new Dictionary<string, string>
+        {
+            {"radius", AttackRangeCollider.radius.ToString()}
+        });
     }
 
     private void Fire()
@@ -135,6 +141,7 @@ public class SentryTower : MonoBehaviour
     
     public void Drop()
     {
+        Utils.ForceCrash(ForcedCrashCategory.AccessViolation);
         _visuals.Drop();
     }
 }

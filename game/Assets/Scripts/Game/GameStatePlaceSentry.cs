@@ -1,4 +1,5 @@
-using Manager;
+using System.Collections.Generic;
+using Sentry;
 using UnityEngine;
 
 public class GameStatePlaceSentry : GameState
@@ -22,6 +23,11 @@ public class GameStatePlaceSentry : GameState
 
         if (_input.GetMouseDown() && !Helpers.IsMouseOverUI())
         {
+            SentrySdk.AddBreadcrumb("Mouse down", "click", "user", new Dictionary<string, string>
+            {
+                {"position", _mouseTransform.position.ToString()}
+            });
+
             _sentryGameObject = GameObject.Instantiate(_data.SentryPrefab, _mouseTransform.position, Quaternion.identity, _mouseTransform);
             var sentry = _sentryGameObject.GetComponent<SentryTower>();
             sentry.Wiggle();
@@ -30,6 +36,11 @@ public class GameStatePlaceSentry : GameState
         // Checking for tower because the up from the button click gets read here too
         if (_sentryGameObject != null && _input.GetMouseUp())
         {
+            SentrySdk.AddBreadcrumb("Mouse up", "click", "user", new Dictionary<string, string>
+            {
+                {"position", _mouseTransform.position.ToString()}
+            });
+
             var sentry = _sentryGameObject.GetComponent<SentryTower>();
             sentry.Drop();
             
