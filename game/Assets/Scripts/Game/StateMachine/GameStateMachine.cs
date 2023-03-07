@@ -1,7 +1,6 @@
 using Game;
 using UnityEngine;
 using Utility.StateMachine;
-using Sentry;
 
 public class GameStateMachine : StateMachine<GameStates>
 {
@@ -17,7 +16,7 @@ public class GameStateMachine : StateMachine<GameStates>
     
     protected override void Awake()
     {
-        SentrySdk.ConfigureScope(scope => scope.Transaction = SentrySdk.StartTransaction("initialize", "state.machine"));
+        // SentrySdk.ConfigureScope(scope => scope.Transaction = SentrySdk.StartTransaction("initialize", "state.machine"));
         base.Awake();
     }
     protected override void Initialize()
