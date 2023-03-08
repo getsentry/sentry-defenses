@@ -17,7 +17,7 @@ MonoBehaviour:
   <CaptureInEditor>k__BackingField: 1
   <EnableLogDebouncing>k__BackingField: 0
   <TracesSampleRate>k__BackingField: 1
-  <AutoStartupTraces>k__BackingField: 0
+  <AutoStartupTraces>k__BackingField: 1
   <AutoSceneLoadTraces>k__BackingField: 1
   <AutoAwakeTraces>k__BackingField: 1
   <AutoSessionTracking>k__BackingField: 1
