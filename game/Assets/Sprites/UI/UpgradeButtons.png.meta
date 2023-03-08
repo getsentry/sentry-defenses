@@ -158,10 +158,10 @@ TextureImporter:
       name: UpgradeButtons_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 94
-        width: 103
-        height: 55
+        x: 0
+        y: 192
+        width: 144
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,10 +179,10 @@ TextureImporter:
       name: UpgradeButtons_1
       rect:
         serializedVersion: 2
-        x: 140
-        y: 93
-        width: 104
-        height: 55
+        x: 0
+        y: 128
+        width: 144
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,10 +200,10 @@ TextureImporter:
       name: UpgradeButtons_2
       rect:
         serializedVersion: 2
-        x: 17
-        y: 18
-        width: 98
-        height: 56
+        x: 0
+        y: 64
+        width: 144
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,10 +221,10 @@ TextureImporter:
       name: UpgradeButtons_3
       rect:
         serializedVersion: 2
-        x: 134
-        y: 19
-        width: 115
-        height: 62
+        x: 0
+        y: 0
+        width: 144
+        height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
