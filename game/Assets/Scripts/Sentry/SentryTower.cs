@@ -13,8 +13,7 @@ public class SentryTower : MonoBehaviour
     public CircleCollider2D AttackRangeCollider;
 
     public GameObject WoodSentry;
-    public GameObject BrickSentry;
-    
+
     private EventManager _eventManager;
     private SentryVisuals _visuals;
 
@@ -88,11 +87,6 @@ public class SentryTower : MonoBehaviour
         float radius = Mathf.Pow(1.10f, Upgrades.Range);
         CircleTransform.transform.localScale = new Vector2(radius, radius);
         AttackRangeCollider.radius = 1.35f * radius;
-        if (BrickSentry != null && Upgrades.Range + Upgrades.FireRate + Upgrades.Damage > 0)
-        {
-            WoodSentry.SetActive(false);
-            BrickSentry.SetActive(true);
-        }
     }
 
     private void Fire()
@@ -107,8 +101,9 @@ public class SentryTower : MonoBehaviour
             }
             else
             {
-                var direction = ((target.position + new Vector3(0, 0.25f, 0)) - transform.position).normalized; 
-                var arrowObject = Instantiate(ArrowPrefab, ArrowSpawnTransform.position, Quaternion.identity);
+                var position = ArrowSpawnTransform.position;
+                var direction = (target.position + new Vector3(0, 0.25f, 0) - position).normalized; 
+                var arrowObject = Instantiate(ArrowPrefab, position, Quaternion.identity);
                 arrowObject.GetComponent<Arrow>().Fire(Mathf.Pow(1.5f, Upgrades.Damage), direction);
                 break;
             }

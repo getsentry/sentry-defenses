@@ -40,6 +40,7 @@ public class BugVisuals : MonoBehaviour
         if (directionToTarget.x < 0)
         {
             Body.flipX = true;
+            Shadow.flipX = true;
         }
         
         var endPosition = BounceTransform.position;

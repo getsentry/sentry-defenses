@@ -26,9 +26,9 @@ public class Arrow : MonoBehaviour
         }
     }
 
-    public void Fire(float Damage, Vector3 direction)
+    public void Fire(float damage, Vector3 direction)
     {
-        _damage = Damage;
+        _damage = damage;
         _direction = direction;
     }
 

@@ -45,14 +45,14 @@ namespace Game
 
                     switch (_stateMachine.PickedUpgrade)
                     {
-                        case 1:
-                            sentry.Upgrades.Range++;
+                        case UpgradeType.Damage:
+                            sentry.Upgrades.Damage++;
                             break;
-                        case 2:
+                        case UpgradeType.FireRate:
                             sentry.Upgrades.FireRate++;
                             break;
-                        case 3:
-                            sentry.Upgrades.Damage++;
+                        case UpgradeType.Range:
+                            sentry.Upgrades.Range++;
                             break;
                     }
 

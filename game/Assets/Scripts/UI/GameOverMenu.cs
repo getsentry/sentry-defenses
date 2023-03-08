@@ -7,17 +7,15 @@ using UnityEngine.UI;
 
 public class GameOverMenu : MonoBehaviour
 {
-    public Button RestartButton;
-    public Image Background;
-    public Image LogoImage;
-    public GameObject Container;
-    
-    public TextMeshProUGUI Congratulations;
-    public TextMeshProUGUI YouveMadeIt;
-    public TextMeshProUGUI WaveText;
-    
-    
-    public float FadeDuration = 0.3f;
+    [SerializeField] private GameObject _container;
+    [SerializeField] private Button _restartButton;
+    [SerializeField] private Image _background;
+    [SerializeField] private Image _logoImage;
+
+    [SerializeField] private TextMeshProUGUI _congratulations;
+    [SerializeField] private TextMeshProUGUI _youSentryd;
+
+    [SerializeField] private float _fadeDuration = 0.3f;
     private EventManager _eventManager;
     
     private void Awake()
@@ -27,46 +25,49 @@ public class GameOverMenu : MonoBehaviour
 
     private void Start()
     {
-        RestartButton.onClick.AddListener(OnRestartButtonClick);
+        _restartButton.onClick.AddListener(OnRestartButtonClick);
 
-        var buttonColor = RestartButton.image.color;
+        var buttonColor = _restartButton.image.color;
         buttonColor.a = 0;
-        RestartButton.image.color = buttonColor;
+        _restartButton.image.color = buttonColor;
 
-        var backgroundColor = Background.color;
+        var backgroundColor = _background.color;
         backgroundColor.a = 0;
-        Background.color = backgroundColor;
+        _background.color = backgroundColor;
  
-        Container.SetActive(false);
+        _container.SetActive(false);
+    }
+
+    public void SetBugCount(int count)
+    {
+        _youSentryd.text = $"You've senrty'd {count} bugs!";
     }
 
     private void OnRestartButtonClick() => _eventManager.StartFight();
 
     public void Show(Action finishCallback)
     {
-        Container.SetActive(true);
+        _container.SetActive(true);
 
-        Congratulations.DOFade(1, FadeDuration);
-        YouveMadeIt.DOFade(1, FadeDuration);
-        WaveText.DOFade(1, FadeDuration);
-        RestartButton.image.DOFade(1, FadeDuration);
-        Background.DOFade(1, FadeDuration);
-        LogoImage.DOFade(1, FadeDuration);
+        _congratulations.DOFade(1, _fadeDuration);
+        _youSentryd.DOFade(1, _fadeDuration);
+        _restartButton.image.DOFade(1, _fadeDuration);
+        _background.DOFade(1, _fadeDuration);
+        _logoImage.DOFade(1, _fadeDuration);
         
         finishCallback?.Invoke();
     }
 
     public void Hide(Action finishCallback)
     {
-        Congratulations.DOFade(0, FadeDuration);
-        YouveMadeIt.DOFade(0, FadeDuration);
-        WaveText.DOFade(0, FadeDuration);
-        RestartButton.image.DOFade(0, FadeDuration);
-        Background.DOFade(0, FadeDuration);
-        LogoImage.DOFade(0, FadeDuration)
+        _congratulations.DOFade(0, _fadeDuration);
+        _youSentryd.DOFade(0, _fadeDuration);
+        _restartButton.image.DOFade(0, _fadeDuration);
+        _background.DOFade(0, _fadeDuration);
+        _logoImage.DOFade(0, _fadeDuration)
             .OnComplete(() =>
             {
-                Container.SetActive(false);
+                _container.SetActive(false);
                 finishCallback?.Invoke();
             });
     }

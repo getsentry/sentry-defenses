@@ -1,14 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using DG.Tweening;
 using UnityEngine;
 
 public class ButtonTease : MonoBehaviour
 {
-    public float Movement = 10;
-    public float Speed;
+    [SerializeField] private float _bounceStrength = 2;
+    [SerializeField] private float _speed = 3;
+    [SerializeField] private Ease _ease = Ease.InOutSine;
+    
 
     private RectTransform _rectTransform;
     
@@ -19,14 +17,16 @@ public class ButtonTease : MonoBehaviour
 
     private void Start()
     {
-        var targetY = _rectTransform.anchoredPosition.y + Movement;
-        _rectTransform.DOAnchorPosY(targetY, Speed)
-            .SetEase(Ease.InOutSine)
+        _rectTransform.DOScale(_bounceStrength, _speed)
+            .SetEase(_ease)
             .SetLoops(-1, LoopType.Yoyo);
     }
 
     private void OnDestroy()
     {
-        _rectTransform?.DOKill();
+        if (_rectTransform != null)
+        {
+            _rectTransform.DOKill();
+        }
     }
 }

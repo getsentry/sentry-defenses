@@ -1,31 +1,60 @@
 using System;
 using DG.Tweening;
+using Game;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PickUpgradeMenu : MonoBehaviour
 {
-    public Button UpgradeRange;
-    public Button UpgradeFireRate;
-    public Button UpgradeDamage;
-    public Button BuildTower;
+    [SerializeField] private GameObject _newTowerPrefab;
+    [SerializeField] private GameObject _upgradeDamagePrefab;
+    [SerializeField] private GameObject _upgradeFireRatePrefab;
+    [SerializeField] private GameObject _upgradeRangePrefab;
     
-    public RectTransform Container;
+    [Header("Container")] 
+    [SerializeField] private RectTransform _topContainer;
+    [SerializeField] private RectTransform _bottomContainer;
+    
+    [Header("Movement")] 
+    [SerializeField] private float _moveDuration = 0.3f;
+    [SerializeField] private Ease _showEase = Ease.OutBack;
+    [SerializeField] private Ease _hideEase = Ease.InBack;
+    
+    public void CreateButton(UpgradeType upgradeType, Action<UpgradeType> clickedCallback)
+    {
+        var prefab = upgradeType switch
+        {
+            UpgradeType.Range => _upgradeRangePrefab,
+            UpgradeType.FireRate => _upgradeFireRatePrefab,
+            UpgradeType.Damage => _upgradeDamagePrefab,
+            UpgradeType.NewTower => _newTowerPrefab,
+            _ => null
+        };
 
-    public float MoveDuration = 0.3f;
-    public Ease ShowEase = Ease.OutBack;
-    public Ease HideEase = Ease.InBack;
+        var button = Instantiate(prefab, _bottomContainer, true);
+        button.GetComponent<RectTransform>().localScale = Vector3.one;
+        button.GetComponent<Button>().onClick.AddListener(() => clickedCallback.Invoke(upgradeType));
+    }
     
     public void Show()
     {
-        Container.DOAnchorPosY(0, MoveDuration)
-            .SetEase(ShowEase);
+        _topContainer.DOAnchorPosY(0, _moveDuration).SetEase(_showEase);
+        _bottomContainer.DOAnchorPosY(0, _moveDuration).SetEase(_showEase);
     }
 
     public void Hide(Action finishCallback)
     {
-        Container.DOAnchorPosY(-Container.rect.height, MoveDuration)
-            .SetEase(HideEase)
-            .OnStepComplete(() => finishCallback?.Invoke());
+        _topContainer.DOAnchorPosY(_topContainer.rect.height, _moveDuration).SetEase(_hideEase);
+        _bottomContainer.DOAnchorPosY(-_bottomContainer.rect.height, _moveDuration)
+            .SetEase(_hideEase)
+            .OnStepComplete(() =>
+            {
+                foreach (Transform child in _bottomContainer.transform)
+                {
+                    Destroy(child.gameObject);
+                }
+                
+                finishCallback?.Invoke();
+            });
     }
 }

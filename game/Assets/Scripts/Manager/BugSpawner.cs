@@ -2,10 +2,10 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using Sentry;
+using Random = UnityEngine.Random;
 
 public class BugSpawner : MonoSingleton<BugSpawner>
 {
@@ -17,8 +17,17 @@ public class BugSpawner : MonoSingleton<BugSpawner>
         public string platform;
     }
 
-    public List<GameObject> BugPrefabs;
-    
+    [SerializeField] private List<GameObject> _bugPrefabs;
+    [SerializeField] private Transform _leftCenterTransform;
+    [SerializeField] private Transform _rightCenterTransform;
+
+    private float _leftOuterBound;
+    private float _leftCenterBound;
+    private float _rightCenterBound;
+    private float _rightOuterBound;
+    private float _bottomBound;
+    private float _topBound;
+
     private ConcurrentStack<SentryBug> _sentryBugs;
     public int BugBuffer;
     
@@ -26,9 +35,7 @@ public class BugSpawner : MonoSingleton<BugSpawner>
     public float MaxSpawnDistance = 5.0f;
 
     private HttpClient _client;
-
     private Task _startUpTask;
-
     private ISpan _spawnChild = null;
 
     private void Awake()
@@ -39,6 +46,16 @@ public class BugSpawner : MonoSingleton<BugSpawner>
         _sentryBugs = new ConcurrentStack<SentryBug>();
 
         _startUpTask = RetrieveSentryBugs();
+
+        var bottomLeft = _camera.ScreenToWorldPoint(new Vector3(0, 0));
+        var topRight = _camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height));
+        
+        _leftOuterBound = bottomLeft.x;
+        _leftCenterBound = _leftCenterTransform.transform.position.x;
+        _rightCenterBound = _rightCenterTransform.transform.position.x;
+        _rightOuterBound = topRight.x;
+        _bottomBound = bottomLeft.y;
+        _topBound = topRight.y;
     }
 
     private void OnDestroy()
@@ -64,7 +81,7 @@ public class BugSpawner : MonoSingleton<BugSpawner>
             _sentryBugs.Push(bug);    
         }
 
-        if (currentTransaction.Operation == "state.machine")
+        if (currentTransaction?.Operation == "state.machine")
         {
             currentTransaction.Finish(SpanStatus.Ok);
         }
@@ -105,8 +122,8 @@ public class BugSpawner : MonoSingleton<BugSpawner>
 
         string platform = sentryBug.platform;
         var platformPrefab = new Dictionary<string, GameObject>(){
-            {"javascript", BugPrefabs[0]},
-            {"python", BugPrefabs[1]},
+            {"javascript", _bugPrefabs[0]},
+            {"python", _bugPrefabs[1]},
         };
         if (!platformPrefab.ContainsKey(platform)) {
             if (UnityEngine.Random.value < 0.5) {
@@ -115,9 +132,19 @@ public class BugSpawner : MonoSingleton<BugSpawner>
                 platform = "python";
             }
         }
+
+
+        var position = new Vector3(0, Random.Range(_bottomBound, _topBound));
+        if (Random.Range(0, 2) > 0)
+        {
+            position.x = Random.Range(_leftOuterBound, _leftCenterBound);
+        }
+        else
+        { 
+            position.x = Random.Range(_rightCenterBound, _rightOuterBound);
+        }
         
-        var randomPosition = new Vector3(sentryBug.lat, sentryBug.lon, 0) * MaxSpawnDistance;
-        var bugGameObject = Instantiate(platformPrefab[platform], randomPosition, Quaternion.identity);
+        var bugGameObject = Instantiate(platformPrefab[platform], position, Quaternion.identity);
         bugGameObject.transform.SetParent(transform);
 
         return bugGameObject;

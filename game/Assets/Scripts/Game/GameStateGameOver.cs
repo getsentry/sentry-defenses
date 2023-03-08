@@ -31,7 +31,7 @@ namespace Game
         {
             base.OnEnter();
 
-            _gameOverMenu.WaveText.text = $"{_gameData.BugCount.ToString()} bugs!";
+            _gameOverMenu.SetBugCount(_gameData.BugCount);
             _gameOverMenu.Show(null);
             
             _eventManager.Reset();

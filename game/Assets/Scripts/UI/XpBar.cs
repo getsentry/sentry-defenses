@@ -6,8 +6,10 @@ using UnityEngine;
 public class XpBar : MonoBehaviour
 {
     public RectTransform RectTransform;
-    public float ScaleEffectDuration = 0.1f;
+    [SerializeField] private float ScaleEffectDuration = 0.25f;
     public Ease ScaleEase = Ease.OutBack;
+
+    private bool _beReadyToReset;
     
     private GameData _data;
     private void Awake()
@@ -18,7 +20,8 @@ public class XpBar : MonoBehaviour
 
         var eventManager = EventManager.Instance;
         eventManager.OnUpdateXp += OnUpdateXp;
-        eventManager.OnLevelUpXp += Reset;
+        eventManager.OnFight += OnFight;
+        eventManager.OnReset += Reset;
     }
 
     private void Start()
@@ -32,9 +35,14 @@ public class XpBar : MonoBehaviour
             .SetEase(ScaleEase);
     }
 
+    private void OnFight()
+    {
+        Reset();
+    }
+
     private void Reset()
     {
         RectTransform.DOKill();
-        RectTransform.localScale = new Vector3(0.03f, 1, 1);
+        RectTransform.localScale = new Vector3(0.05f, 1, 1);
     }
 }

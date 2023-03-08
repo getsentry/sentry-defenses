@@ -1,53 +1,53 @@
-using UnityEngine;
+using System;
+using Game;
 using Manager;
+using Random = UnityEngine.Random;
 
 public class GameStatePickUpgrade : GameState
 {
     private readonly PickUpgradeMenu _pickUpgradeMenu;
     private readonly GameStateMachine _stateMachine;
-    
+
     public GameStatePickUpgrade(GameStateMachine stateMachine) : base(stateMachine)
     {
         _stateMachine = stateMachine;
-        
         _pickUpgradeMenu = _stateMachine.PickUpgradeMenu;
-        _pickUpgradeMenu.UpgradeRange.onClick.AddListener(OnUpgradeRange); 
-        _pickUpgradeMenu.UpgradeFireRate.onClick.AddListener(OnUpgradeFireRate);
-        _pickUpgradeMenu.UpgradeDamage.onClick.AddListener(OnUpgradeDamage);
-        _pickUpgradeMenu.BuildTower.onClick.AddListener(OnBuildTower);
-    }
-
-    private void OnUpgradeRange() => SetUpgrade(1);
-    private void OnUpgradeFireRate() => SetUpgrade(2);
-    private void OnUpgradeDamage() => SetUpgrade(3);
-    private void SetUpgrade(int upgrade)
-    {
-        _stateMachine.PickedUpgrade = upgrade;
-        StateTransition(GameStates.UpgradeSentry);
     }
     
-    private void OnBuildTower()
+    private void SetUpgrade(UpgradeType upgradeType)
     {
-        StateTransition(GameStates.PlaceSentry);
+        _stateMachine.PickedUpgrade = upgradeType;
+        _pickUpgradeMenu.Hide(() =>
+        {
+            if (upgradeType == UpgradeType.NewTower)
+            {
+                StateTransition(GameStates.PlaceSentry);
+            }
+            else
+            {
+                StateTransition(GameStates.UpgradeSentry);
+            }    
+        });
     }
-
+    
     public override void OnEnter()
     {
         base.OnEnter();
-        _stateMachine.PickedUpgrade = -1;
+        _stateMachine.PickedUpgrade = UpgradeType.None;
         
         EventManager.Instance.PauseGame();
+
+        var upgradeCount = Enum.GetNames(typeof(UpgradeType)).Length;
+        var firstUpgrade = Random.Range(1, upgradeCount);
+        var secondUpgrade = Random.Range(1, upgradeCount - 1);
+        if (secondUpgrade >= firstUpgrade) // because we don't want the same upgrade twice
+        {
+            secondUpgrade++;
+        }
+
+        _pickUpgradeMenu.CreateButton((UpgradeType)firstUpgrade, SetUpgrade);
+        _pickUpgradeMenu.CreateButton((UpgradeType)secondUpgrade, SetUpgrade);
+        
         _pickUpgradeMenu.Show();
-    }
-
-    public override void Tick()
-    {
-        base.Tick();
-    }
-
-    public override void OnExit()
-    {
-        base.OnExit();
-        _pickUpgradeMenu.Hide(null);
     }
 }

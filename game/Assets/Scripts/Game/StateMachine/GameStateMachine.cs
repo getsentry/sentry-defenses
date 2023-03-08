@@ -12,7 +12,7 @@ public class GameStateMachine : StateMachine<GameStates>
     public ApplyUpgradeMenu ApplyUpgradeMenu;
     public GameOverMenu GameOverMenu;
 
-    public int PickedUpgrade = -1;
+    public UpgradeType PickedUpgrade = UpgradeType.None;
     
     protected override void Awake()
     {
