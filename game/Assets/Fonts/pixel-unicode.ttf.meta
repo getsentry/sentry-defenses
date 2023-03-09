@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: c54d6b6e112d8084a9d8ecc3cead03eb
+guid: a7e449667c6ab4191bc77ab4415448a6
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 8
-  forceTextureCase: 3
+  fontSize: 16
+  forceTextureCase: -1
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Varnished
+  - Pixel UniCode
   fallbackFontReferences: []
-  customCharacters: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890?!,.:;'"@#$%^&*()[]{}_-=+<>/\|~
+  customCharacters: 
   fontRenderingMode: 2
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
