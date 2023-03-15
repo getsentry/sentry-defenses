@@ -28,6 +28,10 @@ MonoBehaviour:
   <AttachScreenshot>k__BackingField: 1
   <ScreenshotQuality>k__BackingField: 2
   <ScreenshotCompression>k__BackingField: 75
+  <AttachViewHierarchy>k__BackingField: 1
+  <MaxViewHierarchyRootObjects>k__BackingField: 100
+  <MaxViewHierarchyObjectChildCount>k__BackingField: 20
+  <MaxViewHierarchyDepth>k__BackingField: 10
   <BreadcrumbsForLogs>k__BackingField: 1
   <BreadcrumbsForWarnings>k__BackingField: 1
   <BreadcrumbsForAsserts>k__BackingField: 1
@@ -55,4 +59,4 @@ MonoBehaviour:
   <BuildTimeOptionsConfiguration>k__BackingField: {fileID: 11400000, guid: 7f9c8c85957924337a2a9c55d4b385a5, type: 2}
   <Debug>k__BackingField: 1
   <DebugOnlyInEditor>k__BackingField: 0
-  <DiagnosticLevel>k__BackingField: 0
+  <DiagnosticLevel>k__BackingField: 2

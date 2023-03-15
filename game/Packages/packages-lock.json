@@ -23,7 +23,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.burst": {
-      "version": "1.8.2",
+      "version": "1.8.3",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -143,7 +143,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.7.2",
+      "version": "1.7.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -164,11 +164,11 @@
       }
     },
     "io.sentry.unity": {
-      "version": "https://github.com/getsentry/unity.git#1.0.0",
+      "version": "https://github.com/getsentry/unity.git#1.1.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "77a57521b9ee47969dfcdc529c01dc9077a69223"
+      "hash": "3e83308f1f921c27a9c84473b072339195df08d8"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
