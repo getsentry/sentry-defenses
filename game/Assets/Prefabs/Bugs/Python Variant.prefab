@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 857660184102363651, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 27b68c50c93ae4102a7dccbb2509ce30, type: 2}
     - target: {fileID: 1233163326524475361, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -32,6 +36,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 27b68c50c93ae4102a7dccbb2509ce30, type: 2}
+    - target: {fileID: 2099416366084202406, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1150626330401856288, guid: c32b4d055592d4fa7a41002c783bd861, type: 3}
     - target: {fileID: 2680558509943100168, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -39,6 +47,18 @@ PrefabInstance:
     - target: {fileID: 2753352758018989063, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
       propertyPath: m_Name
       value: Python Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3539117372896046962, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
+      propertyPath: HitPoints
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3539117372896046962, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
+      propertyPath: MovementSpeed
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3539117372896046962, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
+      propertyPath: HitPointsTotal
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4607266470382823665, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
       propertyPath: m_LocalScale.x
@@ -64,6 +84,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6469976577701643760, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0e3a8195bc3d2433c83bb5bd82edcf87, type: 3}
     - target: {fileID: 6798180797794454217, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
       propertyPath: CoinDrop
       value: 5
@@ -83,6 +107,10 @@ PrefabInstance:
     - target: {fileID: 6798180797794454217, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
       propertyPath: MaxSlowdownDuration
       value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135895623934083893, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
+      propertyPath: m_Name
+      value: Python Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8184238152582161901, guid: 539f9436747e042f49c8bab5476f8c17, type: 3}
       propertyPath: m_RootOrder
