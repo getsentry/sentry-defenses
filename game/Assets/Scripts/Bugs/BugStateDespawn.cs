@@ -25,7 +25,7 @@ namespace Bugs
             _stateMachine.Visuals.Despawn();
             _gameData.bugs.Remove(_stateMachine.gameObject);
             
-            GameObject.Destroy(_stateMachine.gameObject);
+            Object.Destroy(_stateMachine.gameObject);
             
             _gameData.CurrentXp++;
         }

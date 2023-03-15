@@ -24,6 +24,7 @@ public class GameStateFighting : GameState
     {
         _data = GameData.Instance;
         _bugSpawner = BugSpawner.Instance;
+        _spawnDelay = _startSpawnDelay;
 
         var eventManager = EventManager.Instance;
 

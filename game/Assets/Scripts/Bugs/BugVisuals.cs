@@ -47,6 +47,11 @@ public class BugVisuals : MonoBehaviour
         BounceTransform.localScale = Vector3.one * StartScale;
         BounceTransform.localPosition = new Vector3(0, StartHeight, 0);
 
+        if (!BounceTransform)
+        {
+            return;
+        }
+        
         _spawnSequence = DOTween.Sequence()
             .Append(BounceTransform.DOScale(1, StartScaleDuration).SetEase(Ease.OutBack))
             .AppendInterval(HoldDuration)
@@ -65,6 +70,12 @@ public class BugVisuals : MonoBehaviour
     
     public void Hit(float HitPoints, float HitPointsTotal)
     {
+        if (!HealthPointBar)
+        {
+            return;
+        }
+        
+        HealthPointBar.DOKill();
         HealthPointBar.DOScaleX(Mathf.Max(HitPoints, 0) / HitPointsTotal, HealthLossSpeed)
             .SetEase(Ease.OutSine);
         
@@ -79,6 +90,7 @@ public class BugVisuals : MonoBehaviour
 
     public void Despawn()
     {
+        HealthPointBar.DOKill();
         Instantiate(DespawnPrefab, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
     }
     
@@ -100,6 +112,8 @@ public class BugVisuals : MonoBehaviour
 
     public void Kill()
     {
+        HealthPointBar.DOKill();
+        Renderer.material.DOKill();
         _spawnSequence.Kill();
     }
 }

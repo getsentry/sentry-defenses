@@ -20,7 +20,10 @@ public class BugStateSpawn : BugState
         if (IsActive)
         {
             _stateMachine.Visuals.Kill();
-            GameObject.Destroy(_stateMachine.gameObject);    
+            if (_stateMachine.gameObject != null)
+            {
+                Object.Destroy(_stateMachine.gameObject);    
+            }
         }
     }
     

@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using Manager;
 using UnityEngine;
@@ -20,7 +19,7 @@ public class XpBar : MonoBehaviour
 
         var eventManager = EventManager.Instance;
         eventManager.OnUpdateXp += OnUpdateXp;
-        eventManager.OnFight += OnFight;
+        eventManager.OnLevelUpXp += Reset;
         eventManager.OnReset += Reset;
     }
 
@@ -31,18 +30,21 @@ public class XpBar : MonoBehaviour
 
     private void OnUpdateXp()
     {
-        RectTransform.DOScaleX((float)_data.CurrentXp / _data.LevelUpRequirement, ScaleEffectDuration)
+        var targetSize = 160 * (float)_data.CurrentXp / _data.LevelUpRequirement;
+        RectTransform.DOSizeDelta(new Vector2(targetSize, RectTransform.sizeDelta.y), ScaleEffectDuration)
+            .OnUpdate(() =>
+            {
+                if (RectTransform.sizeDelta.x > 160)
+                {
+                    RectTransform.sizeDelta = new Vector2(160, RectTransform.sizeDelta.y);
+                }
+            })
             .SetEase(ScaleEase);
-    }
-
-    private void OnFight()
-    {
-        Reset();
     }
 
     private void Reset()
     {
         RectTransform.DOKill();
-        RectTransform.localScale = new Vector3(0.05f, 1, 1);
+        RectTransform.sizeDelta = new Vector3(10, RectTransform.sizeDelta.y);
     }
 }

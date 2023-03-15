@@ -58,10 +58,10 @@ public class GameData : MonoSingleton<GameData>
 
     private void Start()
     {
-        _eventManager.UpdateHitPoints();
-        
-        bugs = new List<GameObject>();
         HitPoints = StartHitPoints;
+        bugs = new List<GameObject>();
+        
+        _eventManager.UpdateHitPoints();
     }
 
     private void OnReset()
@@ -74,6 +74,9 @@ public class GameData : MonoSingleton<GameData>
 
         LevelUpRequirement = 2;
         RequirementIncrease = 2;
+        
+        _eventManager.UpdateHitPoints();
+        _eventManager.UpdateXp();
     }
 }
 

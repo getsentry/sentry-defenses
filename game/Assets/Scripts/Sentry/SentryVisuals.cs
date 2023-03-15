@@ -21,6 +21,11 @@ public class SentryVisuals : MonoBehaviour
     public float WiggleStrength = 10.0f;
 
     private Sequence _wiggleSequence;
+
+    [Header("Fire")] 
+    public float FireStrength = 0.3f;
+    public float FireDuration = 0.25f;
+    public Ease FireEase = Ease.InSine;
     
     [Header("Selection")]
     public float PunchStrength = 0.15f;
@@ -71,6 +76,11 @@ public class SentryVisuals : MonoBehaviour
         WoodRenderer.material = OutlineMaterial;
         BrickRenderer.material = OutlineMaterial;
 
+        if (!transform)
+        {
+            return;
+        }
+        
         transform.DOKill();
         transform.DOPunchScale(Vector3.one * PunchStrength, PunchDuration);
     }
@@ -79,5 +89,17 @@ public class SentryVisuals : MonoBehaviour
     {
         WoodRenderer.material = _defaultMaterial;
         BrickRenderer.material = _defaultMaterial;
+    }
+
+    public void Fire()
+    {
+        if (!BounceTransform)
+        {
+            return;
+        }
+        
+        BounceTransform.DOScaleY(FireStrength, FireDuration)
+            .SetLoops(2, LoopType.Yoyo)
+            .SetEase(FireEase);
     }
 }

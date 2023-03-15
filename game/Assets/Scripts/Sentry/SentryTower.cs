@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Manager;
 using UnityEngine;
@@ -22,6 +23,9 @@ public class SentryTower : MonoBehaviour
     
     public TowerUpgrade Upgrades = new TowerUpgrade();
 
+    [SerializeField] private int _baseDamage = 1;
+    [SerializeField] private float _baseFireRate = 1.0f;
+    
     private bool _isPaused = true; // True by default to avoid shooting while building a tower
     
     private void Awake()
@@ -35,16 +39,26 @@ public class SentryTower : MonoBehaviour
 
     private void Start()
     {
-        _eventManager.OnGamePause += () =>
-        {
-            CircleRenderer.enabled = true;
-            _isPaused = true;
-        };
-        _eventManager.OnGameResume += () =>
-        {
-            CircleRenderer.enabled = false;
-            _isPaused = false;
-        };
+        _eventManager.OnGamePause += OnPause;
+        _eventManager.OnGameResume += OnResume;
+    }
+
+    private void OnPause()
+    {
+        CircleRenderer.enabled = true;
+        _isPaused = true;
+    }
+
+    private void OnResume()
+    {
+        CircleRenderer.enabled = false;
+        _isPaused = false;
+    }
+
+    private void OnDestroy()
+    {
+        _eventManager.OnGamePause -= OnPause;
+        _eventManager.OnGameResume -= OnResume;
     }
 
     private void OnReset()
@@ -75,10 +89,10 @@ public class SentryTower : MonoBehaviour
             return;
  
         _coolDown -= Time.deltaTime;
-        if (_coolDown < 0.0f)
+        if (_coolDown <= 0.0f)
         {
             Fire();
-            _coolDown = 1.0f / Mathf.Pow(1.25f, Upgrades.FireRate);
+            _coolDown = 1 / (_baseFireRate + Upgrades.FireRate);
         }
     }
 
@@ -104,7 +118,9 @@ public class SentryTower : MonoBehaviour
                 var position = ArrowSpawnTransform.position;
                 var direction = (target.position + new Vector3(0, 0.25f, 0) - position).normalized; 
                 var arrowObject = Instantiate(ArrowPrefab, position, Quaternion.identity);
-                arrowObject.GetComponent<Arrow>().Fire(Mathf.Pow(1.5f, Upgrades.Damage), direction);
+                arrowObject.GetComponent<Arrow>().Fire(_baseDamage + Upgrades.Damage, direction);
+                
+                _visuals.Fire();
                 break;
             }
         }
