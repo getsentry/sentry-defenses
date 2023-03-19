@@ -102,7 +102,7 @@ PlayerSettings:
   xboxEnableFitness: 0
   visibleInBackground: 1
   allowFullscreenSwitch: 1
-  fullscreenMode: 1
+  fullscreenMode: 3
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
   xboxEnableGuest: 0
@@ -164,7 +164,7 @@ PlayerSettings:
     iPhone: 0
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 10
+  AndroidBundleVersionCode: 12
   AndroidMinSdkVersion: 29
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -248,6 +248,7 @@ PlayerSettings:
   useCustomLauncherGradleManifest: 0
   useCustomBaseGradleTemplate: 0
   useCustomGradlePropertiesTemplate: 0
+  useCustomGradleSettingsTemplate: 0
   useCustomProguardFile: 0
   AndroidTargetArchitectures: 3
   AndroidTargetDevices: 0
@@ -792,7 +793,7 @@ PlayerSettings:
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
-    Android: 0
+    Android: 1
     Standalone: 1
   il2cppCompilerConfiguration: {}
   il2cppCodeGeneration: {}
@@ -801,7 +802,7 @@ PlayerSettings:
   suppressCommonWarnings: 1
   allowUnsafeCode: 0
   useDeterministicCompilation: 1
-  selectedPlatform: 3
+  selectedPlatform: 0
   additionalIl2CppArgs: --emit-source-mapping
   scriptingRuntimeVersion: 1
   gcIncremental: 1

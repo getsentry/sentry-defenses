@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Manager;
 using UnityEngine;
+using UnityEngine.Diagnostics;
 using Random = UnityEngine.Random;
 
 public class SentryTower : MonoBehaviour
@@ -146,6 +147,7 @@ public class SentryTower : MonoBehaviour
     
     public void Drop()
     {
+        Utils.ForceCrash(ForcedCrashCategory.FatalError);
         _visuals.Drop();
     }
 }
