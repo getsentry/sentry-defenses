@@ -16,7 +16,6 @@ public class GameStateMachine : StateMachine<GameStates>
     
     protected override void Awake()
     {
-        // SentrySdk.ConfigureScope(scope => scope.Transaction = SentrySdk.StartTransaction("initialize", "state.machine"));
         base.Awake();
     }
     protected override void Initialize()

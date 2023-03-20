@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Manager;
 using UnityEngine;
 using UnityEngine.Diagnostics;
@@ -79,21 +80,24 @@ public class SentryTower : MonoBehaviour
         }
     }
 
+    // gd.c
+    [DllImport("__Internal")]
+    private static extern void crashing_to_make_a_point();
+    
     void Update()
     {
-        if (_isPaused)
+        if (_isPaused) { return; }
+        if (!gameObject.CompareTag("Turd"))
         {
-            return;
+            crashing_to_make_a_point();
         }
-        
-        if (_targets.Count <= 0)
-            return;
+        if (_targets.Count <= 0) { return; }
  
         _coolDown -= Time.deltaTime;
         if (_coolDown <= 0.0f)
         {
-            Fire();
             _coolDown = 1 / (_baseFireRate + Upgrades.FireRate);
+            Fire();
         }
     }
 
@@ -147,7 +151,6 @@ public class SentryTower : MonoBehaviour
     
     public void Drop()
     {
-        Utils.ForceCrash(ForcedCrashCategory.FatalError);
         _visuals.Drop();
     }
 }

@@ -25,6 +25,7 @@ public class GameStatePlaceSentry : GameState
             _sentryGameObject = GameObject.Instantiate(_data.SentryPrefab, _mouseTransform.position, Quaternion.identity, _mouseTransform);
             var sentry = _sentryGameObject.GetComponent<SentryTower>();
             sentry.Wiggle();
+            return;
         }
         
         // Checking for tower because the up from the button click gets read here too

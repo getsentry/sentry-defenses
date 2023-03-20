@@ -13,5 +13,15 @@ public class SentryRuntimeConfiguration : Sentry.Unity.SentryRuntimeOptionsConfi
         // Note that changes to the options here will **not** affect iOS, macOS and Android events. (i.e. environment and release)
         // Take a look at `SentryBuildTimeOptionsConfiguration` instead.
         // TODO implement
+
+        options.BeforeBreadcrumb += breadcrumb =>
+        {
+            if (breadcrumb.Category == "http")
+            {
+                return null;
+            }
+
+            return breadcrumb;
+        };
     }
 }

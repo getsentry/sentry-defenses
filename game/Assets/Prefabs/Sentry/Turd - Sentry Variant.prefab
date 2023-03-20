@@ -5,7 +5,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 639409681, guid: ae5f5367b8f56453bb707879962084d9, type: 3}
@@ -85,9 +84,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 356934927671453564, guid: ae5f5367b8f56453bb707879962084d9, type: 3}
+      propertyPath: ArrowPrefab
+      value: 
+      objectReference: {fileID: 4864686798721752670, guid: caa7cb23b7f7a48de973de6183a51ea0, type: 3}
+    - target: {fileID: 356934927671453564, guid: ae5f5367b8f56453bb707879962084d9, type: 3}
       propertyPath: _baseFireRate
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 356934927671453564, guid: ae5f5367b8f56453bb707879962084d9, type: 3}
+      propertyPath: ArrowSpawnTransform
+      value: 
+      objectReference: {fileID: 4085356215974779014}
     - target: {fileID: 356934927671453565, guid: ae5f5367b8f56453bb707879962084d9, type: 3}
       propertyPath: m_Radius
       value: 1.35
@@ -121,7 +128,9 @@ PrefabInstance:
       value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae5f5367b8f56453bb707879962084d9, type: 3}
+--- !u!4 &4085356215974779014 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 356934927778169913, guid: ae5f5367b8f56453bb707879962084d9, type: 3}
+  m_PrefabInstance: {fileID: 4343176180711136447}
+  m_PrefabAsset: {fileID: 0}

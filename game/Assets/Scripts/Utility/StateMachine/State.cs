@@ -27,16 +27,11 @@ namespace Utility.StateMachine
                 PreviousTransaction?.Finish(SpanStatus.Ok);
                
                 var currentState = GetType().Name;
-                Debug.Log($"{currentState}", _stateMachine);
 
                 if (PreviousState != null &&
                     PreviousState != currentState)
                 {
-                    SentrySdk.AddBreadcrumb(null,
-                        "navigation",
-                        "navigation",
-                        new Dictionary<string, string> { { "from", $"/{PreviousState}" }, { "to", $"/{currentState}" } });
-
+                    SentrySdk.AddBreadcrumb($"{PreviousState} -> {currentState}","navigation", "navigation");
                     PreviousTransaction = SentrySdk.StartTransaction(currentState.Replace("GameState", "state.").ToLower(), "state.machine");
                 }
 
