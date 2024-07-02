@@ -14,14 +14,16 @@ public class SentryRuntimeConfiguration : Sentry.Unity.SentryRuntimeOptionsConfi
         // Take a look at `SentryBuildTimeOptionsConfiguration` instead.
         // TODO implement
 
-        options.BeforeBreadcrumb += breadcrumb =>
+        UnityEngine.Debug.Log($"The path is! {options.CacheDirectoryPath}");
+        
+        options.SetBeforeBreadcrumb(breadcrumb =>
         {
             if (breadcrumb.Category == "http")
             {
                 return null;
             }
-
-            return breadcrumb;
-        };
+            
+            return breadcrumb;    
+        }); 
     }
 }

@@ -11,7 +11,7 @@ namespace Utility.StateMachine
         private readonly StateMachine<TStateType> _stateMachine;
 
         private static string PreviousState = null;
-        private static ITransaction PreviousTransaction = null;
+        private static ITransactionTracer PreviousTransaction = null;
 
         protected State(StateMachine<TStateType> stateMachine)
         {

@@ -16,17 +16,17 @@ public class RuntimeConfiguration : Sentry.Unity.SentryRuntimeOptionsConfigurati
         Debug.Log(nameof(RuntimeConfiguration) + "::Configure() called");
 
         // BeforeSend is only relevant at runtime. It wouldn't hurt to be set at build time, just wouldn't do anything.
-        options.BeforeSend = sentryEvent =>
+        options.SetBeforeSend(sentryEvent =>
         {
             if (sentryEvent.Tags.ContainsKey("SomeTag"))
             {
                 // Don't send events with a tag SomeTag to Sentry
                 return null;
             }
-
-            return sentryEvent;
-        };
-
+            
+            return sentryEvent;    
+        });
+        
         Debug.Log(nameof(RuntimeConfiguration) + "::Configure() finished");
     }
 }
