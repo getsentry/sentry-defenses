@@ -3,6 +3,8 @@ obj/
 .idea
 .DS_Store
 .vscode
+# building output used: sentry-defenses-build-android, sentry-defenses-build-ios, etc
+sentry-defenses-build-*
 
 # Ignore the CLI options which contain an auth token
 game/Assets/Plugins/Sentry/SentryCliOptions.asset
