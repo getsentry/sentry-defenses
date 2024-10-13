@@ -14,7 +14,7 @@ public class SentryRuntimeConfiguration : Sentry.Unity.SentryRuntimeOptionsConfi
         // Take a look at `SentryBuildTimeOptionsConfiguration` instead.
         // TODO implement
 
-        options.BeforeBreadcrumb += breadcrumb =>
+        options.SetBeforeBreadcrumb((breadcrumb, hint) =>
         {
             if (breadcrumb.Category == "http")
             {
@@ -22,6 +22,6 @@ public class SentryRuntimeConfiguration : Sentry.Unity.SentryRuntimeOptionsConfi
             }
 
             return breadcrumb;
-        };
+        });
     }
 }

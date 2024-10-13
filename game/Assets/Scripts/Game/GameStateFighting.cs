@@ -12,7 +12,7 @@ public class GameStateFighting : GameState
     private int _slowFrames = 0;
     private int _frozenFrames = 0;
     private int _totalFrames = 0;
-    private ITransaction _roundStartTransaction = null;
+    private ITransactionTracer _roundStartTransaction = null;
 
     private float _startSpawnDelay = 3;
     private float _spawnDelay = 3;
