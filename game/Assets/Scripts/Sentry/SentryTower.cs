@@ -80,17 +80,10 @@ public class SentryTower : MonoBehaviour
         }
     }
 
-    // gd.c
-    [DllImport("__Internal")]
-    private static extern void crashing_to_make_a_point();
-    
     void Update()
     {
         if (_isPaused) { return; }
-        if (!gameObject.CompareTag("Turd"))
-        {
-            crashing_to_make_a_point();
-        }
+
         if (_targets.Count <= 0) { return; }
  
         _coolDown -= Time.deltaTime;
