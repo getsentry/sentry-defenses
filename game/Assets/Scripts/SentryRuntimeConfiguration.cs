@@ -14,6 +14,7 @@ public class SentryRuntimeConfiguration : Sentry.Unity.SentryRuntimeOptionsConfi
         // Take a look at `SentryBuildTimeOptionsConfiguration` instead.
         // TODO implement
 
+        options.AddInAppExcludeRegex(".*SentryTower.*"); // Sentry marks things started with 'Sentry' as InApp=false
         options.SetBeforeBreadcrumb((breadcrumb, hint) =>
         {
             if (breadcrumb.Category == "http")
