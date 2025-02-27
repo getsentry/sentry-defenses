@@ -66,7 +66,7 @@ public class GameStateFighting : GameState
             bugsToSpawn = 1;
             
             scope.SetTag("game.alivebugs", bugsToSpawn.ToString());
-            var turds = GameObject.FindObjectsOfType<SentryTower>();
+            var turds = Object.FindObjectsByType<SentryTower>(FindObjectsSortMode.None);
             scope.SetTag("game.sentries", turds.Length.ToString());
         });
 

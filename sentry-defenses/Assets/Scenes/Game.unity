@@ -4304,7 +4304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &6318331706448344116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4528,8 +4528,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f31ba62143c443e8b125ffe4f56b6b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bounceStrength: 1.05
-  _speed: 2
+  _bounceStrength: 1.1
+  _speed: 1
   _ease: 4
 --- !u!114 &6318331707028190250
 MonoBehaviour:
@@ -5271,8 +5271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f31ba62143c443e8b125ffe4f56b6b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bounceStrength: 1.05
-  _speed: 2
+  _bounceStrength: 1.1
+  _speed: 1
   _ease: 4
 --- !u!114 &6318331708017554646
 MonoBehaviour:

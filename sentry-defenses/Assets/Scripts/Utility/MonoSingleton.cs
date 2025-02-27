@@ -12,7 +12,7 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
         {
             if (_instance == null)
             {
-                _instance = FindObjectOfType<T>();
+                _instance = FindFirstObjectByType<T>();
                 if (_instance == null)
                 {
                     Debug.LogError($"It truly broke. Could not find <color=red>'{typeof(T)}'</color>.");
