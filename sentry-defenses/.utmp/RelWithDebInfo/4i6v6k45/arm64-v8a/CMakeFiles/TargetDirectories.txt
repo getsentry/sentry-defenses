@@ -1,0 +1,5 @@
+/Users/bitfox/Workspace/sentry-defenses/sentry-defenses/.utmp/RelWithDebInfo/4i6v6k45/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/bitfox/Workspace/sentry-defenses/sentry-defenses/.utmp/RelWithDebInfo/4i6v6k45/arm64-v8a/CMakeFiles/rebuild_cache.dir
+/Users/bitfox/Workspace/sentry-defenses/sentry-defenses/.utmp/RelWithDebInfo/4i6v6k45/arm64-v8a/FramePacing/CMakeFiles/swappywrapper.dir
+/Users/bitfox/Workspace/sentry-defenses/sentry-defenses/.utmp/RelWithDebInfo/4i6v6k45/arm64-v8a/FramePacing/CMakeFiles/edit_cache.dir
+/Users/bitfox/Workspace/sentry-defenses/sentry-defenses/.utmp/RelWithDebInfo/4i6v6k45/arm64-v8a/FramePacing/CMakeFiles/rebuild_cache.dir

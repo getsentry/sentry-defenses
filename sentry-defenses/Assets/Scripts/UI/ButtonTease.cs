@@ -17,7 +17,8 @@ public class ButtonTease : MonoBehaviour
 
     private void Start()
     {
-        _rectTransform.DOScale(_bounceStrength, _speed)
+        Debug.Log(_bounceStrength);
+        _rectTransform.DOScale(_rectTransform.localScale.x * _bounceStrength, _speed)
             .SetEase(_ease)
             .SetLoops(-1, LoopType.Yoyo);
     }

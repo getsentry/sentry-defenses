@@ -39,13 +39,13 @@ public class PickUpgradeMenu : MonoBehaviour
     public void Show()
     {
         _topContainer.DOAnchorPosY(0, _moveDuration).SetEase(_showEase);
-        _bottomContainer.DOAnchorPosY(0, _moveDuration).SetEase(_showEase);
+        _bottomContainer.DOAnchorPosX(0, _moveDuration).SetEase(_showEase);
     }
 
     public void Hide(Action finishCallback)
     {
         _topContainer.DOAnchorPosY(_topContainer.rect.height, _moveDuration).SetEase(_hideEase);
-        _bottomContainer.DOAnchorPosY(-_bottomContainer.rect.height, _moveDuration)
+        _bottomContainer.DOAnchorPosX(-_bottomContainer.rect.width, _moveDuration)
             .SetEase(_hideEase)
             .OnStepComplete(() =>
             {

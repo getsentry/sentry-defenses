@@ -72,7 +72,8 @@ public class SentryTower : MonoBehaviour
         
         if (gameObject.CompareTag("Turd"))
         {
-            Upgrades = new TowerUpgrade();    
+            Upgrades = new TowerUpgrade();
+            gameObject.transform.localScale = Vector3.one;
         }
         else
         {

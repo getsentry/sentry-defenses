@@ -16,6 +16,9 @@ MonoBehaviour:
   <Dsn>k__BackingField: https://1184e27940794752acc4feb861840710@o1.ingest.sentry.io/5905698
   <CaptureInEditor>k__BackingField: 1
   <EnableLogDebouncing>k__BackingField: 0
+  <DebounceTimeLog>k__BackingField: 1000
+  <DebounceTimeWarning>k__BackingField: 1000
+  <DebounceTimeError>k__BackingField: 1000
   <TracesSampleRate>k__BackingField: 1
   <AutoStartupTraces>k__BackingField: 1
   <AutoSceneLoadTraces>k__BackingField: 1
@@ -37,6 +40,7 @@ MonoBehaviour:
   <BreadcrumbsForAsserts>k__BackingField: 1
   <BreadcrumbsForErrors>k__BackingField: 1
   <BreadcrumbsForExceptions>k__BackingField: 1
+  <CaptureLogErrorEvents>k__BackingField: 1
   <MaxBreadcrumbs>k__BackingField: 100
   <ReportAssembliesMode>k__BackingField: 1
   <SendDefaultPii>k__BackingField: 0
@@ -49,14 +53,23 @@ MonoBehaviour:
   <MaxQueueItems>k__BackingField: 30
   <AnrDetectionEnabled>k__BackingField: 1
   <AnrTimeout>k__BackingField: 5000
+  <CaptureFailedRequests>k__BackingField: 1
+  <FailedRequestStatusCodes>k__BackingField: f401000057020000
+  <FilterBadGatewayExceptions>k__BackingField: 1
+  <FilterWebExceptions>k__BackingField: 1
+  <FilterSocketExceptions>k__BackingField: 1
   <IosNativeSupportEnabled>k__BackingField: 1
   <AndroidNativeSupportEnabled>k__BackingField: 1
+  <NdkIntegrationEnabled>k__BackingField: 1
+  <NdkScopeSyncEnabled>k__BackingField: 1
+  <PostGenerateGradleProjectCallbackOrder>k__BackingField: 1
   <WindowsNativeSupportEnabled>k__BackingField: 1
   <MacosNativeSupportEnabled>k__BackingField: 1
   <LinuxNativeSupportEnabled>k__BackingField: 1
   <Il2CppLineNumberSupportEnabled>k__BackingField: 1
   <RuntimeOptionsConfiguration>k__BackingField: {fileID: 11400000, guid: 5a1802bddd0734435919500536506809, type: 2}
   <BuildTimeOptionsConfiguration>k__BackingField: {fileID: 11400000, guid: 7f9c8c85957924337a2a9c55d4b385a5, type: 2}
+  <OptionsConfiguration>k__BackingField: {fileID: 0}
   <Debug>k__BackingField: 1
   <DebugOnlyInEditor>k__BackingField: 0
   <DiagnosticLevel>k__BackingField: 2

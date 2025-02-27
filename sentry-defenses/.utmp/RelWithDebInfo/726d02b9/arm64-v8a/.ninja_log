@@ -1,0 +1,3 @@
+# ninja log v5
+0	151	1740662893418934462	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	5bea783b04b1b556
+151	284	1740662893551583747	/Users/bitfox/Workspace/sentry-defenses/sentry-defenses/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/726d02b9/obj/arm64-v8a/libswappywrapper.so	eeb29f04ef228087

@@ -1,0 +1,2 @@
+/Users/bitfox/Workspace/sentry-defenses/sentry-defenses/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/CMakeLists.txt
+/Users/bitfox/Workspace/sentry-defenses/sentry-defenses/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/FramePacing/CMakeLists.txt

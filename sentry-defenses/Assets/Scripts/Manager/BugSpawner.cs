@@ -16,6 +16,9 @@ public class BugSpawner : MonoSingleton<BugSpawner>
         public float lon;
         public string platform;
     }
+    
+    [SerializeField] private bool _showDebugBounds = false;
+    [SerializeField] private Color _debugBoundsColor = Color.yellow;
 
     [SerializeField] private List<GameObject> _bugPrefabs;
     [SerializeField] private Transform _leftCenterTransform;
@@ -56,6 +59,24 @@ public class BugSpawner : MonoSingleton<BugSpawner>
         _rightOuterBound = topRight.x;
         _bottomBound = bottomLeft.y;
         _topBound = topRight.y;
+    }
+
+    // Add these new methods
+    private void OnDrawGizmos()
+    {
+        if (!_showDebugBounds || !Application.isPlaying) return;
+        
+        Gizmos.color = _debugBoundsColor;
+        
+        // Draw vertical lines for the bounds
+        Gizmos.DrawLine(new Vector3(_leftOuterBound, _bottomBound), new Vector3(_leftOuterBound, _topBound));
+        Gizmos.DrawLine(new Vector3(_leftCenterBound, _bottomBound), new Vector3(_leftCenterBound, _topBound));
+        Gizmos.DrawLine(new Vector3(_rightCenterBound, _bottomBound), new Vector3(_rightCenterBound, _topBound));
+        Gizmos.DrawLine(new Vector3(_rightOuterBound, _bottomBound), new Vector3(_rightOuterBound, _topBound));
+        
+        // Draw horizontal lines for top and bottom bounds
+        Gizmos.DrawLine(new Vector3(_leftOuterBound, _bottomBound), new Vector3(_rightOuterBound, _bottomBound));
+        Gizmos.DrawLine(new Vector3(_leftOuterBound, _topBound), new Vector3(_rightOuterBound, _topBound));
     }
 
     private void OnDestroy()
