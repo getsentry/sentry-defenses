@@ -1,6 +1,7 @@
 using System;
 using Game;
 using Manager;
+using Sentry;
 using Random = UnityEngine.Random;
 
 public class GameStatePickUpgrade : GameState
@@ -46,7 +47,8 @@ public class GameStatePickUpgrade : GameState
         }
 
         _pickUpgradeMenu.CreateButton((UpgradeType)firstUpgrade, SetUpgrade);
-        _pickUpgradeMenu.CreateButton((UpgradeType)secondUpgrade, SetUpgrade);
+        // Always have the tower as an option
+        _pickUpgradeMenu.CreateButton(UpgradeType.NewTower, SetUpgrade);
         
         _pickUpgradeMenu.Show();
     }
