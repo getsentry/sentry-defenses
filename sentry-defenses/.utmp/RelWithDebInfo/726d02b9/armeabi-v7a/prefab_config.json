@@ -1,8 +1,0 @@
-{
-  "enabled": true,
-  "prefabPath": "/Users/bitfox/.gradle/caches/modules-2/files-2.1/com.google.prefab/cli/2.0.0/f2702b5ca13df54e3ca92f29d6b403fb6285d8df/cli-2.0.0-all.jar",
-  "packages": [
-    "/Users/bitfox/.gradle/caches/transforms-3/2f34eafaa5072f0d6f8b0bc1d6fbf165/transformed/jetified-games-frame-pacing-1.10.0/prefab",
-    "/Users/bitfox/.gradle/caches/transforms-3/30d59873124bf63893e4899d2205078a/transformed/jetified-sentry-native-ndk-release/prefab"
-  ]
-}
