@@ -22,4 +22,9 @@ public class ApplyUpgradeMenu : MonoBehaviour
             .SetEase(HideEase)
             .OnStepComplete(() => finishCallback?.Invoke());
     }
+
+    public void Prepare()
+    {
+        Container.anchoredPosition = new Vector2(0, Container.rect.height);
+    }
 }

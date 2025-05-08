@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Manager;
 using UnityEngine;
-using UnityEngine.Diagnostics;
 using Random = UnityEngine.Random;
 
 public class SentryTower : MonoBehaviour
@@ -29,11 +27,6 @@ public class SentryTower : MonoBehaviour
     [SerializeField] private float _baseFireRate = 1.0f;
     
     private bool _isPaused = true; // True by default to avoid shooting while building a tower
-    
-    // CPlugin.c
-    [DllImport("__Internal")]
-    private static extern void crash_in_c();
-    
     private void Awake()
     {
         _eventManager = EventManager.Instance;
@@ -150,10 +143,5 @@ public class SentryTower : MonoBehaviour
     public void Drop()
     {
         _visuals.Drop();
-        
-        if (!gameObject.CompareTag("Turd"))
-        {
-            crash_in_c();
-        }
     }
 }

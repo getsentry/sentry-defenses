@@ -47,8 +47,7 @@ public class GameStatePickUpgrade : GameState
         }
 
         _pickUpgradeMenu.CreateButton((UpgradeType)firstUpgrade, SetUpgrade);
-        // Always have the tower as an option
-        _pickUpgradeMenu.CreateButton(UpgradeType.NewTower, SetUpgrade);
+        _pickUpgradeMenu.CreateButton((UpgradeType)secondUpgrade, SetUpgrade);
         
         _pickUpgradeMenu.Show();
     }
