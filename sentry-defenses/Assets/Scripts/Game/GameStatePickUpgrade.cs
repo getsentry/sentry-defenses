@@ -1,6 +1,7 @@
 using System;
 using Game;
 using Manager;
+using Sentry;
 using Random = UnityEngine.Random;
 
 public class GameStatePickUpgrade : GameState

@@ -49,12 +49,23 @@ public class PickUpgradeMenu : MonoBehaviour
             .SetEase(_hideEase)
             .OnStepComplete(() =>
             {
-                foreach (Transform child in _bottomContainer.transform)
-                {
-                    Destroy(child.gameObject);
-                }
-                
+                ResetButtons();
                 finishCallback?.Invoke();
             });
+    }
+
+    public void Prepare()
+    {
+        _topContainer.anchoredPosition = new Vector2(0, _topContainer.rect.height);
+        _bottomContainer.anchoredPosition = new Vector2(-_bottomContainer.rect.width, 0);
+        ResetButtons();
+    }
+
+    private void ResetButtons()
+    {
+        foreach (Transform child in _bottomContainer.transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 }

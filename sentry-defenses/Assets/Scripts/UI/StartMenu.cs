@@ -1,6 +1,4 @@
-using System;
 using DG.Tweening;
-using Manager;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,50 +17,36 @@ public class StartMenu : MonoBehaviour
 
     public float FadeDuration = 0.3f;
     
-    public GameObject Container;
-
-    private EventManager _eventManager;
-    private Action _hideFinishedCallback;
+    private AsyncOperation _gameLoadOperation;
     
-    private void Awake()
-    {
-        _eventManager = EventManager.Instance;
-    }
-
     private void Start()
     {
         StartButton.onClick.AddListener(OnStartClick);
         SampleButton.onClick.AddListener(OnSampleClick);
     }
 
-    private void OnStartClick() => _eventManager.StartFight();
-
-    private void OnSampleClick() => SceneManager.LoadScene("1_Bugfarm");
-
-    public void Show()
-    {
-        gameObject.SetActive(true);
-        Container.SetActive(true);
-    }
-    
-    public void Hide(Action finishCallback)
+    private void OnStartClick()
     {
         Logo.SetTrigger("Active");
-        _hideFinishedCallback = finishCallback;
+        
+        _gameLoadOperation = SceneManager.LoadSceneAsync("Game", LoadSceneMode.Additive);
+        _gameLoadOperation.allowSceneActivation = true;
+    }
+
+    private void OnSampleClick() => SceneManager.LoadScene("1_Bugfarm");
+    
+    public void Hide()
+    {
+        Logo.SetTrigger("Active");
     }
 
     public void LogoFinished()
     {
-        //  Hack: We want the next state to already do it's thing so the transition is smooth but we have to wait or
-        // the logo animation to finish
-        _hideFinishedCallback?.Invoke();
-
         Header.DOFade(0, FadeDuration);
         StartButton.image.DOFade(0, FadeDuration);
         Background.DOFade(0, FadeDuration);
         LogoImage.DOFade(0, FadeDuration).OnComplete(() => {
-            Container.SetActive(false);
-            gameObject.SetActive(false);
+            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         });
     }
 }
